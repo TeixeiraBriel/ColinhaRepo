@@ -20,9 +20,13 @@ namespace Game.Controles.MenuInformacoesJogador
     /// </summary>
     public partial class IndexMenuInformacoesJogador : Page
     {
-        public IndexMenuInformacoesJogador()
+        public IndexMenuInformacoesJogador(string nome, string life, string mana)
         {
             InitializeComponent();
+
+            nameNome.Text = nome;
+            nameLife.Text = life;
+            nameMana.Text = mana;
         }
     }
 }

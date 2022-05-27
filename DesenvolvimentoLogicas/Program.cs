@@ -10,6 +10,7 @@ namespace DesenvolvimentoLogicas
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
