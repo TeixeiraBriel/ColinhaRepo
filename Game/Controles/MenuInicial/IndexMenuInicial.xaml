@@ -9,6 +9,6 @@
       Title="IndexMenuInicial">
 
     <Grid>
-        <TextBlock Text="TESTE 123" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Button Content="Iniciar" Click="ComeçaJogo" VerticalAlignment="Center" HorizontalAlignment="Center"/>
     </Grid>
 </Page>

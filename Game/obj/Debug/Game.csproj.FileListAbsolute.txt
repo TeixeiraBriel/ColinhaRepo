@@ -1,7 +1,6 @@
 E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\bin\Debug\Game.exe.config
 E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\bin\Debug\Game.exe
 E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\bin\Debug\Game.pdb
-E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\obj\Debug\Game.csprojAssemblyReference.cache
 E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\obj\Debug\App.g.cs
 E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\obj\Debug\Game_MarkupCompile.cache
 E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\obj\Debug\Game_MarkupCompile.lref
@@ -19,3 +18,4 @@ E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\obj\Debug\Controles\MenuInfor
 E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\obj\Debug\Controles\MenuInicial\IndexMenuInicial.baml
 E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\obj\Debug\Controles\TelaPadrao\IndexTelaPadrao.baml
 E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\obj\Debug\JanelaPrincipal.baml
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\obj\Debug\Game.csproj.AssemblyReference.cache

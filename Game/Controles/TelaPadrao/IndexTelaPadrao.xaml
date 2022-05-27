@@ -9,6 +9,11 @@
       Title="IndexTelaPadrao">
 
     <Grid>
-        
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock x:Name="ClienteAtual" Text=""/>
+            <TextBlock x:Name="FilaCliente" Text=""/>
+            <TextBlock x:Name="Tempo" Text=""/>
+
+        </StackPanel>
     </Grid>
 </Page>
