@@ -19,3 +19,25 @@ E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\obj\Debug\Controles\MenuInici
 E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\obj\Debug\Controles\TelaPadrao\IndexTelaPadrao.baml
 E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\obj\Debug\JanelaPrincipal.baml
 E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\obj\Debug\Game.csproj.AssemblyReference.cache
+C:\Users\Matheus\Desktop\Nova pasta\ColinhaRepo\Game\bin\Debug\Game.exe.config
+C:\Users\Matheus\Desktop\Nova pasta\ColinhaRepo\Game\bin\Debug\Game.exe
+C:\Users\Matheus\Desktop\Nova pasta\ColinhaRepo\Game\bin\Debug\Game.pdb
+C:\Users\Matheus\Desktop\Nova pasta\ColinhaRepo\Game\obj\Debug\Game.csproj.AssemblyReference.cache
+C:\Users\Matheus\Desktop\Nova pasta\ColinhaRepo\Game\obj\Debug\Game.csproj.SuggestedBindingRedirects.cache
+C:\Users\Matheus\Desktop\Nova pasta\ColinhaRepo\Game\obj\Debug\Controles\MenuInformacoesJogador\IndexMenuInformacoesJogador.g.cs
+C:\Users\Matheus\Desktop\Nova pasta\ColinhaRepo\Game\obj\Debug\Controles\MenuInicial\IndexMenuInicial.g.cs
+C:\Users\Matheus\Desktop\Nova pasta\ColinhaRepo\Game\obj\Debug\Controles\TelaPadrao\IndexTelaPadrao.g.cs
+C:\Users\Matheus\Desktop\Nova pasta\ColinhaRepo\Game\obj\Debug\JanelaPrincipal.g.cs
+C:\Users\Matheus\Desktop\Nova pasta\ColinhaRepo\Game\obj\Debug\App.g.cs
+C:\Users\Matheus\Desktop\Nova pasta\ColinhaRepo\Game\obj\Debug\Game_MarkupCompile.cache
+C:\Users\Matheus\Desktop\Nova pasta\ColinhaRepo\Game\obj\Debug\Game_MarkupCompile.lref
+C:\Users\Matheus\Desktop\Nova pasta\ColinhaRepo\Game\obj\Debug\Controles\MenuInformacoesJogador\IndexMenuInformacoesJogador.baml
+C:\Users\Matheus\Desktop\Nova pasta\ColinhaRepo\Game\obj\Debug\Controles\MenuInicial\IndexMenuInicial.baml
+C:\Users\Matheus\Desktop\Nova pasta\ColinhaRepo\Game\obj\Debug\Controles\TelaPadrao\IndexTelaPadrao.baml
+C:\Users\Matheus\Desktop\Nova pasta\ColinhaRepo\Game\obj\Debug\JanelaPrincipal.baml
+C:\Users\Matheus\Desktop\Nova pasta\ColinhaRepo\Game\obj\Debug\Game.g.resources
+C:\Users\Matheus\Desktop\Nova pasta\ColinhaRepo\Game\obj\Debug\Game.Properties.Resources.resources
+C:\Users\Matheus\Desktop\Nova pasta\ColinhaRepo\Game\obj\Debug\Game.csproj.GenerateResource.cache
+C:\Users\Matheus\Desktop\Nova pasta\ColinhaRepo\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
+C:\Users\Matheus\Desktop\Nova pasta\ColinhaRepo\Game\obj\Debug\Game.exe
+C:\Users\Matheus\Desktop\Nova pasta\ColinhaRepo\Game\obj\Debug\Game.pdb

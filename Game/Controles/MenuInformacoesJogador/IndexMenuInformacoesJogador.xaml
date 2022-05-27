@@ -9,6 +9,10 @@
       Title="IndexMenuInformacoesJogador">
 
     <Grid>
-        
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Name="nameNome" Text="Name" FontSize="40" TextAlignment="Center" Foreground="Black"/>
+            <TextBlock Name="nameLife" Text="Life" FontSize="40" TextAlignment="Center" Foreground="Red"/>
+            <TextBlock Name="nameMana" Text="MANA" FontSize="40" TextAlignment="Center" Foreground="blue"/>
+        </StackPanel>
     </Grid>
 </Page>

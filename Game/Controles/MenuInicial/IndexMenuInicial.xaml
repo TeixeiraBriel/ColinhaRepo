@@ -9,6 +9,14 @@
       Title="IndexMenuInicial">
 
     <Grid>
-        <Button Content="Iniciar" Click="ComeçaJogo" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <StackPanel Orientation="Vertical"  VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button Content="Iniciar" Click="ComeçaJogo" />
+            <Button Content="Atributos" Click="NavegaInfoJogador"/>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBox Width="50" Margin="0,0,10,0"  Name="inputName"/>
+                <TextBox Width="50" Margin="0,0,10,0" Name="inputLife"/>
+                <TextBox Width="50" Name="inputMana"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>
