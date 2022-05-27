@@ -5,15 +5,36 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Game.Controles.TelaPadrao"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="600"
       Title="IndexTelaPadrao">
 
-    <Grid>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+    <Grid>        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock x:Name="NomePersonagem" Text="Gabriel" Grid.Column="0" Grid.Row="1"/>
+        <TextBlock x:Name="NomeInimigo" Text="Joao" Grid.Column="2" Grid.Row="1"/>
+        
+        <TextBlock x:Name="VidaPersonagem" Text="100/100" Grid.Column="0" Grid.Row="2"/>
+        <TextBlock x:Name="VidaInimigo" Text="100/100" Grid.Column="2" Grid.Row="2"/>
+
+        <StackPanel Grid.Column="1" Grid.Row="2" VerticalAlignment="Center">
+            <Button Click="AtacarInimigo" Content="Atacar" Width="100" Height="40" Margin="0,0,0,10"/>
+            <Button Click="PosicaoDefesa"  Content="Defender" Width="100" Height="40"/>
+        </StackPanel>
+
+        <!--<StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock x:Name="ClienteAtual" Text=""/>
             <TextBlock x:Name="FilaCliente" Text=""/>
             <TextBlock x:Name="Tempo" Text=""/>
-
-        </StackPanel>
+        </StackPanel>-->
     </Grid>
 </Page>

@@ -21,6 +21,13 @@ namespace Game.Controles.TelaPadrao
     /// </summary>
     public partial class IndexTelaPadrao : Page
     {
+        public IndexTelaPadrao()
+        {
+            InitializeComponent();
+        }
+
+        #region Antigo
+        /*
         public DispatcherTimer contadorTempoCliente = new DispatcherTimer();
         public DispatcherTimer contadorNovoCliente = new DispatcherTimer();
         public DispatcherTimer contadorRelogio = new DispatcherTimer();
@@ -88,6 +95,18 @@ namespace Game.Controles.TelaPadrao
         {
             tempo++;
             Tempo.Text = tempo.ToString();
+        }
+        */
+        #endregion
+
+        private void AtacarInimigo(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PosicaoDefesa(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
