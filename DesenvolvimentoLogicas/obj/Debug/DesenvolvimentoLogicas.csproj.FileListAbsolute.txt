@@ -1,0 +1,7 @@
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\DesenvolvimentoLogicas\bin\Debug\DesenvolvimentoLogicas.exe.config
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\DesenvolvimentoLogicas\bin\Debug\DesenvolvimentoLogicas.exe
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\DesenvolvimentoLogicas\bin\Debug\DesenvolvimentoLogicas.pdb
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\DesenvolvimentoLogicas\obj\Debug\DesenvolvimentoLogicas.csprojAssemblyReference.cache
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\DesenvolvimentoLogicas\obj\Debug\DesenvolvimentoLogicas.csproj.CoreCompileInputs.cache
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\DesenvolvimentoLogicas\obj\Debug\DesenvolvimentoLogicas.exe
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\DesenvolvimentoLogicas\obj\Debug\DesenvolvimentoLogicas.pdb

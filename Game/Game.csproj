@@ -55,7 +55,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Controles\MenuInformacoesJogador\IndexMenuInformacoesJogador.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controles\MenuInicial\IndexMenuInicial.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controles\TelaPadrao\IndexTelaPadrao.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="JanelaPrincipal.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -63,8 +75,17 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="Controles\MenuInformacoesJogador\IndexMenuInformacoesJogador.xaml.cs">
+      <DependentUpon>IndexMenuInformacoesJogador.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\MenuInicial\IndexMenuInicial.xaml.cs">
+      <DependentUpon>IndexMenuInicial.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\TelaPadrao\IndexTelaPadrao.xaml.cs">
+      <DependentUpon>IndexTelaPadrao.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="JanelaPrincipal.xaml.cs">
+      <DependentUpon>JanelaPrincipal.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

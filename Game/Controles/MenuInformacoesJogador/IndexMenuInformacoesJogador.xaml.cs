@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Game
+namespace Game.Controles.MenuInformacoesJogador
 {
     /// <summary>
-    /// Interação lógica para MainWindow.xam
+    /// Interação lógica para IndexMenuInformacoesJogador.xam
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class IndexMenuInformacoesJogador : Page
     {
-        public MainWindow()
+        public IndexMenuInformacoesJogador()
         {
             InitializeComponent();
         }
