@@ -1,0 +1,7 @@
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Rascunho\bin\Debug\Rascunho.exe.config
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Rascunho\bin\Debug\Rascunho.exe
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Rascunho\bin\Debug\Rascunho.pdb
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Rascunho\obj\Debug\Rascunho.csprojAssemblyReference.cache
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Rascunho\obj\Debug\Rascunho.csproj.CoreCompileInputs.cache
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Rascunho\obj\Debug\Rascunho.exe
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Rascunho\obj\Debug\Rascunho.pdb
