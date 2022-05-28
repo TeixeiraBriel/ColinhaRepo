@@ -11,17 +11,15 @@
     <Grid>
         <StackPanel Orientation="Vertical"  VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel Margin="10,0,10,50">
-                <StackPanel Orientation="Horizontal" Margin="10,0">
-                    <TextBlock Text="Nome Personagem" Width="100" Margin="0,0,10,0"/>
-                    <TextBlock Text="Nome Inimigo" Width="100" Margin="0,0,10,0"/>
-                    <TextBlock Text="Vida Personagem" Width="100" Margin="0,0,10,0"/>
-                    <TextBlock Text="Vida Inimigo" Width="100" />
+                <StackPanel Margin="10,0">
+                    <TextBlock Text="Personagem" Width="100" Margin="0,0,10,0"/>
+                    <ComboBox Name="cmbPersonagens"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="10,3">
-                    <TextBox Width="100" Name="inputNomePersonagem" Margin="0,0,10,0"/>
-                    <TextBox Width="100" Name="inputNomeInimgo" Margin="0,0,10,0"/>
-                    <TextBox Width="100" Name="inputVidaPersonagem" Margin="0,0,10,0"/>
-                    <TextBox Width="100" Name="inputVidaInimgo"/>
+                <StackPanel Margin="10,3">
+                    <TextBlock Text="Inimigos" Width="100" Margin="0,0,10,0"/>
+                    <ComboBox Name="cmbInimigos"/>
+                    <TextBlock Text="Nivel Inimigo" Width="100" Margin="0,0,10,0"/>
+                    <ComboBox Name="cmbNivelInimigo"/>
                 </StackPanel>
                 <Button Content="Iniciar" Click="ComeçaJogo"/>
             </StackPanel>

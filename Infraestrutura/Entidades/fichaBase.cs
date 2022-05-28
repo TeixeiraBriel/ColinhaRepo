@@ -8,10 +8,10 @@ namespace Infraestrutura.Entidades
 {
     public class fichaBase
     {
-        public int Vida { get; set; }
-        public int Mana { get; set; }
-        public int Defesa { get; set; }
-        public int Força { get; set; }
-        public int Agilidade { get; set; }
+        public double Vida { get; set; }
+        public double Mana { get; set; }
+        public double Defesa { get; set; }
+        public double Forca { get; set; }
+        public double Agilidade { get; set; }
     }
 }

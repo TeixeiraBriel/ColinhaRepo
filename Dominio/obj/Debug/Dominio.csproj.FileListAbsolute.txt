@@ -1,0 +1,6 @@
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Dominio\bin\Debug\Dominio.dll
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Dominio\bin\Debug\Dominio.pdb
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Dominio\obj\Debug\Dominio.csproj.AssemblyReference.cache
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Dominio\obj\Debug\Dominio.dll
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Dominio\obj\Debug\Dominio.pdb

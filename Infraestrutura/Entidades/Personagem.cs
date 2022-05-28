@@ -9,5 +9,6 @@ namespace Infraestrutura.Entidades
     public class Personagem : fichaBase
     {
         public string Nome { get; set; }
+        public int IdPersonagem { get; set; }
     }
 }

@@ -77,9 +77,15 @@ namespace Game.Controles.TelaPadrao
 
             string txtTurno = "";
             if (vezInimigo)
+            {
+                Turno.Foreground = Brushes.Red;
                 txtTurno = $"Turno Inimigo!";
+            }
             else
+            {
+                Turno.Foreground = Brushes.Blue;
                 txtTurno = $"Seu Turno!";
+            }
             Turno.Text = txtTurno;
 
             if (tempo == 0)
@@ -93,19 +99,26 @@ namespace Game.Controles.TelaPadrao
             if (vezInimigo)
             {
                 var vidaPersonagemCalc = VidaPersonagem.Text.Split('/');
-                string qtdDano = (_personagem.Força - _inimigo.Defesa).ToString();
-                vidaPersonagemCalc[0] = (int.Parse(vidaPersonagemCalc[0]) - int.Parse(qtdDano)).ToString();
-                VidaPersonagem.Text = $"{vidaPersonagemCalc[0]}/{vidaPersonagemCalc[1]}";
+                double qtdDano = (_inimigo.Forca - _personagem.Defesa);
+                if (qtdDano > 0)
+                {
+                    vidaPersonagemCalc[0] = (double.Parse(vidaPersonagemCalc[0]) - qtdDano).ToString();
+                    VidaPersonagem.Text = $"{vidaPersonagemCalc[0]}/{vidaPersonagemCalc[1]}";
+                }
+                else
+                {
+                    qtdDano = 0;
+                }
 
                 vezInimigo = false;
-                RegistraNovoEventoAtaque(_inimigo.Nome, _personagem.Nome, _inimigo.Força, _personagem.Defesa);
+                RegistraNovoEventoAtaque(_inimigo.Nome, _personagem.Nome, qtdDano, _inimigo.Forca, _personagem.Defesa, Brushes.Red);
             }
         }
 
         public void VerificaFimJogo(object sender, EventArgs e)
         {
-            var vidaPersonagem = int.Parse(VidaPersonagem.Text.Split('/')[0]);
-            var vidaInimigo = int.Parse(VidaInimigo.Text.Split('/')[0]);
+            var vidaPersonagem = double.Parse(VidaPersonagem.Text.Split('/')[0]);
+            var vidaInimigo = double.Parse(VidaInimigo.Text.Split('/')[0]);
 
             if (vidaPersonagem <= 0 || vidaInimigo <= 0)
             {
@@ -118,12 +131,19 @@ namespace Game.Controles.TelaPadrao
             if (!vezInimigo)
             {
                 var vidaInimigoCalc = VidaInimigo.Text.Split('/');
-                string qtdDano = (_personagem.Força - _inimigo.Defesa).ToString();
-                vidaInimigoCalc[0] = (int.Parse(vidaInimigoCalc[0]) - int.Parse(qtdDano)).ToString();
-                VidaInimigo.Text = $"{vidaInimigoCalc[0]}/{vidaInimigoCalc[1]}";
+                double qtdDano = (_personagem.Forca - _inimigo.Defesa);
+                if (qtdDano > 0)
+                {
+                    vidaInimigoCalc[0] = (double.Parse(vidaInimigoCalc[0]) - qtdDano).ToString();
+                    VidaInimigo.Text = $"{vidaInimigoCalc[0]}/{vidaInimigoCalc[1]}";
+                }
+                else
+                {
+                    qtdDano = 0;
+                }
 
                 vezInimigo = true;
-                RegistraNovoEventoAtaque(_personagem.Nome, _inimigo.Nome, _personagem.Força, _inimigo.Defesa);
+                RegistraNovoEventoAtaque(_personagem.Nome, _inimigo.Nome, qtdDano, _personagem.Forca, _inimigo.Defesa, Brushes.Blue);
             }
         }
 
@@ -133,9 +153,16 @@ namespace Game.Controles.TelaPadrao
         }
 
         int ContadorEventos = 0;
-        public void RegistraNovoEventoAtaque(string atacante, string defensor, int qtdDano, int defesa)
+        public void RegistraNovoEventoAtaque(string atacante, string defensor, double qtdDano, double forca, double defesa, SolidColorBrush cor)
         {
-            TextBlock novoEnvento = new TextBlock { Text = $"{ContadorEventos} - {atacante} desferiu um golpe de {qtdDano}(-{defesa}) de dano em {defensor}" };
+            TextBlock novoEnvento = 
+                new TextBlock 
+                { 
+                    Text = $"{ContadorEventos} - {atacante} desferiu um golpe de {qtdDano}(atk:{forca} || def:{defesa}) de dano em {defensor}.", 
+                    Foreground = cor, 
+                    TextWrapping = TextWrapping.Wrap 
+                };
+
             PainelDeEventos.Children.Add(novoEnvento);
             ContadorEventos++;
             ScrollEventos.PageDown();

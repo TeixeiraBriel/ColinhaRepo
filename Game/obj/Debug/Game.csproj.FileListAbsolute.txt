@@ -22,3 +22,7 @@ E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\obj\Debug\Game.csproj.Assembl
 E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\bin\Debug\Infraestrutura.dll
 E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\bin\Debug\Infraestrutura.pdb
 E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\obj\Debug\Game.csproj.CopyComplete
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\bin\Debug\Newtonsoft.Json.dll
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\bin\Debug\Newtonsoft.Json.xml
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\bin\Debug\Dados\InimigosJson.json
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\bin\Debug\Dados\PersonagensJson.json
