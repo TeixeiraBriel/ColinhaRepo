@@ -18,4 +18,4 @@ E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\obj\Debug\Controles\MenuInfor
 E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\obj\Debug\Controles\MenuInicial\IndexMenuInicial.baml
 E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\obj\Debug\Controles\TelaPadrao\IndexTelaPadrao.baml
 E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\obj\Debug\JanelaPrincipal.baml
-E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\obj\Debug\Game.csprojAssemblyReference.cache
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\obj\Debug\Game.csproj.AssemblyReference.cache

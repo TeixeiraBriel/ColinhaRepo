@@ -8,11 +8,12 @@
       d:DesignHeight="450" d:DesignWidth="600"
       Title="IndexTelaPadrao">
 
-    <Grid>        
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="100"/>
+            <RowDefinition Height="90"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
@@ -20,21 +21,33 @@
             <ColumnDefinition Width="200"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock x:Name="NomePersonagem" Text="Gabriel" Grid.Column="0" Grid.Row="1"/>
-        <TextBlock x:Name="NomeInimigo" Text="Joao" Grid.Column="2" Grid.Row="1"/>
+        <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock x:Name="NomePersonagem" Text="Gabriel"/>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock x:Name="VidaPersonagem" Text="100/100"/>
+        </StackPanel>
         
-        <TextBlock x:Name="VidaPersonagem" Text="100/100" Grid.Column="0" Grid.Row="2"/>
-        <TextBlock x:Name="VidaInimigo" Text="100/100" Grid.Column="2" Grid.Row="2"/>
-
-        <StackPanel Grid.Column="1" Grid.Row="2" VerticalAlignment="Center">
-            <Button Click="AtacarInimigo" Content="Atacar" Width="100" Height="40" Margin="0,0,0,10"/>
-            <Button Click="PosicaoDefesa"  Content="Defender" Width="100" Height="40"/>
+        <StackPanel Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock x:Name="NomeInimigo" Text="Inimigo"/>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock x:Name="VidaInimigo" Text="100/100"/>
         </StackPanel>
 
-        <!--<StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock x:Name="ClienteAtual" Text=""/>
-            <TextBlock x:Name="FilaCliente" Text=""/>
-            <TextBlock x:Name="Tempo" Text=""/>
-        </StackPanel>-->
+
+        <StackPanel Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock x:Name="Tempo" Text="1Min"/>
+        </StackPanel>
+        
+        <ScrollViewer Grid.Column="1" Grid.Row="2">
+            <StackPanel x:Name="PainelDeEventos" VerticalAlignment="Top" HorizontalAlignment="Left">
+            </StackPanel>
+        </ScrollViewer>
+
+        <StackPanel Grid.ColumnSpan="3" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button Click="AtacarInimigo" Content="Atacar" Width="100" Height="30" Margin="0,0,0,10"/>
+            <Button Click="PosicaoDefesa"  Content="Defender" Width="100" Height="30"/>
+        </StackPanel>
     </Grid>
 </Page>

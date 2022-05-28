@@ -21,92 +21,50 @@ namespace Game.Controles.TelaPadrao
     /// </summary>
     public partial class IndexTelaPadrao : Page
     {
-        public IndexTelaPadrao()
-        {
-            InitializeComponent();
-        }
-
-        #region Antigo
-        /*
-        public DispatcherTimer contadorTempoCliente = new DispatcherTimer();
-        public DispatcherTimer contadorNovoCliente = new DispatcherTimer();
         public DispatcherTimer contadorRelogio = new DispatcherTimer();
+        public int tempo = 60;
 
-        public int tempo = 0;
         public IndexTelaPadrao()
         {
             InitializeComponent();
-
             inicializaTimer();
         }
 
         public void inicializaTimer()
         {
-            contadorTempoCliente.Tick += new EventHandler(MudaClienteAtual);
-            contadorNovoCliente.Tick += new EventHandler(chamaNovoCliente);
             contadorRelogio.Tick += new EventHandler(Relogio);
-
-            contadorTempoCliente.Interval = new TimeSpan(0, 0, 10);
-            contadorNovoCliente.Interval = new TimeSpan(0, 0, 5);
             contadorRelogio.Interval = new TimeSpan(0, 0, 1);
-
-            Util.DispatcherUtil.Dispatcher(() =>
-            contadorRelogio.Start()
-            );
-
-            Util.DispatcherUtil.Dispatcher(() =>
-            contadorNovoCliente.Start()
-            );
-
-            Util.DispatcherUtil.Dispatcher(() =>
-            contadorTempoCliente.Start()
-            );
-        }
-
-        public void MudaClienteAtual(object sender, EventArgs e)
-        {
-            var clienteNaFila = FilaCliente.Text.Split('-');
-            bool primeiroClient = true;
-            foreach (var cliente in clienteNaFila)
-            {
-                if (cliente == "")
-                {
-                    continue;
-                }
-                if (primeiroClient)
-                {
-                    primeiroClient = false;
-                    ClienteAtual.Text = cliente;
-                    FilaCliente.Text = "";
-                }
-                else
-                {
-                    FilaCliente.Text += cliente + "-";
-                }
-            }
-        }
-
-        public void chamaNovoCliente(object sender, EventArgs e)
-        {
-            var n = new Random().Next(50, 100);
-            FilaCliente.Text += n.ToString() + "-";
+            contadorRelogio.Start();
         }
         public void Relogio(object sender, EventArgs e)
         {
-            tempo++;
+            tempo--;
             Tempo.Text = tempo.ToString();
+            if (tempo == 0)
+            {
+                contadorRelogio.Stop();
+            }
         }
-        */
-        #endregion
 
         private void AtacarInimigo(object sender, RoutedEventArgs e)
         {
+            var vidaInimigoCalc = VidaInimigo.Text.Split('/');
+            string qtdDano = "15";
+            vidaInimigoCalc[0] = (int.Parse(vidaInimigoCalc[0]) - int.Parse(qtdDano)).ToString();
+            VidaInimigo.Text = $"{vidaInimigoCalc[0]}/{vidaInimigoCalc[1]}";
 
+            RegistraNovoEventoAtaque(NomePersonagem.Text, NomeInimigo.Text, qtdDano);
         }
 
         private void PosicaoDefesa(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        public void RegistraNovoEventoAtaque(string atacante, string defensor, string qtdDano)
+        {
+            TextBlock novoEnvento = new TextBlock { Text = $"{atacante} desferiu um golpe de {qtdDano} de dano em {defensor}" };
+            PainelDeEventos.Children.Add(novoEnvento);
         }
     }
 }
