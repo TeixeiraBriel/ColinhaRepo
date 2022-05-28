@@ -25,7 +25,6 @@ namespace Game.Controles.TelaPadrao
         public DispatcherTimer contadorRelogio = new DispatcherTimer();
         public DispatcherTimer contadorInimigo = new DispatcherTimer();
         public DispatcherTimer contadorFimDeJogo = new DispatcherTimer();
-
         bool vezInimigo = false;
         public int tempo = 60;
 
