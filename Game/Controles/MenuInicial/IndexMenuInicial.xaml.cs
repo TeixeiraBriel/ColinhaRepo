@@ -15,7 +15,19 @@ namespace Game.Controles.MenuInicial
 
         private void ComeçaJogo(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new IndexTelaPadrao());
+            string nomePersonagem = !string.IsNullOrWhiteSpace(inputNomePersonagem.Text) ? inputNomePersonagem.Text : null;
+            string nomeInimigo = !string.IsNullOrWhiteSpace(inputNomeInimgo.Text) ? inputNomeInimgo.Text : null;
+            string VidaPersonagem = !string.IsNullOrWhiteSpace(inputVidaPersonagem.Text) ? inputVidaPersonagem.Text : null;
+            string VidaInimigo = !string.IsNullOrWhiteSpace(inputVidaInimgo.Text) ? inputVidaInimgo.Text : null;
+
+            if (nomePersonagem == null || nomeInimigo == null || VidaPersonagem == null || VidaInimigo == null)
+            {
+                this.NavigationService.Navigate(new IndexTelaPadrao());
+            }
+            else
+            {
+                this.NavigationService.Navigate(new IndexTelaPadrao(nomePersonagem, nomeInimigo, VidaPersonagem, VidaInimigo));
+            }
         }
 
         private void NavegaInfoJogador(object sender, RoutedEventArgs e)

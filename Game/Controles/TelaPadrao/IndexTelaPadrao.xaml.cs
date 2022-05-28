@@ -28,10 +28,18 @@ namespace Game.Controles.TelaPadrao
         bool vezInimigo = false;
         public int tempo = 60;
 
-        public IndexTelaPadrao()
+        public IndexTelaPadrao(string nomePersonagem = "Personagem", string nomeInimigo = "Inimigo", string VidaPersonagem = "100", string vidaInimigo = "100")
         {
             InitializeComponent();
             inicializaTimer();
+            ReiniciaDadosCombate(nomePersonagem, nomeInimigo, VidaPersonagem, vidaInimigo);
+        }
+        public void ReiniciaDadosCombate(string nomePersonagem , string nomeInimigo, string vidaPersonagem, string vidaInimigo)
+        {
+            NomePersonagem.Text = nomePersonagem;
+            NomeInimigo.Text = nomeInimigo;
+            VidaPersonagem.Text = $"{vidaPersonagem}/{vidaPersonagem}";
+            VidaInimigo.Text = $"{vidaInimigo}/{vidaInimigo}";
         }
 
         public void inicializaTimer()
@@ -51,11 +59,15 @@ namespace Game.Controles.TelaPadrao
 
         public void Relogio(object sender, EventArgs e)
         {
+            if (!this.IsVisible)
+            {
+                return;
+            }
             tempo--;
             Tempo.Text = tempo.ToString();
             if (tempo == 0)
             {
-                contadorRelogio.Stop();
+                FimDeJogo();
             }
         }
 
@@ -80,7 +92,7 @@ namespace Game.Controles.TelaPadrao
 
             if (vidaPersonagem <= 0 || vidaInimigo <= 0)
             {
-                this.NavigationService.Navigate(new IndexMenuInicial());
+                FimDeJogo();
             }
         }
 
@@ -110,6 +122,14 @@ namespace Game.Controles.TelaPadrao
             PainelDeEventos.Children.Add(novoEnvento);
             ContadorEventos++;
             ScrollEventos.PageDown();
+        }
+
+        public void FimDeJogo()
+        {
+            contadorRelogio.Stop();
+            contadorInimigo.Stop();
+            contadorFimDeJogo.Stop();
+            this.NavigationService.Navigate(new IndexMenuInicial());
         }
     }
 }

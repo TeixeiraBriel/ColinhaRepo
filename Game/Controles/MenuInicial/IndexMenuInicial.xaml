@@ -10,9 +10,24 @@
 
     <Grid>
         <StackPanel Orientation="Vertical"  VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Button Content="Iniciar" Click="ComeçaJogo" />
-            <Button Content="Atributos" Click="NavegaInfoJogador"/>
-            <StackPanel Orientation="Horizontal" Margin="10">
+            <StackPanel Margin="10,0,10,50">
+                <StackPanel Orientation="Horizontal" Margin="10,0">
+                    <TextBlock Text="Nome Personagem" Width="100" Margin="0,0,10,0"/>
+                    <TextBlock Text="Nome Inimigo" Width="100" Margin="0,0,10,0"/>
+                    <TextBlock Text="Vida Personagem" Width="100" Margin="0,0,10,0"/>
+                    <TextBlock Text="Vida Inimigo" Width="100" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10,3">
+                    <TextBox Width="100" Name="inputNomePersonagem" Margin="0,0,10,0"/>
+                    <TextBox Width="100" Name="inputNomeInimgo" Margin="0,0,10,0"/>
+                    <TextBox Width="100" Name="inputVidaPersonagem" Margin="0,0,10,0"/>
+                    <TextBox Width="100" Name="inputVidaInimgo"/>
+                </StackPanel>
+                <Button Content="Iniciar" Click="ComeçaJogo"/>
+            </StackPanel>
+            
+            <Button Content="Atributos" Click="NavegaInfoJogador" Margin="10"/>
+            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">
                 <TextBox Width="50" Margin="0,0,10,0"  Name="inputName"/>
                 <TextBox Width="50" Margin="0,0,10,0" Name="inputLife"/>
                 <TextBox Width="50" Name="inputMana"/>
