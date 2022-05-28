@@ -22,6 +22,8 @@ namespace Game.Controles.TelaPadrao
     public partial class IndexTelaPadrao : Page
     {
         public DispatcherTimer contadorRelogio = new DispatcherTimer();
+        public DispatcherTimer contadorInimigo = new DispatcherTimer();
+        bool vezInimigo = false;
         public int tempo = 60;
 
         public IndexTelaPadrao()
@@ -35,6 +37,10 @@ namespace Game.Controles.TelaPadrao
             contadorRelogio.Tick += new EventHandler(Relogio);
             contadorRelogio.Interval = new TimeSpan(0, 0, 1);
             contadorRelogio.Start();
+
+            contadorInimigo.Tick += new EventHandler(InimigoAtaca);
+            contadorInimigo.Interval = new TimeSpan(0, 0, 3);
+            contadorInimigo.Start();
         }
         public void Relogio(object sender, EventArgs e)
         {
@@ -45,21 +51,40 @@ namespace Game.Controles.TelaPadrao
                 contadorRelogio.Stop();
             }
         }
+        public void InimigoAtaca(object sender, EventArgs e)
+        {
+            if (vezInimigo)
+            {
+                var vidaPersonagemCalc = VidaPersonagem.Text.Split('/');
+                string qtdDano = "15";
+                vidaPersonagemCalc[0] = (int.Parse(vidaPersonagemCalc[0]) - int.Parse(qtdDano)).ToString();
+                VidaPersonagem.Text = $"{vidaPersonagemCalc[0]}/{vidaPersonagemCalc[1]}";
+
+                vezInimigo = false;
+                RegistraNovoEventoAtaque(NomeInimigo.Text, NomePersonagem.Text, qtdDano);
+            }
+        }
 
         private void AtacarInimigo(object sender, RoutedEventArgs e)
         {
-            var vidaInimigoCalc = VidaInimigo.Text.Split('/');
-            string qtdDano = "15";
-            vidaInimigoCalc[0] = (int.Parse(vidaInimigoCalc[0]) - int.Parse(qtdDano)).ToString();
-            VidaInimigo.Text = $"{vidaInimigoCalc[0]}/{vidaInimigoCalc[1]}";
+            if (!vezInimigo)
+            {
+                var vidaInimigoCalc = VidaInimigo.Text.Split('/');
+                string qtdDano = "15";
+                vidaInimigoCalc[0] = (int.Parse(vidaInimigoCalc[0]) - int.Parse(qtdDano)).ToString();
+                VidaInimigo.Text = $"{vidaInimigoCalc[0]}/{vidaInimigoCalc[1]}";
 
-            RegistraNovoEventoAtaque(NomePersonagem.Text, NomeInimigo.Text, qtdDano);
+                vezInimigo = true;
+                RegistraNovoEventoAtaque(NomePersonagem.Text, NomeInimigo.Text, qtdDano);
+            }
         }
 
         private void PosicaoDefesa(object sender, RoutedEventArgs e)
         {
 
         }
+
+
 
         public void RegistraNovoEventoAtaque(string atacante, string defensor, string qtdDano)
         {
