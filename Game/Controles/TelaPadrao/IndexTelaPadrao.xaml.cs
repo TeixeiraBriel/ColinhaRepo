@@ -133,5 +133,10 @@ namespace Game.Controles.TelaPadrao
             contadorFimDeJogo.Stop();
             this.NavigationService.Navigate(new IndexMenuInicial());
         }
+
+        private void VoltarFunc(object sender, RoutedEventArgs e)
+        {
+            FimDeJogo();
+        }
     }
 }

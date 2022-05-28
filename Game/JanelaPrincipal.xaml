@@ -5,14 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Game"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="500" Width="800">
     <Grid>
         <StackPanel>
+            <Label VerticalAlignment="Top" HorizontalAlignment="Right" x:Name="txtVersao"/>
             <Frame 
                 Width="780" 
-                Height="420" 
+                Height="400" 
                 x:Uid="JanelaPrincipalFrame" 
-                Source="/Controles/MenuInicial/IndexMenuInicial.xaml"/>
+                Source="/Controles/MenuInicial/IndexMenuInicial.xaml"
+                NavigationUIVisibility="Hidden"/>
         </StackPanel>
     </Grid>
 </Window>
