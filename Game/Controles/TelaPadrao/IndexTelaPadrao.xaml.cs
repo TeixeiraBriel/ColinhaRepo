@@ -1,4 +1,5 @@
 ﻿using Game.Controles.MenuInicial;
+using Infraestrutura.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,23 +26,29 @@ namespace Game.Controles.TelaPadrao
         public DispatcherTimer contadorRelogio = new DispatcherTimer();
         public DispatcherTimer contadorInimigo = new DispatcherTimer();
         public DispatcherTimer contadorFimDeJogo = new DispatcherTimer();
+        Personagem _personagem;
+        Inimigo _inimigo;
 
         bool vezInimigo = false;
         public int tempo = 60;
 
-        public IndexTelaPadrao(string nomePersonagem = "Personagem", string nomeInimigo = "Inimigo", string VidaPersonagem = "100", string vidaInimigo = "100")
+        public IndexTelaPadrao(Personagem personagem, Inimigo inimigo)
         {
             InitializeComponent();
             inicializaTimer();
-            ReiniciaDadosCombate(nomePersonagem, nomeInimigo, VidaPersonagem, vidaInimigo);
+
+            _personagem = personagem;
+            _inimigo = inimigo;
+
+            ReiniciaDadosCombate(personagem, inimigo);
         }
 
-        public void ReiniciaDadosCombate(string nomePersonagem , string nomeInimigo, string vidaPersonagem, string vidaInimigo)
+        public void ReiniciaDadosCombate(Personagem personagem, Inimigo inimigo)
         {
-            NomePersonagem.Text = nomePersonagem;
-            NomeInimigo.Text = nomeInimigo;
-            VidaPersonagem.Text = $"{vidaPersonagem}/{vidaPersonagem}";
-            VidaInimigo.Text = $"{vidaInimigo}/{vidaInimigo}";
+            NomePersonagem.Text = personagem.Nome;
+            NomeInimigo.Text = inimigo.Nome;
+            VidaPersonagem.Text = $"{personagem.Vida}/{personagem.Vida}";
+            VidaInimigo.Text = $"{inimigo.Vida}/{inimigo.Vida}";
         }
 
         public void inicializaTimer()
@@ -51,7 +58,7 @@ namespace Game.Controles.TelaPadrao
             contadorRelogio.Start();
 
             contadorInimigo.Tick += new EventHandler(InimigoAtaca);
-            contadorInimigo.Interval = new TimeSpan(0, 0, 3);
+            contadorInimigo.Interval = new TimeSpan(0, 0, 4);
             contadorInimigo.Start();
 
             contadorFimDeJogo.Tick += new EventHandler(VerificaFimJogo);
@@ -67,6 +74,14 @@ namespace Game.Controles.TelaPadrao
             }
             tempo--;
             Tempo.Text = tempo.ToString();
+
+            string txtTurno = "";
+            if (vezInimigo)
+                txtTurno = $"Turno Inimigo!";
+            else
+                txtTurno = $"Seu Turno!";
+            Turno.Text = txtTurno;
+
             if (tempo == 0)
             {
                 FimDeJogo();
@@ -78,12 +93,12 @@ namespace Game.Controles.TelaPadrao
             if (vezInimigo)
             {
                 var vidaPersonagemCalc = VidaPersonagem.Text.Split('/');
-                string qtdDano = "15";
+                string qtdDano = (_personagem.Força - _inimigo.Defesa).ToString();
                 vidaPersonagemCalc[0] = (int.Parse(vidaPersonagemCalc[0]) - int.Parse(qtdDano)).ToString();
                 VidaPersonagem.Text = $"{vidaPersonagemCalc[0]}/{vidaPersonagemCalc[1]}";
 
                 vezInimigo = false;
-                RegistraNovoEventoAtaque(NomeInimigo.Text, NomePersonagem.Text, qtdDano);
+                RegistraNovoEventoAtaque(_inimigo.Nome, _personagem.Nome, _inimigo.Força, _personagem.Defesa);
             }
         }
 
@@ -103,12 +118,12 @@ namespace Game.Controles.TelaPadrao
             if (!vezInimigo)
             {
                 var vidaInimigoCalc = VidaInimigo.Text.Split('/');
-                string qtdDano = "15";
+                string qtdDano = (_personagem.Força - _inimigo.Defesa).ToString();
                 vidaInimigoCalc[0] = (int.Parse(vidaInimigoCalc[0]) - int.Parse(qtdDano)).ToString();
                 VidaInimigo.Text = $"{vidaInimigoCalc[0]}/{vidaInimigoCalc[1]}";
 
                 vezInimigo = true;
-                RegistraNovoEventoAtaque(NomePersonagem.Text, NomeInimigo.Text, qtdDano);
+                RegistraNovoEventoAtaque(_personagem.Nome, _inimigo.Nome, _personagem.Força, _inimigo.Defesa);
             }
         }
 
@@ -118,9 +133,9 @@ namespace Game.Controles.TelaPadrao
         }
 
         int ContadorEventos = 0;
-        public void RegistraNovoEventoAtaque(string atacante, string defensor, string qtdDano)
+        public void RegistraNovoEventoAtaque(string atacante, string defensor, int qtdDano, int defesa)
         {
-            TextBlock novoEnvento = new TextBlock { Text = $"{ContadorEventos} - {atacante} desferiu um golpe de {qtdDano} de dano em {defensor}" };
+            TextBlock novoEnvento = new TextBlock { Text = $"{ContadorEventos} - {atacante} desferiu um golpe de {qtdDano}(-{defesa}) de dano em {defensor}" };
             PainelDeEventos.Children.Add(novoEnvento);
             ContadorEventos++;
             ScrollEventos.PageDown();

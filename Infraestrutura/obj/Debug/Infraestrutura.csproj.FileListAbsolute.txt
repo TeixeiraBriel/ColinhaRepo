@@ -1,0 +1,6 @@
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Infraestrutura\bin\Debug\Infraestrutura.dll
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Infraestrutura\bin\Debug\Infraestrutura.pdb
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Infraestrutura\obj\Debug\Infraestrutura.csproj.AssemblyReference.cache
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Infraestrutura\obj\Debug\Infraestrutura.csproj.CoreCompileInputs.cache
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Infraestrutura\obj\Debug\Infraestrutura.dll
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Infraestrutura\obj\Debug\Infraestrutura.pdb

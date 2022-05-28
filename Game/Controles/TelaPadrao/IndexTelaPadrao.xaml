@@ -37,7 +37,8 @@
 
 
         <StackPanel Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock x:Name="Tempo" Text="1Min"/>
+            <TextBlock x:Name="Tempo" Text="1Min" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="Turno" Text="" HorizontalAlignment="Center" FontSize="30"/>
         </StackPanel>
         
         <ScrollViewer x:Name="ScrollEventos" Grid.Column="1" Grid.Row="2">

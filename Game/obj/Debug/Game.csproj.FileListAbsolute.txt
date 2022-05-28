@@ -19,3 +19,6 @@ E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\obj\Debug\Controles\MenuInici
 E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\obj\Debug\Controles\TelaPadrao\IndexTelaPadrao.baml
 E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\obj\Debug\JanelaPrincipal.baml
 E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\obj\Debug\Game.csproj.AssemblyReference.cache
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\bin\Debug\Infraestrutura.dll
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\bin\Debug\Infraestrutura.pdb
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\obj\Debug\Game.csproj.CopyComplete
