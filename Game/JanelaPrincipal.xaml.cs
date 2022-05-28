@@ -23,6 +23,7 @@ namespace Game
         public JanelaPrincipal()
         {
             InitializeComponent();
+            txtVersao.Content = $"v{System.Windows.Forms.Application.ProductVersion}";
         }
     }
 }
