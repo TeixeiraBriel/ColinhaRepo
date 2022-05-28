@@ -34,6 +34,7 @@ namespace Game.Controles.TelaPadrao
             inicializaTimer();
             ReiniciaDadosCombate(nomePersonagem, nomeInimigo, VidaPersonagem, vidaInimigo);
         }
+
         public void ReiniciaDadosCombate(string nomePersonagem , string nomeInimigo, string vidaPersonagem, string vidaInimigo)
         {
             NomePersonagem.Text = nomePersonagem;
