@@ -103,10 +103,13 @@ namespace Game.Controles.TelaPadrao
 
         }
 
+        int ContadorEventos = 0;
         public void RegistraNovoEventoAtaque(string atacante, string defensor, string qtdDano)
         {
-            TextBlock novoEnvento = new TextBlock { Text = $"{atacante} desferiu um golpe de {qtdDano} de dano em {defensor}" };
+            TextBlock novoEnvento = new TextBlock { Text = $"{ContadorEventos} - {atacante} desferiu um golpe de {qtdDano} de dano em {defensor}" };
             PainelDeEventos.Children.Add(novoEnvento);
+            ContadorEventos++;
+            ScrollEventos.PageDown();
         }
     }
 }

@@ -40,7 +40,7 @@
             <TextBlock x:Name="Tempo" Text="1Min"/>
         </StackPanel>
         
-        <ScrollViewer Grid.Column="1" Grid.Row="2">
+        <ScrollViewer x:Name="ScrollEventos" Grid.Column="1" Grid.Row="2">
             <StackPanel x:Name="PainelDeEventos" VerticalAlignment="Top" HorizontalAlignment="Left">
             </StackPanel>
         </ScrollViewer>
