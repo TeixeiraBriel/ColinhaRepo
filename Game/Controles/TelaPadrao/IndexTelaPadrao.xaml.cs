@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Game.Controles.MenuInicial;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace Game.Controles.TelaPadrao
     {
         public DispatcherTimer contadorRelogio = new DispatcherTimer();
         public DispatcherTimer contadorInimigo = new DispatcherTimer();
+        public DispatcherTimer contadorFimDeJogo = new DispatcherTimer();
         bool vezInimigo = false;
         public int tempo = 60;
 
@@ -41,7 +43,12 @@ namespace Game.Controles.TelaPadrao
             contadorInimigo.Tick += new EventHandler(InimigoAtaca);
             contadorInimigo.Interval = new TimeSpan(0, 0, 3);
             contadorInimigo.Start();
+
+            contadorFimDeJogo.Tick += new EventHandler(VerificaFimJogo);
+            contadorFimDeJogo.Interval = new TimeSpan(0, 0, 1);
+            contadorFimDeJogo.Start();
         }
+
         public void Relogio(object sender, EventArgs e)
         {
             tempo--;
@@ -51,6 +58,7 @@ namespace Game.Controles.TelaPadrao
                 contadorRelogio.Stop();
             }
         }
+
         public void InimigoAtaca(object sender, EventArgs e)
         {
             if (vezInimigo)
@@ -62,6 +70,17 @@ namespace Game.Controles.TelaPadrao
 
                 vezInimigo = false;
                 RegistraNovoEventoAtaque(NomeInimigo.Text, NomePersonagem.Text, qtdDano);
+            }
+        }
+
+        public void VerificaFimJogo(object sender, EventArgs e)
+        {
+            var vidaPersonagem = int.Parse(VidaPersonagem.Text.Split('/')[0]);
+            var vidaInimigo = int.Parse(VidaInimigo.Text.Split('/')[0]);
+
+            if (vidaPersonagem <= 0 || vidaInimigo <= 0)
+            {
+                this.NavigationService.Navigate(new IndexMenuInicial());
             }
         }
 
@@ -83,8 +102,6 @@ namespace Game.Controles.TelaPadrao
         {
 
         }
-
-
 
         public void RegistraNovoEventoAtaque(string atacante, string defensor, string qtdDano)
         {
