@@ -6,7 +6,9 @@
     "Mana": 100,
     "Forca": 10,
     "Defesa": 5,
-    "Agilidade": 10
+    "Agilidade": 10,
+    "XpAtual": 0,
+    "XpMaximo": 50
   },
   {
     "IdInimigo": 1,
@@ -15,6 +17,8 @@
     "Mana": 50,
     "Forca": 20,
     "Defesa": 0,
-    "Agilidade": 5
+    "Agilidade": 5,
+    "XpAtual": 0,
+    "XpMaximo": 50
   }
 ]

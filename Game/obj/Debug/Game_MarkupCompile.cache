@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\App.xaml
-41956851225
+51119066458
 
-12-1051279925
+13-692901756
 16-879859958
-Controles\MenuInformacoesJogador\IndexMenuInformacoesJogador.xaml;Controles\MenuInicial\IndexMenuInicial.xaml;Controles\TelaPadrao\IndexTelaPadrao.xaml;JanelaPrincipal.xaml;
+Controles\MenuInformacoesJogador\IndexMenuInformacoesJogador.xaml;Controles\MenuInicial\IndexMenuInicial.xaml;Controles\TelaMapa\IndexMapa.xaml;Controles\TelaPadrao\IndexTelaPadrao.xaml;JanelaPrincipal.xaml;
 
 False
 

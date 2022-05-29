@@ -10,5 +10,7 @@ namespace Infraestrutura.Entidades
     {
         public string Nome { get; set; }
         public int IdPersonagem { get; set; }
+        public double XpAtual { get; set; }
+        public double XpMaximo { get; set; }
     }
 }

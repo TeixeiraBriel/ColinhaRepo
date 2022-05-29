@@ -26,3 +26,5 @@ E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\bin\Debug\Newtonsoft.Json.dll
 E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\bin\Debug\Newtonsoft.Json.xml
 E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\bin\Debug\Dados\InimigosJson.json
 E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\bin\Debug\Dados\PersonagensJson.json
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\obj\Debug\Controles\TelaMapa\IndexMapa.g.cs
+E:\Biel\Projetos\VisualStudio_GIT\ColinhaRepo\Game\obj\Debug\Controles\TelaMapa\IndexMapa.baml
