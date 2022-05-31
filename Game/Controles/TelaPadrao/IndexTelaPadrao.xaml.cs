@@ -58,7 +58,7 @@ namespace Game.Controles.TelaPadrao
             contadorRelogio.Start();
 
             contadorInimigo.Tick += new EventHandler(InimigoAtaca);
-            contadorInimigo.Interval = new TimeSpan(0, 0, 4);
+            contadorInimigo.Interval = new TimeSpan(0, 0, 2);
             contadorInimigo.Start();
 
             contadorFimDeJogo.Tick += new EventHandler(VerificaFimJogo);
@@ -104,7 +104,8 @@ namespace Game.Controles.TelaPadrao
                 {
                     vidaPersonagemCalc[0] = (double.Parse(vidaPersonagemCalc[0]) - qtdDano).ToString();
                     VidaPersonagem.Text = $"{vidaPersonagemCalc[0]}/{vidaPersonagemCalc[1]}";
-                    BarraDeVidaPersonagem.Value = (int.Parse(vidaPersonagemCalc[0]));
+                    double porcentagemVida = (double.Parse(vidaPersonagemCalc[0]) * 100) / double.Parse(vidaPersonagemCalc[1]);
+                    BarraDeVidaPersonagem.Value = porcentagemVida;
                 }
                 else
                 {
@@ -137,7 +138,9 @@ namespace Game.Controles.TelaPadrao
                 {
                     vidaInimigoCalc[0] = (double.Parse(vidaInimigoCalc[0]) - qtdDano).ToString();
                     VidaInimigo.Text = $"{vidaInimigoCalc[0]}/{vidaInimigoCalc[1]}";
-                    BarraDeVidaInimigo.Value = (int.Parse(vidaInimigoCalc[0]));
+                    double porcentagemVida = (double.Parse(vidaInimigoCalc[0]) * 100) / double.Parse(vidaInimigoCalc[1]);
+
+                    BarraDeVidaInimigo.Value = porcentagemVida;
 
                 }
                 else
