@@ -16,23 +16,15 @@ using System.Windows.Shapes;
 namespace Game.Controles.MenuInformacoesJogador
 {
     /// <summary>
-    /// Interação lógica para IndexMenuInformacoesJogador.xam
+    /// Interação lógica para AbaStatus.xam
     /// </summary>
-    public partial class IndexMenuInformacoesJogador : Page
+    public partial class AbaStatus : Page
     {
-        public IndexMenuInformacoesJogador(string nome, string life, string mana)
+        private IndexMenuInformacoesJogador FramePai;
+        public AbaStatus(IndexMenuInformacoesJogador framePai)
         {
             InitializeComponent();
-        }
-
-        private void MudaAbaBolsa(object sender, RoutedEventArgs e)
-        {
-            FrameAbaInformacoesJogador.Navigate(new AbaBolsa(this));
-        }
-
-        private void MudaAbaStatus(object sender, RoutedEventArgs e)
-        {
-            FrameAbaInformacoesJogador.Navigate(new AbaStatus(this));
+            FramePai = framePai;
         }
     }
 }

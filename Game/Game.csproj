@@ -80,11 +80,25 @@
     <EmbeddedResource Include="Dados\PersonagensJson.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
+    <Compile Include="Controles\MenuInformacoesJogador\AbaBolsa.xaml.cs">
+      <DependentUpon>AbaBolsa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\MenuInformacoesJogador\AbaStatus.xaml.cs">
+      <DependentUpon>AbaStatus.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controles\TelaMapa\IndexMapa.xaml.cs">
       <DependentUpon>IndexMapa.xaml</DependentUpon>
     </Compile>
     <Compile Include="Util\DispatcherUtil.cs" />
     <Compile Include="Util\Timer.cs" />
+    <Page Include="Controles\MenuInformacoesJogador\AbaBolsa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controles\MenuInformacoesJogador\AbaStatus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controles\MenuInformacoesJogador\IndexMenuInformacoesJogador.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

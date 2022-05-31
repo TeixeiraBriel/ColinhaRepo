@@ -15,6 +15,13 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0">
+            <Grid.Resources>
+                <Style TargetType="StackPanel">
+                    <Setter Property="Background" Value="BlanchedAlmond" />
+                    <Setter Property="Margin" Value="5"/>
+                </Style>
+            </Grid.Resources>
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="100"/>
@@ -31,7 +38,6 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-
 
                 <StackPanel x:Name="SlotColar" Grid.Row="0" Grid.Column="0">
                 </StackPanel>
@@ -63,6 +69,27 @@
             </Grid>
             <Grid Grid.Row="1">
                 <Rectangle Fill="Black" Height="2" VerticalAlignment="Top"/>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" HorizontalAlignment="Left" Orientation="Horizontal">
+                <Button Click="MudaAbaStatus" Height="20" Width="50" Margin="5,0" Content="Status" FontSize="15"/>
+                <Button Click="MudaAbaBolsa" Height="20" Width="50" Margin="5,0" Content="Bolsa" FontSize="15"/>
+            </StackPanel>
+
+            <Grid Grid.Row="1">
+                <Frame 
+                    Width="490"
+                    Height="350"
+                x:Name="FrameAbaInformacoesJogador" 
+                Source="/Controles/MenuInformacoesJogador/AbaStatus.xaml"
+                NavigationUIVisibility="Hidden"/>
             </Grid>
         </Grid>
     </Grid>
