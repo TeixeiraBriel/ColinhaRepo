@@ -10,10 +10,10 @@
         <StackPanel>
             <Label VerticalAlignment="Top" HorizontalAlignment="Right" x:Name="txtVersao"/>
             <Frame 
+                x:Name="FrameJanelaPrincipal"
                 Width="780" 
                 Height="400" 
                 x:Uid="JanelaPrincipalFrame" 
-                Source="/Controles/MenuInicial/IndexMenuInicial.xaml"
                 NavigationUIVisibility="Hidden"/>
         </StackPanel>
     </Grid>

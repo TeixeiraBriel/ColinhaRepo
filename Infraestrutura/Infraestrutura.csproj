@@ -45,6 +45,7 @@
     <Compile Include="Entidades\Habilidade.cs" />
     <Compile Include="Entidades\Inimigo.cs" />
     <Compile Include="Entidades\Personagem.cs" />
+    <Compile Include="Entidades\Progressao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

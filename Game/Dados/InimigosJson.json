@@ -1,6 +1,6 @@
 ﻿[
   {
-    "IdInimigo": 1,
+    "IdInimigo": 0,
     "Nome": "Goblin",
     "Foto": "goblin.png",
     "Vida": 100,
@@ -12,7 +12,7 @@
     "XpDropado": 50
   },
   {
-    "IdInimigo": 2,
+    "IdInimigo": 1,
     "Nome": "Macaco",
     "Foto": "macaco.png",
     "Vida": 150,
