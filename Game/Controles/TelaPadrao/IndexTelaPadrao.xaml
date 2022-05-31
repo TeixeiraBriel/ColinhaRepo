@@ -1,0 +1,57 @@
+﻿<Page x:Class="Game.Controles.TelaPadrao.IndexTelaPadrao"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Game.Controles.TelaPadrao"
+      mc:Ignorable="d" 
+      d:DesignHeight="380" d:DesignWidth="600"
+      Title="IndexTelaPadrao">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="90"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock x:Name="NomePersonagem" Text="Gabriel"/>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock x:Name="VidaPersonagem" Text="100/100" HorizontalAlignment="Center"/>
+            <ProgressBar x:Name="BarraDeVidaPersonagem"  Height="15" Value="100" Orientation="Horizontal" Width="100" Foreground="Red" BorderBrush="Black" Background="White" Margin="0,0,0,0"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock x:Name="NomeInimigo" Text="Inimigo"/>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock x:Name="VidaInimigo" Text="100/100" HorizontalAlignment="Center"/>
+            <ProgressBar x:Name="BarraDeVidaInimigo"  Height="15" Value="100" Orientation="Horizontal" Width="100" Foreground="Red" BorderBrush="Black" Background="White" />
+        </StackPanel>
+
+
+        <StackPanel Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock x:Name="Tempo" Text="1Min" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="Turno" Text="" HorizontalAlignment="Center" FontSize="30"/>
+        </StackPanel>
+
+        <ScrollViewer x:Name="ScrollEventos" Grid.Column="1" Grid.Row="2">
+            <StackPanel x:Name="PainelDeEventos" VerticalAlignment="Top" HorizontalAlignment="Left">
+            </StackPanel>
+        </ScrollViewer>
+
+        <StackPanel Grid.ColumnSpan="3" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button Click="AtacarInimigo" Content="Atacar" Width="100" Height="30" Margin="0,0,10,0"/>
+            <Button Click="PosicaoDefesa"  Content="Defender" Width="100" Height="30" Margin="0,0,10,0"/>
+            <Button Click="VoltarFunc"  Content="Sair" Width="100" Height="30"/>
+        </StackPanel>
+    </Grid>
+</Page>
