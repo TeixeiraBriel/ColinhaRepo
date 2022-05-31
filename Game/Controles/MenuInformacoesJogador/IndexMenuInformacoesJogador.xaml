@@ -9,10 +9,61 @@
       Title="IndexMenuInformacoesJogador">
 
     <Grid>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Name="nameNome" Text="Name" FontSize="40" TextAlignment="Center" Foreground="Black"/>
-            <TextBlock Name="nameLife" Text="Life" FontSize="40" TextAlignment="Center" Foreground="Red"/>
-            <TextBlock Name="nameMana" Text="MANA" FontSize="40" TextAlignment="Center" Foreground="blue"/>
-        </StackPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+
+                <StackPanel x:Name="SlotColar" Grid.Row="0" Grid.Column="0">
+                </StackPanel>
+
+                <StackPanel x:Name="SlotCapacete" Grid.Row="0" Grid.Column="1">
+                </StackPanel>
+
+                <StackPanel x:Name="SlotCapa" Grid.Row="0" Grid.Column="2">
+                </StackPanel>
+
+                <StackPanel x:Name="SlotLuva" Grid.Row="1" Grid.Column="0">
+                </StackPanel>
+
+                <StackPanel x:Name="SlotArmadura" Grid.Row="1" Grid.Column="1">
+                </StackPanel>
+
+                <StackPanel x:Name="SlotAnel" Grid.Row="1" Grid.Column="2">
+                </StackPanel>
+
+                <StackPanel x:Name="SlotArmaEsquerda" Grid.Row="2" Grid.Column="0">
+                </StackPanel>
+
+                <StackPanel x:Name="SlotBota" Grid.Row="2" Grid.Column="1">
+                </StackPanel>
+
+                <StackPanel x:Name="SlotArmaDireita" Grid.Row="2" Grid.Column="2">
+                </StackPanel>
+
+            </Grid>
+            <Grid Grid.Row="1">
+                <Rectangle Fill="Black" Height="2" VerticalAlignment="Top"/>
+            </Grid>
+        </Grid>
     </Grid>
 </Page>
