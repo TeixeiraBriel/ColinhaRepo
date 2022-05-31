@@ -1,4 +1,5 @@
 ﻿using Game.Controles.MenuInicial;
+using Infraestrutura.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,13 +26,29 @@ namespace Game.Controles.TelaPadrao
         public DispatcherTimer contadorRelogio = new DispatcherTimer();
         public DispatcherTimer contadorInimigo = new DispatcherTimer();
         public DispatcherTimer contadorFimDeJogo = new DispatcherTimer();
+        Personagem _personagem;
+        Inimigo _inimigo;
+
         bool vezInimigo = false;
         public int tempo = 60;
 
-        public IndexTelaPadrao()
+        public IndexTelaPadrao(Personagem personagem, Inimigo inimigo)
         {
             InitializeComponent();
             inicializaTimer();
+
+            _personagem = personagem;
+            _inimigo = inimigo;
+
+            ReiniciaDadosCombate(personagem, inimigo);
+        }
+
+        public void ReiniciaDadosCombate(Personagem personagem, Inimigo inimigo)
+        {
+            NomePersonagem.Text = personagem.Nome;
+            NomeInimigo.Text = inimigo.Nome;
+            VidaPersonagem.Text = $"{personagem.Vida}/{personagem.Vida}";
+            VidaInimigo.Text = $"{inimigo.Vida}/{inimigo.Vida}";
         }
 
         public void inicializaTimer()
@@ -41,7 +58,7 @@ namespace Game.Controles.TelaPadrao
             contadorRelogio.Start();
 
             contadorInimigo.Tick += new EventHandler(InimigoAtaca);
-            contadorInimigo.Interval = new TimeSpan(0, 0, 3);
+            contadorInimigo.Interval = new TimeSpan(0, 0, 4);
             contadorInimigo.Start();
 
             contadorFimDeJogo.Tick += new EventHandler(VerificaFimJogo);
@@ -51,11 +68,29 @@ namespace Game.Controles.TelaPadrao
 
         public void Relogio(object sender, EventArgs e)
         {
+            if (!this.IsVisible)
+            {
+                return;
+            }
             tempo--;
             Tempo.Text = tempo.ToString();
+
+            string txtTurno = "";
+            if (vezInimigo)
+            {
+                Turno.Foreground = Brushes.Red;
+                txtTurno = $"Turno Inimigo!";
+            }
+            else
+            {
+                Turno.Foreground = Brushes.Blue;
+                txtTurno = $"Seu Turno!";
+            }
+            Turno.Text = txtTurno;
+
             if (tempo == 0)
             {
-                contadorRelogio.Stop();
+                FimDeJogo();
             }
         }
 
@@ -64,24 +99,31 @@ namespace Game.Controles.TelaPadrao
             if (vezInimigo)
             {
                 var vidaPersonagemCalc = VidaPersonagem.Text.Split('/');
-                string qtdDano = "15";
-                vidaPersonagemCalc[0] = (int.Parse(vidaPersonagemCalc[0]) - int.Parse(qtdDano)).ToString();
-                VidaPersonagem.Text = $"{vidaPersonagemCalc[0]}/{vidaPersonagemCalc[1]}";
-                BarraDeVidaPersonagem.Value = (int.Parse(vidaPersonagemCalc[0]));
+                double qtdDano = (_inimigo.Forca - _personagem.Defesa);
+                if (qtdDano > 0)
+                {
+                    vidaPersonagemCalc[0] = (double.Parse(vidaPersonagemCalc[0]) - qtdDano).ToString();
+                    VidaPersonagem.Text = $"{vidaPersonagemCalc[0]}/{vidaPersonagemCalc[1]}";
+                    BarraDeVidaPersonagem.Value = (int.Parse(vidaPersonagemCalc[0]));
+                }
+                else
+                {
+                    qtdDano = 0;
+                }
 
                 vezInimigo = false;
-                RegistraNovoEventoAtaque(NomeInimigo.Text, NomePersonagem.Text, qtdDano);
+                RegistraNovoEventoAtaque(_inimigo.Nome, _personagem.Nome, qtdDano, _inimigo.Forca, _personagem.Defesa, Brushes.Red);
             }
         }
 
         public void VerificaFimJogo(object sender, EventArgs e)
         {
-            var vidaPersonagem = int.Parse(VidaPersonagem.Text.Split('/')[0]);
-            var vidaInimigo = int.Parse(VidaInimigo.Text.Split('/')[0]);
+            var vidaPersonagem = double.Parse(VidaPersonagem.Text.Split('/')[0]);
+            var vidaInimigo = double.Parse(VidaInimigo.Text.Split('/')[0]);
 
             if (vidaPersonagem <= 0 || vidaInimigo <= 0)
             {
-                this.NavigationService.Navigate(new IndexMenuInicial());
+                FimDeJogo();
             }
         }
 
@@ -90,13 +132,21 @@ namespace Game.Controles.TelaPadrao
             if (!vezInimigo)
             {
                 var vidaInimigoCalc = VidaInimigo.Text.Split('/');
-                string qtdDano = "15";
-                vidaInimigoCalc[0] = (int.Parse(vidaInimigoCalc[0]) - int.Parse(qtdDano)).ToString();
-                VidaInimigo.Text = $"{vidaInimigoCalc[0]}/{vidaInimigoCalc[1]}";
-                BarraDeVidaInimigo.Value = (int.Parse(vidaInimigoCalc[0]));
+                double qtdDano = (_personagem.Forca - _inimigo.Defesa);
+                if (qtdDano > 0)
+                {
+                    vidaInimigoCalc[0] = (double.Parse(vidaInimigoCalc[0]) - qtdDano).ToString();
+                    VidaInimigo.Text = $"{vidaInimigoCalc[0]}/{vidaInimigoCalc[1]}";
+                    BarraDeVidaInimigo.Value = (int.Parse(vidaInimigoCalc[0]));
+
+                }
+                else
+                {
+                    qtdDano = 0;
+                }
 
                 vezInimigo = true;
-                RegistraNovoEventoAtaque(NomePersonagem.Text, NomeInimigo.Text, qtdDano);
+                RegistraNovoEventoAtaque(_personagem.Nome, _inimigo.Nome, qtdDano, _personagem.Forca, _inimigo.Defesa, Brushes.Blue);
             }
         }
 
@@ -106,12 +156,32 @@ namespace Game.Controles.TelaPadrao
         }
 
         int ContadorEventos = 0;
-        public void RegistraNovoEventoAtaque(string atacante, string defensor, string qtdDano)
+        public void RegistraNovoEventoAtaque(string atacante, string defensor, double qtdDano, double forca, double defesa, SolidColorBrush cor)
         {
-            TextBlock novoEnvento = new TextBlock { Text = $"{ContadorEventos} - {atacante} desferiu um golpe de {qtdDano} de dano em {defensor}" };
+            TextBlock novoEnvento = 
+                new TextBlock 
+                { 
+                    Text = $"{ContadorEventos} - {atacante} desferiu um golpe de {qtdDano}(atk:{forca} || def:{defesa}) de dano em {defensor}.", 
+                    Foreground = cor, 
+                    TextWrapping = TextWrapping.Wrap 
+                };
+
             PainelDeEventos.Children.Add(novoEnvento);
             ContadorEventos++;
             ScrollEventos.PageDown();
+        }
+
+        public void FimDeJogo()
+        {
+            contadorRelogio.Stop();
+            contadorInimigo.Stop();
+            contadorFimDeJogo.Stop();
+            this.NavigationService.Navigate(new IndexMenuInicial());
+        }
+
+        private void VoltarFunc(object sender, RoutedEventArgs e)
+        {
+            FimDeJogo();
         }
     }
 }
