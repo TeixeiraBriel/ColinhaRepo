@@ -67,6 +67,7 @@ namespace Game.Controles.TelaPadrao
                 string qtdDano = "15";
                 vidaPersonagemCalc[0] = (int.Parse(vidaPersonagemCalc[0]) - int.Parse(qtdDano)).ToString();
                 VidaPersonagem.Text = $"{vidaPersonagemCalc[0]}/{vidaPersonagemCalc[1]}";
+                BarraDeVidaPersonagem.Value = (int.Parse(vidaPersonagemCalc[0]));
 
                 vezInimigo = false;
                 RegistraNovoEventoAtaque(NomeInimigo.Text, NomePersonagem.Text, qtdDano);
@@ -92,6 +93,7 @@ namespace Game.Controles.TelaPadrao
                 string qtdDano = "15";
                 vidaInimigoCalc[0] = (int.Parse(vidaInimigoCalc[0]) - int.Parse(qtdDano)).ToString();
                 VidaInimigo.Text = $"{vidaInimigoCalc[0]}/{vidaInimigoCalc[1]}";
+                BarraDeVidaInimigo.Value = (int.Parse(vidaInimigoCalc[0]));
 
                 vezInimigo = true;
                 RegistraNovoEventoAtaque(NomePersonagem.Text, NomeInimigo.Text, qtdDano);
