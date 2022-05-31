@@ -255,6 +255,8 @@ namespace Game.Controles.TelaPadrao
 
                 Image imgAdd = new Image() { Source = imgArquivo, Margin = new Thickness(0, 5, 0, 5), Height = 40 };
                 imgAdd.MouseLeftButtonDown += (s, e) => AtacarInimigo(s, e, habilidadeEscolhida);
+                imgAdd.MouseEnter += (s, e) =>{ var _sender = s as Image; _sender.Cursor = Cursors.Hand;};
+                imgAdd.MouseLeave += (s, e) =>{ var _sender = s as Image; _sender.Cursor = Cursors.Arrow; };
 
                 PainelHabilidades.Children.Add(imgAdd);
             }
@@ -263,6 +265,8 @@ namespace Game.Controles.TelaPadrao
 
             Image imgFUGA = new Image() { Source = imgFuga, Margin = new Thickness(0, 5, 0, 5), Height = 40 };
             imgFUGA.MouseLeftButtonDown += (s, e) => VoltarFunc(s, e);
+            imgFUGA.MouseEnter += (s, e) => { var _sender = s as Image; _sender.Cursor = Cursors.Hand; };
+            imgFUGA.MouseLeave += (s, e) => { var _sender = s as Image; _sender.Cursor = Cursors.Arrow; };
 
             PainelHabilidades.Children.Add(imgFUGA);
         }
