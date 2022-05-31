@@ -2,6 +2,7 @@
   {
     "IdInimigo": 1,
     "Nome": "Goblin",
+    "Foto": "goblin.png",
     "Vida": 100,
     "Mana": 100,
     "Energia": 100,
@@ -13,6 +14,7 @@
   {
     "IdInimigo": 2,
     "Nome": "Macaco",
+    "Foto": "macaco.png",
     "Vida": 150,
     "Mana": 50,
     "Energia": 100,

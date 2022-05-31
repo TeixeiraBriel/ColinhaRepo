@@ -9,6 +9,7 @@ namespace Infraestrutura.Entidades
     public class Inimigo : fichaBase
     {
         public string Nome { get; set; }
+        public string Foto { get; set; }
         public double XpDropado { get; set; }
         public int IdInimigo { get; set; }
 
