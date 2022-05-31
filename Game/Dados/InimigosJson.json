@@ -3,12 +3,12 @@
     "IdInimigo": 1,
     "Nome": "Goblin",
     "Foto": "goblin.png",
-    "Vida": 100,
+    "Vida": 120,
     "Mana": 100,
-    "Energia": 100,
-    "Forca": 10,
-    "Defesa": 5,
-    "Agilidade": 10,
+    "Energia": 120,
+    "Forca": 16,
+    "Defesa": 7,
+    "Agilidade": 2,
     "XpDropado": 50
   },
   {
@@ -16,11 +16,11 @@
     "Nome": "Macaco",
     "Foto": "macaco.png",
     "Vida": 150,
-    "Mana": 50,
-    "Energia": 100,
+    "Mana": 80,
+    "Energia": 80,
     "Forca": 20,
-    "Defesa": 0,
-    "Agilidade": 5,
+    "Defesa": 5,
+    "Agilidade": 3,
     "XpDropado": 100
   }
 ]

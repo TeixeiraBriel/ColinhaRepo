@@ -48,6 +48,11 @@ namespace Game.Controles.TelaPadrao
             ReiniciaDadosCombate(personagem, inimigo);
             CarregaJsons();
             CarregaHablidadesPersonagem();
+
+            if(personagem.Agilidade < inimigo.Agilidade)
+            {
+                vezInimigo=true;
+            }
         }
 
         public void ReiniciaDadosCombate(Personagem personagem, Inimigo inimigo)
@@ -180,13 +185,14 @@ namespace Game.Controles.TelaPadrao
                 case "Buff":
                 case "DeBuff":
                     tipoGasto = 0;
+                    qtdDano = qtdDano * (0.5 * _personagem.Inteligencia);
                     break;
 
                 case "ArtesMarciais":
                 case "Combate":
                 case "Fortificar":
                     tipoGasto = 1;
-                    qtdDano = qtdDano * _personagem.Forca;
+                    qtdDano = qtdDano * (0.5 *_personagem.Forca);
                     break;
             }
 

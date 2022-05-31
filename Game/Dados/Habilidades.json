@@ -2,7 +2,7 @@
   {
     "IdHabilidade": 0,
     "Nome": "Bola de fogo",
-    "DanoBase": 25,
+    "DanoBase": 17,
     "CustoBase": 15,
     "Tipo": "Magia",
     "Icon": "ImgFireBall.png"
@@ -10,15 +10,15 @@
   {
     "IdHabilidade": 1,
     "Nome": "Soco",
-    "DanoBase": 15,
-    "CustoBase": 8,
+    "DanoBase": 7,
+    "CustoBase": 15,
     "Tipo": "ArtesMarciais",
     "Icon": "ImgAtq.png"
   },
   {
     "IdHabilidade": 2,
     "Nome": "Murrão",
-    "DanoBase": 50,
+    "DanoBase": 17,
     "CustoBase": 15,
     "Tipo": "Combate",
     "Icon": "ImgAtq.png"
@@ -27,7 +27,7 @@
     "IdHabilidade": 3,
     "Nome": "Curar",
     "DanoBase": 20,
-    "CustoBase": 15,
+    "CustoBase": 20,
     "Tipo": "Buff",
     "Icon": "ImgCura.png"
   },

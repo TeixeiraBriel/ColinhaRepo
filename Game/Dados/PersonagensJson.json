@@ -4,16 +4,16 @@
     "Nome": "Mago",
     "Foto": "mago.png",
     "Vida": 100,
-    "Mana": 100,
-    "Energia": 100,
-    "Forca": 10,
-    "Defesa": 5,
-    "Agilidade": 10,
+    "Mana": 120,
+    "Energia": 80,
+    "Forca": 2,
+    "Inteligencia": 3,
+    "Defesa": 2,
+    "Agilidade": 3,
     "XpAtual": 0,
     "XpMaximo": 50,
     "HabilidadesPermitidas": [
       0,
-      2,
       3,
       5
     ]
@@ -22,16 +22,19 @@
     "IdPersonagem": 1,
     "Nome": "Guerreiro",
     "Foto": "guerreiro.png",
-    "Vida": 150,
-    "Mana": 50,
+    "Vida": 120,
+    "Mana": 80,
     "Energia": 100,
-    "Forca": 20,
-    "Defesa": 0,
-    "Agilidade": 5,
+    "Forca": 3,
+    "Inteligencia": 2,
+    "Defesa": 3,
+    "Agilidade": 4,
     "XpAtual": 0,
     "XpMaximo": 50,
     "HabilidadesPermitidas": [
-      0
+      1,
+      2,
+      5
     ]
   }
 ]
