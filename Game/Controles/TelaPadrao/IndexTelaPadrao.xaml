@@ -24,9 +24,12 @@
         <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock x:Name="NomePersonagem" Text="Gabriel"/>
         </StackPanel>
+        
         <StackPanel Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock x:Name="VidaPersonagem" Text="100/100" HorizontalAlignment="Center"/>
             <ProgressBar x:Name="BarraDeVidaPersonagem"  Height="15" Value="100" Orientation="Horizontal" Width="100" Foreground="Red" BorderBrush="Black" Background="White" Margin="0,0,0,0"/>
+            <ProgressBar x:Name="BarraDeManaPersonagem"  Height="15" Value="100" Orientation="Horizontal" Width="100" Foreground="Blue" BorderBrush="Black" Background="White" Margin="0,5,0,0"/>
+            <ProgressBar x:Name="BarraDeStaminaPersonagem"  Height="15" Value="100" Orientation="Horizontal" Width="100" Foreground="Orange" BorderBrush="Black" Background="White" Margin="0,5,0,0"/>
         </StackPanel>
 
         <StackPanel Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -49,9 +52,10 @@
         </ScrollViewer>
 
         <StackPanel Grid.ColumnSpan="3" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
-            <Button Click="AtacarInimigo" Content="Atacar" Width="100" Height="30" Margin="0,0,10,0"/>
-            <Button Click="PosicaoDefesa"  Content="Defender" Width="100" Height="30" Margin="0,0,10,0"/>
-            <Button Click="VoltarFunc"  Content="Sair" Width="100" Height="30"/>
+            <Image Source="/Dados/Imagens/ImgAtq.png" MouseLeftButtonDown="AtacarInimigo" Height="40" Margin="5,0,5,0"/>
+            <Image Source="/Dados/Imagens/ImgDef.png" MouseLeftButtonDown="PosicaoDefesa" Height="40" Margin="5,0,5,0" />
+            <Image Source="/Dados/Imagens/ImgFireBall.png" MouseLeftButtonDown="AtacarInimigo" Height="40" Margin="5,0,5,0"/>
+            <Image Source="/Dados/Imagens/ImgFuga.png" MouseLeftButtonDown="VoltarFunc" Height="40" Margin="5,0,5,0"/>
         </StackPanel>
     </Grid>
 </Page>

@@ -28,5 +28,10 @@ namespace Game.Controles.MenuInformacoesJogador
             nameLife.Text = life;
             nameMana.Text = mana;
         }
+
+        private void AtacarInimigo(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }

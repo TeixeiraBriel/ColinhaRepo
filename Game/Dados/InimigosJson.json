@@ -4,6 +4,7 @@
     "Nome": "Goblin",
     "Vida": 100,
     "Mana": 100,
+    "Energia": 100,
     "Forca": 10,
     "Defesa": 5,
     "Agilidade": 10,
@@ -14,9 +15,10 @@
     "Nome": "Macaco",
     "Vida": 150,
     "Mana": 50,
+    "Energia": 100,
     "Forca": 20,
     "Defesa": 0,
     "Agilidade": 5,
-    "XpDropado" : 100
+    "XpDropado": 100
   }
 ]

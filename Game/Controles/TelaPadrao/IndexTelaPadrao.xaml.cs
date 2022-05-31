@@ -105,6 +105,7 @@ namespace Game.Controles.TelaPadrao
                     vidaPersonagemCalc[0] = (double.Parse(vidaPersonagemCalc[0]) - qtdDano).ToString();
                     VidaPersonagem.Text = $"{vidaPersonagemCalc[0]}/{vidaPersonagemCalc[1]}";
                     double porcentagemVida = (double.Parse(vidaPersonagemCalc[0]) * 100) / double.Parse(vidaPersonagemCalc[1]);
+                    //_personagem.Energia
                     BarraDeVidaPersonagem.Value = porcentagemVida;
                 }
                 else
