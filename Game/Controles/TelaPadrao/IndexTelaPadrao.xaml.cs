@@ -61,6 +61,9 @@ namespace Game.Controles.TelaPadrao
             VidaInimigo.Text = $"{inimigo.Vida}/{inimigo.Vida}";
             ManaInimigo.Text = $"{inimigo.Mana}/{inimigo.Mana}";
             EnergiaInimigo.Text = $"{inimigo.Energia}/{inimigo.Energia}";
+
+            ImageFotoPersonagem.Source = new ImageSourceConverter().ConvertFromString($"Dados\\Imagens\\Personagens\\{personagem.Foto}") as ImageSource;
+            ImageFotoInimigo.Source = new ImageSourceConverter().ConvertFromString($"Dados\\Imagens\\Inimigos\\{inimigo.Foto}") as ImageSource;
         }
 
         public void inicializaTimer()

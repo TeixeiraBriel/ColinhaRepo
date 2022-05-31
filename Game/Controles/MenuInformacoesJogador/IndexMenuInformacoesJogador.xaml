@@ -89,7 +89,6 @@
                     Width="490"
                     Height="350"
                 x:Name="FrameAbaInformacoesJogador" 
-                Source="/Controles/MenuInformacoesJogador/AbaStatus.xaml"
                 NavigationUIVisibility="Hidden"/>
             </Grid>
         </Grid>

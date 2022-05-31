@@ -1,7 +1,8 @@
 ﻿[
   {
     "IdPersonagem": 2,
-    "Nome": "Gabriel",
+    "Nome": "Mago",
+    "Foto": "mago.png",
     "Vida": 100,
     "Mana": 100,
     "Energia": 100,
@@ -19,7 +20,8 @@
   },
   {
     "IdPersonagem": 1,
-    "Nome": "Guilherme",
+    "Nome": "Guerreiro",
+    "Foto": "guerreiro.png",
     "Vida": 150,
     "Mana": 50,
     "Energia": 100,

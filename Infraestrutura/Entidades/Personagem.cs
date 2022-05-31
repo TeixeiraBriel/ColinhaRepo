@@ -9,6 +9,7 @@ namespace Infraestrutura.Entidades
     public class Personagem : fichaBase
     {
         public string Nome { get; set; }
+        public string Foto { get; set; }
         public int IdPersonagem { get; set; }
         public double XpAtual { get; set; }
         public double XpMaximo { get; set; }
