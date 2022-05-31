@@ -1,6 +1,6 @@
 ﻿[
   {
-    "IdPersonagem": 1,
+    "IdInimigo": 1,
     "Nome": "Goblin",
     "Vida": 100,
     "Mana": 100,
@@ -11,7 +11,7 @@
     "XpDropado": 50
   },
   {
-    "IdPersonagem": 2,
+    "IdInimigo": 2,
     "Nome": "Macaco",
     "Vida": 150,
     "Mana": 50,

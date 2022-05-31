@@ -1,44 +1,50 @@
 ﻿[
   {
-    "IdHabilidade": 1,
+    "IdHabilidade": 0,
     "Nome": "Bola de fogo",
     "DanoBase": 25,
     "CustoBase": 15,
-    "Tipo": "Magia"
+    "Tipo": "Magia",
+    "Icon": "ImgFireBall.png"
   },
   {
-    "IdHabilidade": 2,
+    "IdHabilidade": 1,
     "Nome": "Soco",
     "DanoBase": 15,
     "CustoBase": 8,
-    "Tipo": "ArtesMarciais"
+    "Tipo": "ArtesMarciais",
+    "Icon": "ImgAtq.png"
+  },
+  {
+    "IdHabilidade": 2,
+    "Nome": "Murrão",
+    "DanoBase": 50,
+    "CustoBase": 15,
+    "Tipo": "Combate",
+    "Icon": "ImgAtq.png"
   },
   {
     "IdHabilidade": 3,
-    "Nome": "Bola de fogo",
-    "DanoBase": 25,
-    "CustoBase": 15,
-    "Tipo": "Combate"
-  },
-  {
-    "IdHabilidade": 4,
     "Nome": "Curar",
     "DanoBase": 20,
     "CustoBase": 15,
-    "Tipo": "Buff"
+    "Tipo": "Buff",
+    "Icon": "ImgCura.png"
   },
   {
-    "IdHabilidade": 5,
+    "IdHabilidade": 4,
     "Nome": "Não Definido",
     "DanoBase": 25,
     "CustoBase": 15,
-    "Tipo": "Debuff"
+    "Tipo": "Debuff",
+    "Icon": "ImgAtq.png"
   },
   {
-    "IdHabilidade": 6,
+    "IdHabilidade": 5,
     "Nome": "Defender",
     "DanoBase": 25,
     "CustoBase": 15,
-    "Tipo": "Fortificar"
+    "Tipo": "Fortificar",
+    "Icon": "ImgDef.png"
   }
 ]

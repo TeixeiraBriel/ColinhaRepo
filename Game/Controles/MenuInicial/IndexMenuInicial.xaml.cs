@@ -24,7 +24,7 @@ namespace Game.Controles.MenuInicial
 
         private void ComeçaJogo(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(cmbPersonagens.Text) || string.IsNullOrEmpty(cmbInimigos.Text))
+            if (string.IsNullOrEmpty(cmbPersonagens.Text) || string.IsNullOrEmpty(cmbInimigos.Text) || string.IsNullOrEmpty(cmbNivelInimigo.Text))
             {
                 //Exibir msg que n da certo
             }

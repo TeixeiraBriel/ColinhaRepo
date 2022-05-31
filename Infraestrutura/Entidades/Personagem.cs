@@ -12,5 +12,6 @@ namespace Infraestrutura.Entidades
         public int IdPersonagem { get; set; }
         public double XpAtual { get; set; }
         public double XpMaximo { get; set; }
+        public List<int> HabilidadesPermitidas { get; set; }
     }
 }

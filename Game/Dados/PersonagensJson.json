@@ -1,6 +1,6 @@
 ﻿[
   {
-    "IdInimigo": 2,
+    "IdPersonagem": 2,
     "Nome": "Gabriel",
     "Vida": 100,
     "Mana": 100,
@@ -9,10 +9,16 @@
     "Defesa": 5,
     "Agilidade": 10,
     "XpAtual": 0,
-    "XpMaximo": 50
+    "XpMaximo": 50,
+    "HabilidadesPermitidas": [
+      0,
+      2,
+      3,
+      5
+    ]
   },
   {
-    "IdInimigo": 1,
+    "IdPersonagem": 1,
     "Nome": "Guilherme",
     "Vida": 150,
     "Mana": 50,
@@ -21,6 +27,9 @@
     "Defesa": 0,
     "Agilidade": 5,
     "XpAtual": 0,
-    "XpMaximo": 50
+    "XpMaximo": 50,
+    "HabilidadesPermitidas": [
+      0
+    ]
   }
 ]

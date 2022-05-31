@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entidades\fichaBase.cs" />
+    <Compile Include="Entidades\Habilidade.cs" />
     <Compile Include="Entidades\Inimigo.cs" />
     <Compile Include="Entidades\Personagem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

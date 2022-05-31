@@ -157,7 +157,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Dados\Habilidades.json" />
+    <EmbeddedResource Include="Dados\Habilidades.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -187,9 +189,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Dados\Imagens\ImgAtq.png">
+    <EmbeddedResource Include="Dados\Imagens\ImgAtq.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </EmbeddedResource>
     <Content Include="Dados\Imagens\ImgCura.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
