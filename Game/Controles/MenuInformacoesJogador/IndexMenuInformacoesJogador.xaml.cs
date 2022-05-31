@@ -34,5 +34,10 @@ namespace Game.Controles.MenuInformacoesJogador
         {
             FrameAbaInformacoesJogador.Navigate(new AbaStatus(this));
         }
+
+        private void AtacarInimigo(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }

@@ -48,7 +48,12 @@ namespace Game.Controles.TelaPadrao
             NomePersonagem.Text = personagem.Nome;
             NomeInimigo.Text = inimigo.Nome;
             VidaPersonagem.Text = $"{personagem.Vida}/{personagem.Vida}";
+            ManaPersonagem.Text = $"{personagem.Mana}/{personagem.Vida}";
+            EnergiaPersonagem.Text = $"{personagem.Energia}/{personagem.Energia}";
+
             VidaInimigo.Text = $"{inimigo.Vida}/{inimigo.Vida}";
+            ManaInimigo.Text = $"{inimigo.Mana}/{inimigo.Mana}";
+            EnergiaInimigo.Text = $"{inimigo.Energia}/{inimigo.Energia}";
         }
 
         public void inicializaTimer()
@@ -105,6 +110,7 @@ namespace Game.Controles.TelaPadrao
                     vidaPersonagemCalc[0] = (double.Parse(vidaPersonagemCalc[0]) - qtdDano).ToString();
                     VidaPersonagem.Text = $"{vidaPersonagemCalc[0]}/{vidaPersonagemCalc[1]}";
                     double porcentagemVida = (double.Parse(vidaPersonagemCalc[0]) * 100) / double.Parse(vidaPersonagemCalc[1]);
+                    //_personagem.Energia
                     BarraDeVidaPersonagem.Value = porcentagemVida;
                 }
                 else
@@ -152,7 +158,10 @@ namespace Game.Controles.TelaPadrao
                 RegistraNovoEventoAtaque(_personagem.Nome, _inimigo.Nome, qtdDano, _personagem.Forca, _inimigo.Defesa, Brushes.Blue);
             }
         }
-
+        private void RealizarAtaque()
+        {
+            
+        }
         private void PosicaoDefesa(object sender, RoutedEventArgs e)
         {
 

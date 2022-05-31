@@ -8,6 +8,7 @@
       d:DesignHeight="380" d:DesignWidth="800"
       Title="IndexMenuInformacoesJogador">
 
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="300"/>

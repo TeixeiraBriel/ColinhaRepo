@@ -1,0 +1,44 @@
+﻿[
+  {
+    "IdHabilidade": 1,
+    "Nome": "Bola de fogo",
+    "DanoBase": 25,
+    "CustoBase": 15,
+    "Tipo": "Magia"
+  },
+  {
+    "IdHabilidade": 2,
+    "Nome": "Soco",
+    "DanoBase": 15,
+    "CustoBase": 8,
+    "Tipo": "ArtesMarciais"
+  },
+  {
+    "IdHabilidade": 3,
+    "Nome": "Bola de fogo",
+    "DanoBase": 25,
+    "CustoBase": 15,
+    "Tipo": "Combate"
+  },
+  {
+    "IdHabilidade": 4,
+    "Nome": "Curar",
+    "DanoBase": 20,
+    "CustoBase": 15,
+    "Tipo": "Buff"
+  },
+  {
+    "IdHabilidade": 5,
+    "Nome": "Não Definido",
+    "DanoBase": 25,
+    "CustoBase": 15,
+    "Tipo": "Debuff"
+  },
+  {
+    "IdHabilidade": 6,
+    "Nome": "Defender",
+    "DanoBase": 25,
+    "CustoBase": 15,
+    "Tipo": "Fortificar"
+  }
+]

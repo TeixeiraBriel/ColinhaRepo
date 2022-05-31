@@ -10,6 +10,8 @@ namespace Infraestrutura.Entidades
     {
         public double Vida { get; set; }
         public double Mana { get; set; }
+        public double Energia { get; set; }
+
         public double Defesa { get; set; }
         public double Forca { get; set; }
         public double Agilidade { get; set; }
