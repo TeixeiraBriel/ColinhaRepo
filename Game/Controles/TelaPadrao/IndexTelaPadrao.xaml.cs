@@ -26,6 +26,7 @@ namespace Game.Controles.TelaPadrao
     public partial class IndexTelaPadrao : Page
     {
         List<Habilidade> _Habilidades = new List<Habilidade>();
+        Progressao _save;
 
         public DispatcherTimer contadorRelogio = new DispatcherTimer();
         public DispatcherTimer contadorInimigo = new DispatcherTimer();
@@ -37,26 +38,52 @@ namespace Game.Controles.TelaPadrao
         bool vezInimigo = false;
         public int tempo = 60;
 
-        public IndexTelaPadrao(Personagem personagem, Inimigo inimigo)
+        public IndexTelaPadrao(Personagem personagem, Inimigo inimigo, Progressao save = null)
         {
             InitializeComponent();
             inicializaTimer();
 
             _personagem = personagem;
             _inimigo = inimigo;
+            if (save != null)
+            {
+                _save = save;
+            }
+            else
+            {
+                _save = new Progressao();
+                _save.VidaAtual = -10;
+            }
 
             ReiniciaDadosCombate(personagem, inimigo);
             CarregaJsons();
             CarregaHablidadesPersonagem();
+
+            if(personagem.Agilidade < inimigo.Agilidade)
+            {
+                vezInimigo=true;
+            }
         }
 
         public void ReiniciaDadosCombate(Personagem personagem, Inimigo inimigo)
         {
             NomePersonagem.Text = personagem.Nome;
             NomeInimigo.Text = inimigo.Nome;
+
             VidaPersonagem.Text = $"{personagem.Vida}/{personagem.Vida}";
             ManaPersonagem.Text = $"{personagem.Mana}/{personagem.Mana}";
             EnergiaPersonagem.Text = $"{personagem.Energia}/{personagem.Energia}";
+
+            if (_save.VidaAtual > 0)
+            {
+                 var vidaPerdida = personagem.Vida - _save.VidaAtual;
+                 var manaPerdida = personagem.Mana - _save.ManaAtual;
+                 var energiaPerdida = personagem.Energia - _save.EnergiaAtual;
+
+                ModificaBarraInfo(VidaPersonagem, BarraDeVidaPersonagem, vidaPerdida);
+                ModificaBarraInfo(ManaPersonagem, BarraDeManaPersonagem, manaPerdida);
+                ModificaBarraInfo(EnergiaPersonagem, BarraDeStaminaPersonagem, energiaPerdida);
+            }
 
             VidaInimigo.Text = $"{inimigo.Vida}/{inimigo.Vida}";
             ManaInimigo.Text = $"{inimigo.Mana}/{inimigo.Mana}";
@@ -180,13 +207,14 @@ namespace Game.Controles.TelaPadrao
                 case "Buff":
                 case "DeBuff":
                     tipoGasto = 0;
+                    qtdDano = qtdDano * (0.5 * _personagem.Inteligencia);
                     break;
 
                 case "ArtesMarciais":
                 case "Combate":
                 case "Fortificar":
                     tipoGasto = 1;
-                    qtdDano = qtdDano * _personagem.Forca;
+                    qtdDano = qtdDano * (0.5 *_personagem.Forca);
                     break;
             }
 
@@ -201,12 +229,12 @@ namespace Game.Controles.TelaPadrao
         int ContadorEventos = 0;
         public void RegistraNovoEventoAtaque(string atacante, string defensor, double qtdDano, double danoCausado, double defesa, string nomeAtaque, SolidColorBrush cor)
         {
-            TextBlock novoEnvento = 
-                new TextBlock 
-                { 
-                    Text = $"{ContadorEventos} - {atacante} desferiu {nomeAtaque} de {danoCausado}(atk:{qtdDano} || def:{defesa}) de dano em {defensor}.", 
-                    Foreground = cor, 
-                    TextWrapping = TextWrapping.Wrap 
+            TextBlock novoEnvento =
+                new TextBlock
+                {
+                    Text = $"{ContadorEventos} - {atacante} desferiu {nomeAtaque} de {danoCausado}(atk:{qtdDano} || def:{defesa}) de dano em {defensor}.",
+                    Foreground = cor,
+                    TextWrapping = TextWrapping.Wrap
                 };
 
             PainelDeEventos.Children.Add(novoEnvento);
@@ -217,9 +245,19 @@ namespace Game.Controles.TelaPadrao
         public void VerificaFimJogo(object sender, EventArgs e)
         {
             var vidaPersonagem = double.Parse(VidaPersonagem.Text.Split('/')[0]);
+            var manaPersonagem = double.Parse(ManaPersonagem.Text.Split('/')[0]);
+            var energiaPersonagem = double.Parse(EnergiaPersonagem.Text.Split('/')[0]);
             var vidaInimigo = double.Parse(VidaInimigo.Text.Split('/')[0]);
 
-            if (vidaPersonagem <= 0 || vidaInimigo <= 0)
+            if (vidaInimigo <= 0)
+            {
+                _save.VidaAtual = vidaPersonagem;
+                _save.ManaAtual = manaPersonagem;
+                _save.EnergiaAtual = energiaPersonagem;
+
+                FimDeJogo();
+            }
+            else if (vidaPersonagem <= 0)
             {
                 FimDeJogo();
             }
@@ -230,7 +268,19 @@ namespace Game.Controles.TelaPadrao
             contadorRelogio.Stop();
             contadorInimigo.Stop();
             contadorFimDeJogo.Stop();
-            this.NavigationService.Navigate(new IndexMenuInicial());
+
+            _save.Lutas++;
+            if (_save.VidaAtual <= 0)
+            {
+                _save.Derrotas++;
+            }
+            else
+            {
+                _save.Vitorias++;
+                _save.Moedas += 100;
+                _save.ExperienciaAtual += 10 * _save.Nivel;
+            }
+            this.NavigationService.Navigate(new IndexMenuInicial(_save));
         }
 
         private void VoltarFunc(object sender, RoutedEventArgs e)
@@ -255,6 +305,8 @@ namespace Game.Controles.TelaPadrao
 
                 Image imgAdd = new Image() { Source = imgArquivo, Margin = new Thickness(0, 5, 0, 5), Height = 40 };
                 imgAdd.MouseLeftButtonDown += (s, e) => AtacarInimigo(s, e, habilidadeEscolhida);
+                imgAdd.MouseEnter += (s, e) => { var _sender = s as Image; _sender.Cursor = Cursors.Hand; };
+                imgAdd.MouseLeave += (s, e) => { var _sender = s as Image; _sender.Cursor = Cursors.Arrow; };
 
                 PainelHabilidades.Children.Add(imgAdd);
             }
@@ -263,6 +315,8 @@ namespace Game.Controles.TelaPadrao
 
             Image imgFUGA = new Image() { Source = imgFuga, Margin = new Thickness(0, 5, 0, 5), Height = 40 };
             imgFUGA.MouseLeftButtonDown += (s, e) => VoltarFunc(s, e);
+            imgFUGA.MouseEnter += (s, e) => { var _sender = s as Image; _sender.Cursor = Cursors.Hand; };
+            imgFUGA.MouseLeave += (s, e) => { var _sender = s as Image; _sender.Cursor = Cursors.Arrow; };
 
             PainelHabilidades.Children.Add(imgFUGA);
         }

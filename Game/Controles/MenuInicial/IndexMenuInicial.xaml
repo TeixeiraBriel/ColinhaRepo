@@ -23,6 +23,9 @@
                 </StackPanel>
                 <Button Content="Iniciar" Click="ComeçaJogo"/>
             </StackPanel>
+
+            <Button Content="Novo Jogo" Click="NovoJogo" Margin="5"/>
+            <Button Content="Continuar" Click="ContinuarJogo" Margin="5,0" IsEnabled="False" Name="btnContinuar"/>
             
             <Button Content="Atributos" Click="NavegaInfoJogador" Margin="10"/>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">

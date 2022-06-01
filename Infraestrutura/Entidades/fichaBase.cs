@@ -14,6 +14,8 @@ namespace Infraestrutura.Entidades
 
         public double Defesa { get; set; }
         public double Forca { get; set; }
+        public double Inteligencia { get; set; }
+
         public double Agilidade { get; set; }
     }
 }

@@ -17,13 +17,20 @@ namespace Game.Controles.MenuInicial
         List<Personagem> Personagens = new List<Personagem>();
         List<Inimigo> Inimigos = new List<Inimigo>();
         Controlador _controlador;
+        Progressao Save = new Progressao();
 
-        public IndexMenuInicial()
+        public IndexMenuInicial(Progressao save = null)
         {
             InitializeComponent();
             _controlador = new Controlador();
 
             CarregaComboBoxes();
+
+            if (save != null)
+            {
+                Save = save;
+                btnContinuar.IsEnabled = true;
+            }
         }
 
         private void ComeçaJogo(object sender, RoutedEventArgs e)
@@ -71,6 +78,32 @@ namespace Game.Controles.MenuInicial
             {
                 cmbNivelInimigo.Items.Add(i.ToString());
             }
+        }
+
+        private void ContinuarJogo(object sender, RoutedEventArgs e)
+        {
+            Personagem perso = Personagens.Find(x => x.IdPersonagem == Save.Classe);
+            Inimigo inimi = Inimigos.Find(x => x.IdInimigo == 0);
+
+            if (Save.Nivel == 0)
+                Save.Nivel = 1;
+
+            inimi.DefineNivel(Save.Nivel);
+
+            this.NavigationService.Navigate(new IndexTelaPadrao(perso, inimi, Save));
+        }
+
+        private void NovoJogo(object sender, RoutedEventArgs e)
+        {
+            var fileSave = @"Dados\Save.json";
+            Save = JsonConvert.DeserializeObject<Progressao>(File.ReadAllText(fileSave, Encoding.UTF8));
+
+            Personagem perso = Personagens.Find(x => x.IdPersonagem == Save.Classe);
+            Inimigo inimi = Inimigos.Find(x => x.IdInimigo == 0);
+
+            inimi.DefineNivel(Save.Nivel);
+
+            this.NavigationService.Navigate(new IndexTelaPadrao(perso, inimi, Save));
         }
     }
 }
