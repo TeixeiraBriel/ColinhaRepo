@@ -9,13 +9,12 @@
     "Energia": 80,
     "Forca": 2,
     "Inteligencia": 3,
-    "Defesa": 2,
+    "Defesa": 3,
     "Agilidade": 3,
     "XpAtual": 0,
     "XpMaximo": 50,
     "HabilidadesPermitidas": [
       0,
-      3,
       5
     ]
   },
@@ -23,10 +22,10 @@
     "IdPersonagem": 1,
     "Nome": "Guerreiro",
     "Foto": "guerreiro.png",
-    "Vida": 120,
+    "Vida": 100,
     "VidaAtual": 120,
     "Mana": 80,
-    "Energia": 100,
+    "Energia": 120,
     "Forca": 3,
     "Inteligencia": 2,
     "Defesa": 3,
@@ -35,7 +34,6 @@
     "XpMaximo": 50,
     "HabilidadesPermitidas": [
       1,
-      2,
       5
     ]
   }

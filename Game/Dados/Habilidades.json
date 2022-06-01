@@ -10,7 +10,7 @@
   {
     "IdHabilidade": 1,
     "Nome": "Soco",
-    "DanoBase": 7,
+    "DanoBase": 17,
     "CustoBase": 15,
     "Tipo": "ArtesMarciais",
     "Icon": "ImgAtq.png"
@@ -18,10 +18,10 @@
   {
     "IdHabilidade": 2,
     "Nome": "Murrão",
-    "DanoBase": 17,
-    "CustoBase": 15,
+    "DanoBase": 25,
+    "CustoBase": 20,
     "Tipo": "Combate",
-    "Icon": "ImgAtq.png"
+    "Icon": "ImgMurrao.png"
   },
   {
     "IdHabilidade": 3,

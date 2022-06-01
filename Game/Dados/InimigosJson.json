@@ -3,8 +3,8 @@
     "IdInimigo": 0,
     "Nome": "Goblin",
     "Foto": "goblin.png",
-    "Vida": 120,
-    "Mana": 100,
+    "Vida": 100,
+    "Mana": 80,
     "Energia": 120,
     "Forca": 16,
     "Defesa": 7,
@@ -18,8 +18,8 @@
     "Vida": 150,
     "Mana": 80,
     "Energia": 80,
-    "Forca": 20,
-    "Defesa": 5,
+    "Forca": 15,
+    "Defesa": 2,
     "Agilidade": 3,
     "XpDropado": 100
   }
