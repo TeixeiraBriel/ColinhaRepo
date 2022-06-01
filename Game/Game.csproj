@@ -197,6 +197,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Dados\Imagens\ImgMeditar.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Dados\Imagens\ImgMurrao.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

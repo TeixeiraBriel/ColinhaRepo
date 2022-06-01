@@ -181,7 +181,12 @@ namespace Game.Controles.TelaPadrao
                     ModificaBarraInfo(EnergiaPersonagem, BarraDeStaminaPersonagem, qtdGasto);
                 }
 
-                if (habilidadeEscolhida.Tipo == "Fortificar")
+                if(habilidadeEscolhida.Tipo == "Fortificar")
+                {
+                    PosicaoDefesa(qtdDano);
+                }
+
+                if (habilidadeEscolhida.Tipo == "Buff")
                 {
                     ModificaBarraInfo(VidaPersonagem, BarraDeVidaPersonagem, (-1 * qtdDano));
                 }
@@ -226,9 +231,9 @@ namespace Game.Controles.TelaPadrao
             return new double[] { qtdDano, qtdGasto, tipoGasto };
         }
 
-        private void PosicaoDefesa(object sender, RoutedEventArgs e)
+        private void PosicaoDefesa(double qtdDano)
         {
-
+            _personagem.Defesa += qtdDano;
         }
 
         int ContadorEventos = 0;
