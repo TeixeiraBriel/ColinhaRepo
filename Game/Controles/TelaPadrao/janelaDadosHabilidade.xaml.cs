@@ -67,8 +67,8 @@ namespace Game.Controles.TelaPadrao
         public void AdjustPosition(object sender, EventArgs e)
         {
             if (Instancia != null)
-            {/*
-                Instancia.Left = _janelaPrincipal.Left + _janelaPrincipal.ActualWidth;
+            {
+              /*Instancia.Left = _janelaPrincipal.Left + _janelaPrincipal.ActualWidth;
                 Instancia.Top = _janelaPrincipal.Top;*/
                 
                 Point GetMousePos() => _janelaPrincipal.PointToScreen(Mouse.GetPosition(_janelaPrincipal));
