@@ -315,8 +315,8 @@ namespace Game.Controles.TelaPadrao
 
                 Image imgAdd = new Image() { Source = imgArquivo, Margin = new Thickness(0, 5, 0, 5), Height = 40 };
                 imgAdd.MouseLeftButtonDown += (s, e) => AtacarInimigo(s, e, habilidadeEscolhida);
-                imgAdd.MouseEnter += (s, e) => { var _sender = s as Image; _sender.Cursor = Cursors.Hand; };
-                imgAdd.MouseLeave += (s, e) => { var _sender = s as Image; _sender.Cursor = Cursors.Arrow; };
+                imgAdd.MouseEnter += (s, e) => { var _sender = s as Image; _sender.Cursor = Cursors.Hand; mouseOver(true, habilidadeEscolhida); };
+                imgAdd.MouseLeave += (s, e) => { var _sender = s as Image; _sender.Cursor = Cursors.Arrow; mouseOver(true, habilidadeEscolhida); };
 
                 PainelHabilidades.Children.Add(imgAdd);
             }
@@ -325,12 +325,26 @@ namespace Game.Controles.TelaPadrao
 
             Image imgFUGA = new Image() { Source = imgFuga, Margin = new Thickness(0, 5, 0, 5), Height = 40 };
             imgFUGA.MouseLeftButtonDown += (s, e) => VoltarFunc(s, e);
-            imgFUGA.MouseEnter += (s, e) => { var _sender = s as Image; _sender.Cursor = Cursors.Hand; };
-            imgFUGA.MouseLeave += (s, e) => { var _sender = s as Image; _sender.Cursor = Cursors.Arrow; };
+            imgFUGA.MouseEnter += (s, e) => { var _sender = s as Image; _sender.Cursor = Cursors.Hand; TextoCusto.Text = "Sair"; TextoCusto.Visibility = Visibility.Visible; };
+            imgFUGA.MouseLeave += (s, e) => { var _sender = s as Image; _sender.Cursor = Cursors.Arrow; TextoCusto.Visibility = Visibility.Collapsed; };
 
             PainelHabilidades.Children.Add(imgFUGA);
         }
 
+        void mouseOver(bool over, Habilidade habilidadeEscolhida)
+        {
+            if (over)
+            {
+                string tipoCusto = habilidadeEscolhida.Tipo == "Magia" || habilidadeEscolhida.Tipo == "Buff" || habilidadeEscolhida.Tipo == "DeBuff" ? "Mana" : "Energia";
+                TextoCusto.Text = $"{habilidadeEscolhida.Nome} | Custo: {habilidadeEscolhida.CustoBase} de {tipoCusto}"; 
+                TextoCusto.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                TextoCusto.Visibility = Visibility.Collapsed;
+            }
+        }
+        
         public void ModificaBarraInfo(TextBlock TextBlockTexto, ProgressBar BarraDoStatus, double qtdDano)
         {
             var textoGeral = TextBlockTexto.Text.Split('/');
