@@ -290,6 +290,7 @@ namespace Game.Controles.TelaPadrao
                 _save.Moedas += 100;
                 _save.ExperienciaAtual += 10 * _save.Nivel;
             }
+
             this.NavigationService.Navigate(new IndexMenuInicial(_save));
         }
 
@@ -316,7 +317,7 @@ namespace Game.Controles.TelaPadrao
                 Image imgAdd = new Image() { Source = imgArquivo, Margin = new Thickness(0, 5, 0, 5), Height = 40 };
                 imgAdd.MouseLeftButtonDown += (s, e) => AtacarInimigo(s, e, habilidadeEscolhida);
                 imgAdd.MouseEnter += (s, e) => { var _sender = s as Image; _sender.Cursor = Cursors.Hand; mouseOver(true, habilidadeEscolhida); };
-                imgAdd.MouseLeave += (s, e) => { var _sender = s as Image; _sender.Cursor = Cursors.Arrow; mouseOver(true, habilidadeEscolhida); };
+                imgAdd.MouseLeave += (s, e) => { var _sender = s as Image; _sender.Cursor = Cursors.Arrow; mouseOver(false, habilidadeEscolhida); };
 
                 PainelHabilidades.Children.Add(imgAdd);
             }
@@ -335,13 +336,13 @@ namespace Game.Controles.TelaPadrao
         {
             if (over)
             {
-                string tipoCusto = habilidadeEscolhida.Tipo == "Magia" || habilidadeEscolhida.Tipo == "Buff" || habilidadeEscolhida.Tipo == "DeBuff" ? "Mana" : "Energia";
-                TextoCusto.Text = $"{habilidadeEscolhida.Nome} | Custo: {habilidadeEscolhida.CustoBase} de {tipoCusto}"; 
-                TextoCusto.Visibility = Visibility.Visible;
+                janelaDadosHabilidade.Instancia.DefineDados(habilidadeEscolhida);
+                janelaDadosHabilidade.Focar();
+                janelaDadosHabilidade.Mostrar();
             }
             else
             {
-                TextoCusto.Visibility = Visibility.Collapsed;
+                janelaDadosHabilidade.Esconder();
             }
         }
         

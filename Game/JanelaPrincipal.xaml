@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Game"
         mc:Ignorable="d"
-        Title="Game" Height="500" Width="800" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+        Title="Game" Height="500" Width="800" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" >
     <Grid>
         <StackPanel>
             <Label VerticalAlignment="Top" HorizontalAlignment="Right" x:Name="txtVersao"/>
