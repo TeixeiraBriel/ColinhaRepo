@@ -1,4 +1,5 @@
-﻿using Game.Controles.MenuInformacoesJogador;
+﻿using Game.Controladores;
+using Game.Controles.MenuInformacoesJogador;
 using Game.Controles.TelaPadrao;
 using Game.Util;
 using Infraestrutura.Entidades;
@@ -16,10 +17,13 @@ namespace Game.Controles.MenuInicial
         List<Personagem> Personagens = new List<Personagem>();
         List<Inimigo> Inimigos = new List<Inimigo>();
         Progressao Save = new Progressao();
+        Controlador _controlador;
 
         public IndexMenuInicial(Progressao save = null)
         {
             InitializeComponent();
+            _controlador = new Controlador();
+
             CarregaComboBoxes();
 
             if (save != null)
@@ -56,7 +60,9 @@ namespace Game.Controles.MenuInicial
 
         public void CarregaComboBoxes()
         {
-            CarregaJsons();
+            _controlador.CarregaJsons();
+            Personagens = _controlador.Personagens;
+            Inimigos = _controlador.Inimigos;
 
             foreach (var personagem in Personagens)
             {
@@ -72,16 +78,6 @@ namespace Game.Controles.MenuInicial
             {
                 cmbNivelInimigo.Items.Add(i.ToString());
             }
-        }
-        public void CarregaJsons()
-        {
-            var fileInimigos = @"Dados\InimigosJson.json";
-            var filePersonagens = @"Dados\PersonagensJson.json";
-            var fileSave = @"Dados\Save.json";
-
-            Personagens = JsonConvert.DeserializeObject<List<Personagem>>(File.ReadAllText(filePersonagens, Encoding.UTF8));
-            Inimigos = JsonConvert.DeserializeObject<List<Inimigo>>(File.ReadAllText(fileInimigos, Encoding.UTF8));
-            Save = JsonConvert.DeserializeObject<Progressao>(File.ReadAllText(fileSave, Encoding.UTF8));
         }
 
         private void ContinuarJogo(object sender, RoutedEventArgs e)

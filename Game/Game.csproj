@@ -50,6 +50,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dictionary, Version=2.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Dictionary.2.1.1\lib\Dictionary.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -68,6 +71,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Xpando, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Xpando.2.4.0\lib\Xpando.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -124,7 +130,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Controladores\Controlador.cs" />
-    <Compile Include="Controladores\ControladorJogando.cs" />
     <Compile Include="Controles\MenuInformacoesJogador\IndexMenuInformacoesJogador.xaml.cs">
       <DependentUpon>IndexMenuInformacoesJogador.xaml</DependentUpon>
     </Compile>
