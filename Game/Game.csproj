@@ -26,7 +26,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>2206</ApplicationRevision>
-    <ApplicationVersion>1.2.0.2206</ApplicationVersion>
+    <ApplicationVersion>1.2.1.2206</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
