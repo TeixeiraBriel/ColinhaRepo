@@ -8,6 +8,7 @@ namespace Infraestrutura.Entidades
 {
     public class fichaBase
     {
+        public string Nome { get; set; }
         public double Vida { get; set; }
         public double Mana { get; set; }
         public double Energia { get; set; }

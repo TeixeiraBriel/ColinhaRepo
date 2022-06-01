@@ -1,7 +1,8 @@
 ﻿[
   {
     "IdPersonagem": 0,
-    "Nome": "Mago",
+    "Nome": "",
+    "Classe": "Mago",
     "Foto": "mago.png",
     "Vida": 100,
     "VidaAtual": 100,
@@ -21,7 +22,8 @@
   },
   {
     "IdPersonagem": 1,
-    "Nome": "Guerreiro",
+    "Nome": "",
+    "Classe": "Guerreiro",
     "Foto": "guerreiro.png",
     "Vida": 120,
     "VidaAtual": 120,
