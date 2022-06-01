@@ -168,6 +168,7 @@ namespace Game.Controles.TelaPadrao
             if (!vezInimigo)
             {
                 double[] resultado = RealizarAtaque(habilidadeEscolhida);
+                string tipoHabilidade = habilidadeEscolhida.Tipo;
 
                 double qtdDano = resultado[0];
                 double qtdDanoCausado = resultado[0] - _inimigo.Defesa;
@@ -183,7 +184,16 @@ namespace Game.Controles.TelaPadrao
                     ModificaBarraInfo(EnergiaPersonagem, BarraDeStaminaPersonagem, qtdGasto);
                 }
 
-                if (qtdDanoCausado > 0)
+                if(habilidadeEscolhida.Tipo == "Fortificar")
+                {
+                    PosicaoDefesa(qtdDano);
+                }
+
+                if (habilidadeEscolhida.Tipo == "Buff")
+                {
+                    ModificaBarraInfo(VidaPersonagem, BarraDeVidaPersonagem, (-1 * qtdDano));
+                }
+                else if (qtdDanoCausado > 0)
                 {
                     ModificaBarraInfo(VidaInimigo, BarraDeVidaInimigo, qtdDanoCausado);
                 }
@@ -224,9 +234,9 @@ namespace Game.Controles.TelaPadrao
             return new double[] { qtdDano, qtdGasto, tipoGasto };
         }
 
-        private void PosicaoDefesa(object sender, RoutedEventArgs e)
+        private void PosicaoDefesa(double qtdDano)
         {
-
+            _personagem.Defesa += qtdDano;
         }
 
         int ContadorEventos = 0;
@@ -315,8 +325,8 @@ namespace Game.Controles.TelaPadrao
 
                 Image imgAdd = new Image() { Source = imgArquivo, Margin = new Thickness(0, 5, 0, 5), Height = 40 };
                 imgAdd.MouseLeftButtonDown += (s, e) => AtacarInimigo(s, e, habilidadeEscolhida);
-                imgAdd.MouseEnter += (s, e) => { var _sender = s as Image; _sender.Cursor = Cursors.Hand; };
-                imgAdd.MouseLeave += (s, e) => { var _sender = s as Image; _sender.Cursor = Cursors.Arrow; };
+                imgAdd.MouseEnter += (s, e) => { var _sender = s as Image; _sender.Cursor = Cursors.Hand; mouseOver(true, habilidadeEscolhida); };
+                imgAdd.MouseLeave += (s, e) => { var _sender = s as Image; _sender.Cursor = Cursors.Arrow; mouseOver(false, habilidadeEscolhida); };
 
                 PainelHabilidades.Children.Add(imgAdd);
             }
@@ -325,12 +335,26 @@ namespace Game.Controles.TelaPadrao
 
             Image imgFUGA = new Image() { Source = imgFuga, Margin = new Thickness(0, 5, 0, 5), Height = 40 };
             imgFUGA.MouseLeftButtonDown += (s, e) => VoltarFunc(s, e);
-            imgFUGA.MouseEnter += (s, e) => { var _sender = s as Image; _sender.Cursor = Cursors.Hand; };
-            imgFUGA.MouseLeave += (s, e) => { var _sender = s as Image; _sender.Cursor = Cursors.Arrow; };
+            imgFUGA.MouseEnter += (s, e) => { var _sender = s as Image; _sender.Cursor = Cursors.Hand; TextoCusto.Text = "Sair"; TextoCusto.Visibility = Visibility.Visible; };
+            imgFUGA.MouseLeave += (s, e) => { var _sender = s as Image; _sender.Cursor = Cursors.Arrow; TextoCusto.Visibility = Visibility.Collapsed; };
 
             PainelHabilidades.Children.Add(imgFUGA);
         }
 
+        void mouseOver(bool over, Habilidade habilidadeEscolhida)
+        {
+            if (over)
+            {
+                janelaDadosHabilidade.Instancia.DefineDados(habilidadeEscolhida);
+                janelaDadosHabilidade.Focar();
+                janelaDadosHabilidade.Mostrar();
+            }
+            else
+            {
+                janelaDadosHabilidade.Esconder();
+            }
+        }
+        
         public void ModificaBarraInfo(TextBlock TextBlockTexto, ProgressBar BarraDoStatus, double qtdDano)
         {
             var textoGeral = TextBlockTexto.Text.Split('/');

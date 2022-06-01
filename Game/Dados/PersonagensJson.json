@@ -1,34 +1,34 @@
 ﻿[
   {
     "IdPersonagem": 0,
-    "Nome": "",
+    "Nome": "Mago",
     "Classe": "Mago",
     "Foto": "mago.png",
     "Vida": 100,
     "VidaAtual": 100,
-    "Mana": 120,
-    "Energia": 80,
+    "Mana": 110,
+    "Energia": 90,
     "Forca": 2,
     "Inteligencia": 3,
-    "Defesa": 2,
+    "Defesa": 3,
     "Agilidade": 3,
     "XpAtual": 0,
     "XpMaximo": 50,
     "HabilidadesPermitidas": [
+      1,
       0,
-      3,
       5
     ]
   },
   {
     "IdPersonagem": 1,
-    "Nome": "",
+    "Nome": "Guerreiro",
     "Classe": "Guerreiro",
     "Foto": "guerreiro.png",
-    "Vida": 120,
-    "VidaAtual": 120,
-    "Mana": 80,
-    "Energia": 100,
+    "Vida": 100,
+    "VidaAtual": 100,
+    "Mana": 90,
+    "Energia": 110,
     "Forca": 3,
     "Inteligencia": 2,
     "Defesa": 3,
@@ -37,7 +37,7 @@
     "XpMaximo": 50,
     "HabilidadesPermitidas": [
       1,
-      2,
+      4,
       5
     ]
   }

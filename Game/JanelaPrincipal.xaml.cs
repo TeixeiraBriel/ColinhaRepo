@@ -1,4 +1,5 @@
 ﻿using Game.Controles.MenuInicial;
+using Game.Controles.TelaPadrao;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,11 @@ namespace Game
             InitializeComponent();
             txtVersao.Content = $"v{System.Windows.Forms.Application.ProductVersion}";
             FrameJanelaPrincipal.Navigate(new IndexMenuInicial());
+
+            Util.DispatcherUtil.Dispatcher(() => {
+                janelaDadosHabilidade.Inicializa(this);
+                janelaDadosHabilidade.Esconder();
+            });
         }
     }
 }

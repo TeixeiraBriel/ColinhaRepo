@@ -25,6 +25,8 @@
             <TextBlock x:Name="NomePersonagem" Text="Gabriel" HorizontalAlignment="Center"/>
             <Image x:Name="ImageFotoPersonagem" Source="/Dados/Imagens/Inimigos/macaco.png" Height="150"/>
         </StackPanel>
+        
+        <TextBlock x:Name="TextoCusto" Text="Custo" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Visibility="Collapsed"/>
 
         <StackPanel Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock x:Name="VidaPersonagem" Text="100/100" HorizontalAlignment="Center"/>

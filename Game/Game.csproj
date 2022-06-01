@@ -25,8 +25,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>2205</ApplicationRevision>
-    <ApplicationVersion>1.1.0.2205</ApplicationVersion>
+    <ApplicationRevision>2206</ApplicationRevision>
+    <ApplicationVersion>1.2.1.2206</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -95,6 +95,9 @@
     <Compile Include="Controles\TelaMapa\IndexMapa.xaml.cs">
       <DependentUpon>IndexMapa.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controles\TelaPadrao\janelaDadosHabilidade.xaml.cs">
+      <DependentUpon>janelaDadosHabilidade.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Util\DispatcherUtil.cs" />
     <Compile Include="Util\Timer.cs" />
     <Page Include="Controles\MenuInformacoesJogador\AbaBolsa.xaml">
@@ -118,6 +121,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controles\TelaPadrao\IndexTelaPadrao.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controles\TelaPadrao\janelaDadosHabilidade.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -197,6 +204,12 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Dados\Imagens\ImgMeditar.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dados\Imagens\ImgMurrao.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="Dados\Imagens\Personagens\guerreiro.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
