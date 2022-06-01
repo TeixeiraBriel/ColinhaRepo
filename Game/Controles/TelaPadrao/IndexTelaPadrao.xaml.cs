@@ -62,9 +62,9 @@ namespace Game.Controles.TelaPadrao
             CarregaJsons();
             CarregaHablidadesPersonagem();
 
-            if(personagem.Agilidade < inimigo.Agilidade)
+            if (personagem.Agilidade < inimigo.Agilidade)
             {
-                vezInimigo=true;
+                vezInimigo = true;
             }
         }
 
@@ -79,9 +79,9 @@ namespace Game.Controles.TelaPadrao
 
             if (_save.VidaAtual > 0)
             {
-                 var vidaPerdida = personagem.Vida - _save.VidaAtual;
-                 var manaPerdida = personagem.Mana - _save.ManaAtual;
-                 var energiaPerdida = personagem.Energia - _save.EnergiaAtual;
+                var vidaPerdida = personagem.Vida - _save.VidaAtual;
+                var manaPerdida = personagem.Mana - _save.ManaAtual;
+                var energiaPerdida = personagem.Energia - _save.EnergiaAtual;
 
                 ModificaBarraInfo(VidaPersonagem, BarraDeVidaPersonagem, vidaPerdida);
                 ModificaBarraInfo(ManaPersonagem, BarraDeManaPersonagem, manaPerdida);
@@ -184,7 +184,7 @@ namespace Game.Controles.TelaPadrao
                     ModificaBarraInfo(EnergiaPersonagem, BarraDeStaminaPersonagem, qtdGasto);
                 }
 
-                if(habilidadeEscolhida.Tipo == "Fortificar")
+                if (habilidadeEscolhida.Tipo == "Fortificar")
                 {
                     PosicaoDefesa(qtdDano);
                 }
@@ -227,7 +227,7 @@ namespace Game.Controles.TelaPadrao
                 case "Combate":
                 case "Fortificar":
                     tipoGasto = 1;
-                    qtdDano = qtdDano * (0.5 *_personagem.Forca);
+                    qtdDano = qtdDano * (0.5 * _personagem.Forca);
                     break;
             }
 
@@ -259,36 +259,28 @@ namespace Game.Controles.TelaPadrao
         public void VerificaFimJogo()
         {
             var vidaPersonagem = double.Parse(VidaPersonagem.Text.Split('/')[0]);
-            var manaPersonagem = double.Parse(ManaPersonagem.Text.Split('/')[0]);
-            var energiaPersonagem = double.Parse(EnergiaPersonagem.Text.Split('/')[0]);
             var vidaInimigo = double.Parse(VidaInimigo.Text.Split('/')[0]);
 
             if (vidaInimigo <= 0)
             {
-                _save.VidaAtual = vidaPersonagem;
-                _save.ManaAtual = manaPersonagem;
-                _save.EnergiaAtual = energiaPersonagem;
-
+                AtualizaDadosSave();
                 FimDeJogo();
             }
             else if (vidaPersonagem <= 0)
             {
-                _save.VidaAtual = vidaPersonagem;
-                _save.ManaAtual = manaPersonagem;
-                _save.EnergiaAtual = energiaPersonagem;
-
+                AtualizaDadosSave();
                 FimDeJogo();
             }
         }
 
-        public void FimDeJogo()
+        public void FimDeJogo(bool fuga = false)
         {
             contadorRelogio.Stop();
             contadorInimigo.Stop();
             //contadorFimDeJogo.Stop();
 
             _save.Lutas++;
-            if (_save.VidaAtual <= 0)
+            if (_save.VidaAtual <= 0 || fuga)
             {
                 _save.Derrotas++;
             }
@@ -305,7 +297,14 @@ namespace Game.Controles.TelaPadrao
 
         private void VoltarFunc(object sender, RoutedEventArgs e)
         {
-            FimDeJogo();
+            AtualizaDadosSave();
+            FimDeJogo(true);
+        }
+        private void AtualizaDadosSave()
+        {
+            _save.VidaAtual = double.Parse(VidaPersonagem.Text.Split('/')[0]);
+            _save.ManaAtual = double.Parse(ManaPersonagem.Text.Split('/')[0]);
+            _save.EnergiaAtual = double.Parse(EnergiaPersonagem.Text.Split('/')[0]);
         }
 
         public void CarregaJsons()
@@ -354,7 +353,7 @@ namespace Game.Controles.TelaPadrao
                 janelaDadosHabilidade.Esconder();
             }
         }
-        
+
         public void ModificaBarraInfo(TextBlock TextBlockTexto, ProgressBar BarraDoStatus, double qtdDano)
         {
             var textoGeral = TextBlockTexto.Text.Split('/');

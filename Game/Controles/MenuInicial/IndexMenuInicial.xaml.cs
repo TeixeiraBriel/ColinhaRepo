@@ -26,7 +26,7 @@ namespace Game.Controles.MenuInicial
 
             CarregaComponentes();
 
-            if (save != null)
+            if (save != null && save.Jogador != null)
             {
                 string textoResumoParte2 = $"XP:{save.Jogador.XpAtual}/{save.Jogador.XpMaximo} Moedas:{save.Moedas}";
                 if (save.VidaAtual < 0)
