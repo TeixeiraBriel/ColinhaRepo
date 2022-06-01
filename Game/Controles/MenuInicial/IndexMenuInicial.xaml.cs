@@ -16,8 +16,8 @@ namespace Game.Controles.MenuInicial
     {
         List<Personagem> Personagens = new List<Personagem>();
         List<Inimigo> Inimigos = new List<Inimigo>();
-        Controlador _controlador;
         Progressao Save = new Progressao();
+        Controlador _controlador;
 
         public IndexMenuInicial(Progressao save = null)
         {
