@@ -165,6 +165,7 @@ namespace Game.Controles.TelaPadrao
             if (!vezInimigo)
             {
                 double[] resultado = RealizarAtaque(habilidadeEscolhida);
+                string tipoHabilidade = habilidadeEscolhida.Tipo;
 
                 double qtdDano = resultado[0];
                 double qtdDanoCausado = resultado[0] - _inimigo.Defesa;
@@ -180,7 +181,11 @@ namespace Game.Controles.TelaPadrao
                     ModificaBarraInfo(EnergiaPersonagem, BarraDeStaminaPersonagem, qtdGasto);
                 }
 
-                if (qtdDanoCausado > 0)
+                if (habilidadeEscolhida.Tipo == "Fortificar")
+                {
+                    ModificaBarraInfo(VidaPersonagem, BarraDeVidaPersonagem, (-1 * qtdDano));
+                }
+                else if (qtdDanoCausado > 0)
                 {
                     ModificaBarraInfo(VidaInimigo, BarraDeVidaInimigo, qtdDanoCausado);
                 }
