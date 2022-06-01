@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Infraestrutura.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,10 +21,14 @@ namespace Game.Controles.MenuInformacoesJogador
     /// </summary>
     public partial class IndexMenuInformacoesJogador : Page
     {
-        public IndexMenuInformacoesJogador(string nome, string life, string mana)
+        private Progressao _save = new Progressao();
+        public IndexMenuInformacoesJogador(Progressao save)
         {
             InitializeComponent();
-            FrameAbaInformacoesJogador.Navigate(new AbaStatus(this));
+
+            _save = save;
+
+            FrameAbaInformacoesJogador.Navigate(new AbaStatus(save));
             teste();
         }
 
@@ -34,7 +39,7 @@ namespace Game.Controles.MenuInformacoesJogador
 
         private void MudaAbaStatus(object sender, RoutedEventArgs e)
         {
-            FrameAbaInformacoesJogador.Navigate(new AbaStatus(this));
+            FrameAbaInformacoesJogador.Navigate(new AbaStatus(_save));
         }
 
         private void AtacarInimigo(object sender, MouseButtonEventArgs e)

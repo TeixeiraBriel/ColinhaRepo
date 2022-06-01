@@ -9,8 +9,30 @@
       Title="AbaStatus">
 
     <Grid>
-        <StackPanel x:Name="PainelDados">
-            
-        </StackPanel>
+        <ScrollViewer>
+            <StackPanel x:Name="PainelDados" HorizontalAlignment="Left">
+                <TextBlock x:Name="infoNome" Margin="5"/>
+                <TextBlock x:Name="infoVida" Margin="5,0"/>
+                <TextBlock x:Name="infoEnergia" Margin="5"/>
+                <TextBlock x:Name="infoDefesa" Margin="5,0"/>
+                <TextBlock x:Name="infoForca" Margin="5"/>
+                <TextBlock x:Name="infoInteligencia" Margin="5,0"/>
+                <TextBlock x:Name="infoAgilidade" Margin="5"/>
+                <TextBlock x:Name="infoClasse" Margin="5,0"/>
+                <TextBlock x:Name="infoFoto" Margin="5"/>
+                <TextBlock x:Name="infoXPAtual" Margin="5,0"/>
+                <TextBlock x:Name="infoMana" Margin="5"/>
+                <TextBlock x:Name="infoXPMaximo" Margin="5,0"/>
+                <TextBlock x:Name="infoLutas" Margin="5"/>
+                <TextBlock x:Name="infoVitorias" Margin="5,0"/>
+                <TextBlock x:Name="infoDerrotas" Margin="5"/>
+                <TextBlock x:Name="infoMoedas" Margin="5,0"/>
+                <TextBlock x:Name="infoNivel" Margin="5"/>
+                <TextBlock x:Name="infoVidaAtual" Margin="5,0"/>
+                <TextBlock x:Name="infoManaAtual" Margin="5"/>
+                <TextBlock x:Name="infoEnergiaAtual" Margin="5,0"/>
+                <TextBlock x:Name="infoHabilidadesPermitidas" Margin="5"/>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>

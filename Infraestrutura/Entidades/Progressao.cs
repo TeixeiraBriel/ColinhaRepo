@@ -8,17 +8,14 @@ namespace Infraestrutura.Entidades
 {
     public class Progressao
     {
-        public int Classe { get; set; }
-        public double VidaAtual { get; set; }
-        public double ManaAtual { get; set; }
-        public double EnergiaAtual { get; set; }
         public int Lutas { get; set; }
         public int Vitorias { get; set; }
         public int Derrotas { get; set; }
         public int Moedas { get; set; }
-        public int ExperienciaMax { get; set; }
-        public int ExperienciaAtual { get; set; }
         public int Nivel { get; set; }
-        public int[] HabilidadesAprendidas { get; set; }
+        public Personagem Jogador { get; set; }
+        public double VidaAtual { get; set; }
+        public double ManaAtual { get; set; }
+        public double EnergiaAtual { get; set; }    
     }
 }

@@ -22,33 +22,56 @@ namespace Game.Controles.MenuInformacoesJogador
     /// </summary>
     public partial class AbaStatus : Page
     {
-        private IndexMenuInformacoesJogador FramePai;
+        private Progressao _save = new Progressao();
         Personagem _Personagem;
         Controlador _controlador;
 
-        public AbaStatus(IndexMenuInformacoesJogador framePai)
+        public AbaStatus(Progressao save)
         {
             InitializeComponent();
+
             _controlador = new Controlador();
             _Personagem = new Personagem();
-            FramePai = framePai;
+            _save = save;
+
             iniciaDados();
         }
 
         void iniciaDados()
         {
+            Progressao save = _save;
+
+            infoNome.Text = "Nome: " + _save.Jogador.Nome;
+            infoVida.Text = "Vida Maxima: " + _save.Jogador.Vida.ToString();
+            infoMana.Text = "Mana Maxima: " + _save.Jogador.Mana.ToString();
+            infoEnergia.Text = "Energia Maxima: " + _save.Jogador.Energia.ToString();
+            infoDefesa.Text = "Defesa: " + _save.Jogador.Defesa.ToString();
+            infoForca.Text = "Força: " + _save.Jogador.Forca.ToString();
+            infoInteligencia.Text = "Inteligencia: " + _save.Jogador.Inteligencia.ToString();
+            infoAgilidade.Text = "Agilidade: " + _save.Jogador.Agilidade.ToString();
+            infoClasse.Text = "Classe: " + _save.Jogador.Classe;
+            infoFoto.Text = "Foto: " + _save.Jogador.Foto;
+            infoXPMaximo.Text = "XP Maximo: " + _save.Jogador.XpMaximo.ToString();
+            infoXPAtual.Text = "XP Atual: " + _save.Jogador.XpAtual.ToString();
+            infoLutas.Text = "Lutas: " + _save.Lutas.ToString();
+            infoVitorias.Text = "Vitorias: " + _save.Vitorias.ToString();
+            infoDerrotas.Text = "Derrotas: " + _save.Derrotas.ToString();
+            infoMoedas.Text = "Moedas: " + _save.Moedas.ToString();
+            infoNivel.Text = "Nivel: " + _save.Nivel.ToString();
+            infoVidaAtual.Text = "Vida Atual: " + _save.VidaAtual.ToString();
+            infoManaAtual.Text = "Mana Atual: " + _save.ManaAtual.ToString();
+            infoEnergiaAtual.Text = "Energial Atual: " + _save.EnergiaAtual.ToString();
+
+            string habPermitidas = "Habilidades: | ";
             _controlador.CarregaJsons();
-            _Personagem = _controlador.Personagens.FirstOrDefault();
-
-            var teste = XpandoLibrary.Xpando.ToExpando(_Personagem);
-            foreach (var item in teste)
+            foreach (var hab in _controlador.Habilidades)
             {
-                if (item.Key == "IdPersonagem" || item.Key == "Foto" || item.Key == "HabilidadesPermitidas")
-                    continue;
-
-                TextBlock info = new TextBlock() { Text = $"{item.Key}: {item.Value}", Margin = new Thickness(5, 5, 5, 5) };
-                PainelDados.Children.Add(info);
+                if (_save.Jogador.HabilidadesPermitidas.Contains(hab.IdHabilidade))
+                {
+                    habPermitidas += $"{hab.Nome} | ";
+                }
             }
+            infoHabilidadesPermitidas.Text = habPermitidas;
         }
     }
 }

@@ -1,11 +1,26 @@
 ﻿{
-  "Classe": 0,
   "Lutas": 0,
   "Vitorias": 0,
   "Derrotas": 0,
   "Moedas": 0,
-  "ExperienciaMax": 100,
-  "ExperienciaAtual": 0,
   "Nivel": 1,
-  "HabilidadesAprendidas": []
+  "Jogador": {
+    "IdPersonagem": 0,
+    "Nome": "Gabriel",
+    "Classe": "Mago",
+    "Foto": "mago.png",
+    "Vida": 100,
+    "Mana": 120,
+    "Energia": 80,
+    "Forca": 2,
+    "Inteligencia": 3,
+    "Defesa": 2,
+    "Agilidade": 3,
+    "XpAtual": 0,
+    "XpMaximo": 50,
+    "HabilidadesPermitidas": [ 0, 3, 5 ]
+  },
+  "VidaAtual": 100,
+  "ManaAtual": 100,
+  "EnergiaAtual": 100
 }

@@ -24,12 +24,25 @@ namespace Game.Controles.MenuInicial
             InitializeComponent();
             _controlador = new Controlador();
 
-            CarregaComboBoxes();
+            CarregaComponentes();
 
             if (save != null)
             {
-                Save = save;
-                btnContinuar.IsEnabled = true;
+                string textoResumoParte2 = $"XP:{save.Jogador.XpAtual}/{save.Jogador.XpMaximo} Moedas:{save.Moedas}";
+                if (save.VidaAtual < 0)
+                {
+                    btnContinuar.IsEnabled = false;
+                    btnAtributos.IsEnabled = false;
+                    textoResumoParte2 += " Morto!";
+                }
+                else
+                {
+                    Save = save;
+                    btnContinuar.IsEnabled = true;
+                    btnAtributos.IsEnabled = true;
+                }
+                textResumoSaveParte1.Text = $"Jogos:{save.Lutas} Vitorias:{save.Vitorias} Derrota:{save.Derrotas}";
+                textResumoSaveParte2.Text = textoResumoParte2;
             }
         }
 
@@ -52,13 +65,10 @@ namespace Game.Controles.MenuInicial
 
         private void NavegaInfoJogador(object sender, RoutedEventArgs e)
         {
-            string nome = inputName.Text;
-            string life = inputLife.Text;
-            string mana = inputMana.Text;
-            this.NavigationService.Navigate(new IndexMenuInformacoesJogador(nome, life, mana));
+            this.NavigationService.Navigate(new IndexMenuInformacoesJogador(Save));
         }
 
-        public void CarregaComboBoxes()
+        public void CarregaComponentes()
         {
             _controlador.CarregaJsons();
             Personagens = _controlador.Personagens;
@@ -82,28 +92,25 @@ namespace Game.Controles.MenuInicial
 
         private void ContinuarJogo(object sender, RoutedEventArgs e)
         {
-            Personagem perso = Personagens.Find(x => x.IdPersonagem == Save.Classe);
             Inimigo inimi = Inimigos.Find(x => x.IdInimigo == 0);
-
-            if (Save.Nivel == 0)
-                Save.Nivel = 1;
-
             inimi.DefineNivel(Save.Nivel);
 
-            this.NavigationService.Navigate(new IndexTelaPadrao(perso, inimi, Save));
+            this.NavigationService.Navigate(new IndexTelaPadrao(Save.Jogador, inimi, Save));
         }
 
         private void NovoJogo(object sender, RoutedEventArgs e)
         {
-            var fileSave = @"Dados\Save.json";
-            Save = JsonConvert.DeserializeObject<Progressao>(File.ReadAllText(fileSave, Encoding.UTF8));
+            Save = new Progressao();
+            Save.Jogador = Personagens.Find(x => x.Classe == "Mago");
+            Save.Nivel = 1;
+            Save.VidaAtual = Save.Jogador.Vida;
+            Save.ManaAtual = Save.Jogador.Mana;
+            Save.EnergiaAtual = Save.Jogador.Energia;
 
-            Personagem perso = Personagens.Find(x => x.IdPersonagem == Save.Classe);
             Inimigo inimi = Inimigos.Find(x => x.IdInimigo == 0);
-
             inimi.DefineNivel(Save.Nivel);
 
-            this.NavigationService.Navigate(new IndexTelaPadrao(perso, inimi, Save));
+            this.NavigationService.Navigate(new IndexTelaPadrao(Save.Jogador, inimi, Save));
         }
     }
 }

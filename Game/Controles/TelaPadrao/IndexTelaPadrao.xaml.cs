@@ -1,4 +1,5 @@
-﻿using Game.Controles.MenuInicial;
+﻿using Game.Controladores;
+using Game.Controles.MenuInicial;
 using Infraestrutura.Entidades;
 using Newtonsoft.Json;
 using System;
@@ -27,10 +28,11 @@ namespace Game.Controles.TelaPadrao
     {
         List<Habilidade> _Habilidades = new List<Habilidade>();
         Progressao _save;
+        Controlador _controlador;
 
         public DispatcherTimer contadorRelogio = new DispatcherTimer();
         public DispatcherTimer contadorInimigo = new DispatcherTimer();
-        public DispatcherTimer contadorFimDeJogo = new DispatcherTimer();
+        //public DispatcherTimer contadorFimDeJogo = new DispatcherTimer();
 
         Personagem _personagem;
         Inimigo _inimigo;
@@ -43,6 +45,7 @@ namespace Game.Controles.TelaPadrao
             InitializeComponent();
             inicializaTimer();
 
+            _controlador = new Controlador();
             _personagem = personagem;
             _inimigo = inimigo;
             if (save != null)
@@ -103,9 +106,9 @@ namespace Game.Controles.TelaPadrao
             contadorInimigo.Interval = new TimeSpan(0, 0, 2);
             contadorInimigo.Start();
 
-            contadorFimDeJogo.Tick += new EventHandler(VerificaFimJogo);
-            contadorFimDeJogo.Interval = new TimeSpan(0, 0, 1);
-            contadorFimDeJogo.Start();
+            //contadorFimDeJogo.Tick += new EventHandler(VerificaFimJogo);
+            //contadorFimDeJogo.Interval = new TimeSpan(0, 0, 0, 0, 300);
+            //contadorFimDeJogo.Start();
         }
 
         public void Relogio(object sender, EventArgs e)
@@ -240,9 +243,10 @@ namespace Game.Controles.TelaPadrao
             PainelDeEventos.Children.Add(novoEnvento);
             ContadorEventos++;
             ScrollEventos.PageDown();
+            VerificaFimJogo();
         }
 
-        public void VerificaFimJogo(object sender, EventArgs e)
+        public void VerificaFimJogo()
         {
             var vidaPersonagem = double.Parse(VidaPersonagem.Text.Split('/')[0]);
             var manaPersonagem = double.Parse(ManaPersonagem.Text.Split('/')[0]);
@@ -259,6 +263,10 @@ namespace Game.Controles.TelaPadrao
             }
             else if (vidaPersonagem <= 0)
             {
+                _save.VidaAtual = vidaPersonagem;
+                _save.ManaAtual = manaPersonagem;
+                _save.EnergiaAtual = energiaPersonagem;
+
                 FimDeJogo();
             }
         }
@@ -267,7 +275,7 @@ namespace Game.Controles.TelaPadrao
         {
             contadorRelogio.Stop();
             contadorInimigo.Stop();
-            contadorFimDeJogo.Stop();
+            //contadorFimDeJogo.Stop();
 
             _save.Lutas++;
             if (_save.VidaAtual <= 0)
@@ -278,8 +286,10 @@ namespace Game.Controles.TelaPadrao
             {
                 _save.Vitorias++;
                 _save.Moedas += 100;
-                _save.ExperienciaAtual += 10 * _save.Nivel;
+                _save.Jogador.XpAtual += 10 * _save.Nivel;
             }
+
+            _controlador.salvarAvanço(_save);
             this.NavigationService.Navigate(new IndexMenuInicial(_save));
         }
 

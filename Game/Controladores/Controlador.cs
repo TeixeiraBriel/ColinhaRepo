@@ -1,5 +1,6 @@
 ﻿using Infraestrutura.Entidades;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -48,7 +49,31 @@ namespace Game.Controladores
             _Progressao = JsonConvert.DeserializeObject<Progressao>(File.ReadAllText(fileSave, Encoding.UTF8));
             _Personagens = JsonConvert.DeserializeObject<List<Personagem>>(File.ReadAllText(filePersonagens, Encoding.UTF8));
             _Inimigos = JsonConvert.DeserializeObject<List<Inimigo>>(File.ReadAllText(fileInimigos, Encoding.UTF8));
-            _Habilidades = JsonConvert.DeserializeObject<List<Habilidade>>(File.ReadAllText(fileInimigos, Encoding.UTF8));
+            _Habilidades = JsonConvert.DeserializeObject<List<Habilidade>>(File.ReadAllText(fileHabilidades, Encoding.UTF8));
+        }
+
+        public bool salvarAvanço(Progressao save)
+        {
+            try
+            {
+                Progressao novo = save;
+                string output = JsonConvert.SerializeObject(novo);
+
+                File.WriteAllText(@"Dados\Save.json", output.ToString());
+
+                using (StreamWriter file2 = File.CreateText(@"Dados\Save.json"))
+                using (JsonTextWriter writer = new JsonTextWriter(file2))
+                {
+                    JObject.Parse(output).WriteTo(writer);
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+            }
         }
     }
 }
