@@ -1,4 +1,5 @@
-﻿using Game.Controles.MenuInformacoesJogador;
+﻿using Game.Controladores;
+using Game.Controles.MenuInformacoesJogador;
 using Game.Controles.TelaPadrao;
 using Game.Util;
 using Infraestrutura.Entidades;
@@ -15,10 +16,13 @@ namespace Game.Controles.MenuInicial
     {
         List<Personagem> Personagens = new List<Personagem>();
         List<Inimigo> Inimigos = new List<Inimigo>();
+        Controlador _controlador;
 
         public IndexMenuInicial()
         {
             InitializeComponent();
+            _controlador = new Controlador();
+
             CarregaComboBoxes();
         }
 
@@ -49,7 +53,9 @@ namespace Game.Controles.MenuInicial
 
         public void CarregaComboBoxes()
         {
-            CarregaJsons();
+            _controlador.CarregaJsons();
+            Personagens = _controlador.Personagens;
+            Inimigos = _controlador.Inimigos;
 
             foreach (var personagem in Personagens)
             {
@@ -66,14 +72,5 @@ namespace Game.Controles.MenuInicial
                 cmbNivelInimigo.Items.Add(i.ToString());
             }
         }
-        public void CarregaJsons()
-        {
-            var fileInimigos = @"Dados\InimigosJson.json";
-            var filePersonagens = @"Dados\PersonagensJson.json";
-
-            Personagens = JsonConvert.DeserializeObject<List<Personagem>>(File.ReadAllText(filePersonagens, Encoding.UTF8));
-            Inimigos = JsonConvert.DeserializeObject<List<Inimigo>>(File.ReadAllText(fileInimigos, Encoding.UTF8));
-        }
-
     }
 }

@@ -9,6 +9,8 @@
       Title="AbaStatus">
 
     <Grid>
-        <TextBlock Text="ABASTATUS" FontSize="80"/>
+        <StackPanel x:Name="PainelDados">
+            
+        </StackPanel>
     </Grid>
 </Page>
