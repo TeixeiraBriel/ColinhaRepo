@@ -47,11 +47,11 @@ namespace Game.Controles.TelaPadrao
         public void DefineDados(Habilidade habilidadeEscolhida) 
         {
             string tipoCusto = habilidadeEscolhida.Tipo == "Magia" || habilidadeEscolhida.Tipo == "Buff" || habilidadeEscolhida.Tipo == "DeBuff" ? "Mana" : "Energia";
-            CustoHab.Text = $"{habilidadeEscolhida.CustoBase} de {tipoCusto}";
+            CustoHab.Text = $"{tipoCusto}: {habilidadeEscolhida.CustoBase}";
 
-            NomeHab.Text = $"Nome: {habilidadeEscolhida.Nome}";
+            NomeHab.Text = $"{habilidadeEscolhida.Nome}";
             DanoHab.Text = $"Dano: {habilidadeEscolhida.DanoBase}";
-            Tipohab.Text = $"Tipo: {habilidadeEscolhida.Tipo}";
+            Tipohab.Text = $"{habilidadeEscolhida.Tipo}";
 
             var imgArquivo = new ImageSourceConverter().ConvertFromString($"Dados\\Imagens\\{habilidadeEscolhida.Icon}") as ImageSource;
             IconHab.Source = imgArquivo;
