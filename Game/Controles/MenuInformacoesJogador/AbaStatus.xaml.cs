@@ -46,7 +46,7 @@ namespace Game.Controles.MenuInformacoesJogador
                 if (item.Key == "IdPersonagem" || item.Key == "Foto" || item.Key == "HabilidadesPermitidas")
                     continue;
 
-                TextBlock info = new TextBlock() { Text = $"{item.Key}:{item.Value}", Margin = new Thickness(5, 5, 5, 5) };
+                TextBlock info = new TextBlock() { Text = $"{item.Key}: {item.Value}", Margin = new Thickness(5, 5, 5, 5) };
                 PainelDados.Children.Add(info);
             }
         }
