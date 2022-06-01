@@ -1,9 +1,10 @@
 ﻿[
   {
-    "IdPersonagem": 2,
+    "IdPersonagem": 0,
     "Nome": "Mago",
     "Foto": "mago.png",
     "Vida": 100,
+    "VidaAtual": 100,
     "Mana": 120,
     "Energia": 80,
     "Forca": 2,
@@ -23,6 +24,7 @@
     "Nome": "Guerreiro",
     "Foto": "guerreiro.png",
     "Vida": 120,
+    "VidaAtual": 120,
     "Mana": 80,
     "Energia": 100,
     "Forca": 3,
