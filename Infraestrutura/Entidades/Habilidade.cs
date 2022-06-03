@@ -14,5 +14,7 @@ namespace Infraestrutura.Entidades
         public double CustoBase { get; set; }
         public string Tipo { get; set; }
         public string Icon { get; set; }
+        public string Descricao { get; set; }
+
     }
 }
