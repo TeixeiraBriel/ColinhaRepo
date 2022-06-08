@@ -59,6 +59,7 @@ namespace Game.Controles.TelaPadrao
                 case "Magia":
                 case "Buff":
                 case "DeBuff":
+                    TipoDano.Text = $"+ ()";
                     TipoDano.Foreground = new SolidColorBrush(Colors.Blue);
                     break;
 

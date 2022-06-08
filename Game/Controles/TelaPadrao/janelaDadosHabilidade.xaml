@@ -6,8 +6,11 @@
         xmlns:local="clr-namespace:Game.Controles.TelaPadrao"
         mc:Ignorable="d"
         Title="janelaDadosHabilidade" Height="200" Width="200" ResizeMode="NoResize" WindowStyle="None">
-    <Grid Background="DimGray">
-        <StackPanel Margin="5">
+    <Window.Background>
+        <SolidColorBrush Opacity="0.4" Color="White"/>
+    </Window.Background>
+    <Grid>
+        <StackPanel Margin="5" >
             <StackPanel Orientation="Horizontal">
                 <Image x:Name="IconHab" Source="/Dados/Imagens/ImgAtq.png" Height="40" Margin="5"/>
                 <StackPanel VerticalAlignment="Center">
