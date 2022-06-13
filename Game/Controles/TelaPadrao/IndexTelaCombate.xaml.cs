@@ -24,9 +24,9 @@ namespace Game.Controles.TelaPadrao
     /// <summary>
     /// Interação lógica para IndexTelaPadrao.xam
     /// </summary>
-    public partial class IndexTelaPadrao : Page
+    public partial class IndexTelaCombate : Page
     {
-        List<Habilidade> _Habilidades = new List<Habilidade>();
+        List<Habilidade> _Habilidades;
         Progressao _save;
         Controlador _controlador;
 
@@ -40,7 +40,7 @@ namespace Game.Controles.TelaPadrao
         bool vezInimigo = false;
         public int tempo = 60;
 
-        public IndexTelaPadrao(Personagem personagem, Inimigo inimigo, Progressao save = null)
+        public IndexTelaCombate(Personagem personagem, Inimigo inimigo, Progressao save = null)
         {
             InitializeComponent();
             inicializaTimer();
@@ -48,6 +48,8 @@ namespace Game.Controles.TelaPadrao
             _controlador = new Controlador();
             _personagem = personagem;
             _inimigo = inimigo;
+            _Habilidades = new List<Habilidade>();
+
             if (save != null)
             {
                 _save = save;

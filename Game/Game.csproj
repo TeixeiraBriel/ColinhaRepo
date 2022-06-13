@@ -127,7 +127,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controles\TelaPadrao\IndexTelaPadrao.xaml">
+    <Page Include="Controles\TelaPadrao\IndexTelaCombate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -150,8 +150,8 @@
     <Compile Include="Controles\MenuInicial\IndexMenuInicial.xaml.cs">
       <DependentUpon>IndexMenuInicial.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controles\TelaPadrao\IndexTelaPadrao.xaml.cs">
-      <DependentUpon>IndexTelaPadrao.xaml</DependentUpon>
+    <Compile Include="Controles\TelaPadrao\IndexTelaCombate.xaml.cs">
+      <DependentUpon>IndexTelaCombate.xaml</DependentUpon>
     </Compile>
     <Compile Include="JanelaPrincipal.xaml.cs">
       <DependentUpon>JanelaPrincipal.xaml</DependentUpon>
