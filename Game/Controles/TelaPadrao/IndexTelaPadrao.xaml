@@ -32,7 +32,7 @@
 
         <StackPanel Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock x:Name="VidaPersonagem" Text="100/100" HorizontalAlignment="Center"/>
-            <ProgressBar x:Name="BarraDeVidaPersonagem"  Height="15" Value="100" Orientation="Horizontal" Width="100" Foreground="Red" BorderBrush="Black" Background="White" Margin="0,0,0,0"/>
+            <ProgressBar x:Name="BarraDeVidaPersonagem" Height="15" Value="100" Orientation="Horizontal" Width="100" Foreground="Red" BorderBrush="Black" Background="White" Margin="0,0,0,0"/>
             <TextBlock x:Name="ManaPersonagem" Text="" HorizontalAlignment="Center"/>
             <ProgressBar x:Name="BarraDeManaPersonagem"  Height="15" Value="100" Orientation="Horizontal" Width="100" Foreground="Blue" BorderBrush="Black" Background="White" Margin="0,5,0,0"/>
             <TextBlock x:Name="EnergiaPersonagem" Text="" HorizontalAlignment="Center"/>

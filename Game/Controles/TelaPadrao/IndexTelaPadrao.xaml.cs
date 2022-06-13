@@ -177,6 +177,12 @@ namespace Game.Controles.TelaPadrao
                 double qtdDanoCausado = resultado[0] - _inimigo.Defesa;
                 double qtdGasto = resultado[1];
                 double tipoGasto = resultado[2];
+                AtualizaDadosSave();
+
+                if ((_save.ManaAtual - habilidadeEscolhida.CustoBase < 0 && tipoGasto == 0) || (_save.EnergiaAtual - habilidadeEscolhida.CustoBase < 0 && tipoGasto == 1))
+                {                  
+                    return;
+                }
 
                 if (tipoGasto == 0)
                 {
@@ -240,6 +246,7 @@ namespace Game.Controles.TelaPadrao
         private void PosicaoDefesa(double qtdDano)
         {
             _personagem.Defesa += qtdDano;
+
         }
 
         int ContadorEventos = 0;
