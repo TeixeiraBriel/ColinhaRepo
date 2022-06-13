@@ -110,7 +110,7 @@ namespace Game.Controles.MenuInicial
             Inimigo inimi = Inimigos.Find(x => x.IdInimigo == 0);
             inimi.DefineNivel(Save.Nivel);
 
-            this.NavigationService.Navigate(new IndexTelaPadrao(Save.Jogador, inimi, Save));
+            this.NavigationService.Navigate(new CriarNovoJogoView());
         }
     }
 }
