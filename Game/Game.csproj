@@ -92,6 +92,9 @@
     <Compile Include="Controles\MenuInformacoesJogador\AbaStatus.xaml.cs">
       <DependentUpon>AbaStatus.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controles\MenuInformacoesJogador\CriarNovoJogoView.xaml.cs">
+      <DependentUpon>CriarNovoJogoView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controles\TelaMapa\IndexMapa.xaml.cs">
       <DependentUpon>IndexMapa.xaml</DependentUpon>
     </Compile>
@@ -105,6 +108,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controles\MenuInformacoesJogador\AbaStatus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controles\MenuInformacoesJogador\CriarNovoJogoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -175,6 +182,9 @@
     <EmbeddedResource Include="Dados\Save.Json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dados\ClassesJson.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -231,9 +241,9 @@
     <EmbeddedResource Include="Dados\Imagens\Itens\Necklace_02.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dados\Imagens\ImgAtq.png">
+    <Content Include="Dados\Imagens\ImgAtq.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </Content>
     <Content Include="Dados\Imagens\ImgCura.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

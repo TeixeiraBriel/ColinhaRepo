@@ -47,7 +47,7 @@ namespace Game.Controles.TelaPadrao
         {
             Instancia = new janelaDadosHabilidade(janelaPrincipal)
             {
-                WindowStartupLocation = WindowStartupLocation.CenterScreen,
+                WindowStartupLocation = WindowStartupLocation.Manual,
                 WindowState = WindowState.Normal,
             };
         }
@@ -92,10 +92,7 @@ namespace Game.Controles.TelaPadrao
         public void AdjustPosition(object sender, EventArgs e)
         {
             if (Instancia != null)
-            {
-              /*Instancia.Left = _janelaPrincipal.Left + _janelaPrincipal.ActualWidth;
-                Instancia.Top = _janelaPrincipal.Top;*/
-                
+            {                
                 Point GetMousePos() => _janelaPrincipal.PointToScreen(Mouse.GetPosition(_janelaPrincipal));
 
                 Instancia.Left = GetMousePos().X - 100;
