@@ -5,19 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Game.Controles.TelaPadrao"
         mc:Ignorable="d"
-        Title="janelaDadosHabilidade" Height="200" Width="200" ResizeMode="NoResize" WindowStyle="None">
-    <Grid Background="DimGray">
-        <StackPanel Margin="5">
+        Title="janelaDadosHabilidade" Height="200" Width="200" ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True">
+    <Window.Background>
+        <SolidColorBrush Opacity="0.9" Color="DimGray"/>
+    </Window.Background>
+    <Grid>
+        <StackPanel Margin="5" >
             <StackPanel Orientation="Horizontal">
                 <Image x:Name="IconHab" Source="/Dados/Imagens/ImgAtq.png" Height="40" Margin="5"/>
                 <StackPanel VerticalAlignment="Center">
-                    <TextBlock x:Name="NomeHab" Text="Nome" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="1"/>
-                    <TextBlock x:Name="Tipohab" Text="Tipo" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="1"/>
+                    <TextBlock x:Name="NomeHab" Text="Nome:" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="1"/>
+                    <TextBlock x:Name="Tipohab" Text="Tipo:" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="1"/>
                 </StackPanel>
             </StackPanel>
-            <TextBlock x:Name="DanoHab" Text="Dano" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="5"/>
-            <TextBlock x:Name="CustoHab" Text="Custo" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="5"/>
-            <TextBlock x:Name="DescricaoHab" Text="Descricao:" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="5"/>
+            
+            <TextBlock  HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="5">
+            <TextBlock x:Name="DanoHab" Text="Dano:"/>                
+            <TextBlock x:Name="TipoDano" Text="+ (2)" />                
+            </TextBlock>
+            
+            <TextBlock x:Name="CustoHab" Text="Custo:" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="5"/>
+            <TextBlock x:Name="DescricaoHab" Text="Descricao:" TextWrapping="Wrap" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="5"/>
         </StackPanel>
     </Grid>
 </Window>

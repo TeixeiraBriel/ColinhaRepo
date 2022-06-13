@@ -1,4 +1,5 @@
-﻿using Infraestrutura.Entidades;
+﻿using Game.Controladores;
+using Infraestrutura.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,9 @@ namespace Game.Controles.TelaPadrao
     /// </summary>
     public partial class janelaDadosHabilidade : Window
     {
+        Controlador _controlador;
+        Progressao _save;
+
         JanelaPrincipal _janelaPrincipal;
         DispatcherTimer contadorRelogio = new DispatcherTimer();
 
@@ -29,6 +33,9 @@ namespace Game.Controles.TelaPadrao
             InitializeComponent();
             _janelaPrincipal = janelaPrincipal;
             timer();
+            _controlador = new Controlador();
+            _controlador.CarregaJsons();
+            _save = new Progressao();
         }
 
         public static janelaDadosHabilidade Instancia;
@@ -47,11 +54,29 @@ namespace Game.Controles.TelaPadrao
         public void DefineDados(Habilidade habilidadeEscolhida) 
         {
             string tipoCusto = habilidadeEscolhida.Tipo == "Magia" || habilidadeEscolhida.Tipo == "Buff" || habilidadeEscolhida.Tipo == "DeBuff" ? "Mana" : "Energia";
-            CustoHab.Text = $"{tipoCusto}: {habilidadeEscolhida.CustoBase}";
+            CustoHab.Text = $"Custo: {habilidadeEscolhida.CustoBase} de {tipoCusto}";
 
             NomeHab.Text = $"{habilidadeEscolhida.Nome}";
             DanoHab.Text = $"Dano: {habilidadeEscolhida.DanoBase}";
             Tipohab.Text = $"{habilidadeEscolhida.Tipo}";
+            DescricaoHab.Text = $"Descrição: {habilidadeEscolhida.Descricao}";
+            
+            switch (habilidadeEscolhida.Tipo)
+            {
+                case "Magia":
+                case "Buff":
+                case "DeBuff":
+                    TipoDano.Text = $"+ ({_controlador.Personagens.Find(x => x.IdPersonagem == _save.Classe).Inteligencia})";
+                    TipoDano.Foreground = new SolidColorBrush(Colors.Blue);
+                    break;
+
+                case "ArtesMarciais":
+                case "Combate":
+                case "Fortificar":
+                    TipoDano.Text = $"+ ({_controlador.Personagens.Find(x => x.IdPersonagem == _save.Classe).Forca})";
+                    TipoDano.Foreground = new SolidColorBrush(Colors.Yellow);
+                    break;
+            }
 
             var imgArquivo = new ImageSourceConverter().ConvertFromString($"Dados\\Imagens\\{habilidadeEscolhida.Icon}") as ImageSource;
             IconHab.Source = imgArquivo;

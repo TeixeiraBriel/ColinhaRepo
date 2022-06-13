@@ -5,7 +5,8 @@
     "DanoBase": 14,
     "CustoBase": 15,
     "Tipo": "Magia",
-    "Icon": "ImgFireBall.png"
+    "Icon": "ImgFireBall.png",
+    "Descricao": "Conjura uma bola de fogo que é lançada em direção ao alvo."
   },
   {
     "IdHabilidade": 1,
@@ -13,7 +14,8 @@
     "DanoBase": 12,
     "CustoBase": 5,
     "Tipo": "ArtesMarciais",
-    "Icon": "ImgAtq.png"
+    "Icon": "ImgAtq.png",
+    "Descricao": "Utiliza os punhos e sua incrivel força fisica para gopear o alvo."
   },
   {
     "IdHabilidade": 2,
@@ -21,7 +23,8 @@
     "DanoBase": 18,
     "CustoBase": 15,
     "Tipo": "Combate",
-    "Icon": "ImgMurrao.png"
+    "Icon": "ImgMurrao.png",
+    "Descricao": "Esse é o soco boladão."
   },
   {
     "IdHabilidade": 3,
@@ -29,7 +32,8 @@
     "DanoBase": 14,
     "CustoBase": 12,
     "Tipo": "Buff",
-    "Icon": "ImgCura.png"
+    "Icon": "ImgCura.png",
+    "Descricao": "Conjura a cura em si mesmo, recuperando parte da vida perdida."
   },
   {
     "IdHabilidade": 4,
@@ -37,7 +41,8 @@
     "DanoBase": 15,
     "CustoBase": 30,
     "Tipo": "Buff",
-    "Icon": "ImgMeditar.png"
+    "Icon": "ImgMeditar.png",
+    "Descricao": "Assume posição de meditação para se concentrar, restaurando vida perdida."
   },
   {
     "IdHabilidade": 5,
@@ -45,14 +50,16 @@
     "DanoBase": 2,
     "CustoBase": 15,
     "Tipo": "Fortificar",
-    "Icon": "ImgDef.png"
+    "Icon": "ImgDef.png",
+    "Descricao": "Assume posição defensiva, onde sua defesa é aumentada."
   },
   {
     "IdHabilidade": 6,
-    "Nome": "Não Definido",
+    "Nome": "Não Definido.",
     "DanoBase": 25,
     "CustoBase": 15,
     "Tipo": "Debuff",
-    "Icon": "ImgAtq.png"
+    "Icon": "ImgAtq.png",
+    "Descricao": "Lança uma bola de fogo que explode no alvo."
   }
 ]
