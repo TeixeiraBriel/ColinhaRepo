@@ -337,6 +337,7 @@ namespace Game.Controles.TelaPadrao
             AtualizaDadosSave();
             FimDeJogo(true);
         }
+
         private void AtualizaDadosSave()
         {
             _save.VidaAtual = double.Parse(VidaPersonagem.Text.Split('/')[0]);
