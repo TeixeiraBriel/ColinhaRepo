@@ -66,14 +66,14 @@ namespace Game.Controles.TelaPadrao
                 case "Magia":
                 case "Buff":
                 case "DeBuff":
-                    TipoDano.Text = $"+ ({_controlador.Personagens.Find(x => x.IdPersonagem == _save.Classe).Inteligencia})";
+                    TipoDano.Text = $"+ ({_controlador.Personagens.Find(x => x.Nome == _save.Jogador.Classe).Inteligencia})";
                     TipoDano.Foreground = new SolidColorBrush(Colors.Blue);
                     break;
 
                 case "ArtesMarciais":
                 case "Combate":
                 case "Fortificar":
-                    TipoDano.Text = $"+ ({_controlador.Personagens.Find(x => x.IdPersonagem == _save.Classe).Forca})";
+                    TipoDano.Text = $"+ ({_controlador.Personagens.Find(x => x.Nome == _save.Jogador.Classe).Forca})";
                     TipoDano.Foreground = new SolidColorBrush(Colors.Yellow);
                     break;
             }
