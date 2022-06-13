@@ -83,9 +83,6 @@
     <EmbeddedResource Include="Dados\InimigosJson.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dados\PersonagensJson.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
     <Compile Include="Controles\MenuInformacoesJogador\AbaBolsa.xaml.cs">
       <DependentUpon>AbaBolsa.xaml</DependentUpon>
     </Compile>

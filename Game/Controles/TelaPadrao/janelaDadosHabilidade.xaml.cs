@@ -65,23 +65,23 @@ namespace Game.Controles.TelaPadrao
             {
                 case "Buff":
                     DanoHab.Text = $"Cura: {habilidadeEscolhida.DanoBase}";
-                    TipoDano.Text = $"+ ({_controlador.Personagens.Find(x => x.Nome == _save.Jogador.Classe).Inteligencia})";
+                    TipoDano.Text = $"+ ({_controlador.Classes.Find(x => x.Nome == _save.Jogador.Classe).Inteligencia})";
                     TipoDano.Foreground = new SolidColorBrush(Colors.Blue);
                     break;
                 case "Magia":
                 case "DeBuff":
-                    TipoDano.Text = $"+ ({_controlador.Personagens.Find(x => x.Nome == _save.Jogador.Classe).Inteligencia})";
+                    TipoDano.Text = $"+ ({_controlador.Classes.Find(x => x.Nome == _save.Jogador.Classe).Inteligencia})";
                     TipoDano.Foreground = new SolidColorBrush(Colors.Blue);
                     break;
 
                 case "ArtesMarciais":
                 case "Combate":
-                    TipoDano.Text = $"+ ({_controlador.Personagens.Find(x => x.Nome == _save.Jogador.Classe).Forca})";
+                    TipoDano.Text = $"+ ({_controlador.Classes.Find(x => x.Nome == _save.Jogador.Classe).Forca})";
                     TipoDano.Foreground = new SolidColorBrush(Colors.Yellow);
                     break;
                 case "Fortificar":
                     DanoHab.Text = $"Aumenta Defesa em: {habilidadeEscolhida.DanoBase}";
-                    TipoDano.Text = $"+ ({_controlador.Personagens.Find(x => x.Nome == _save.Jogador.Classe).Forca})";
+                    TipoDano.Text = $"+ ({_controlador.Classes.Find(x => x.Nome == _save.Jogador.Classe).Forca})";
                     TipoDano.Foreground = new SolidColorBrush(Colors.Yellow);
                     break;
             }

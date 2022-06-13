@@ -62,7 +62,7 @@ namespace Game.Controles.MenuInformacoesJogador
         {
             SubPainelStatus.Children.Clear();
             var sender = s as ComboBox;
-            _newSave.Jogador = _controlador.Personagens.Find(x => x.Classe == sender.SelectedItem.ToString());
+            _newSave.Jogador = _controlador.Classes.Find(x => x.Classe == sender.SelectedItem.ToString());
 
             var DadosJogador = XpandoLibrary.Xpando.ToExpando(_newSave.Jogador);
             foreach (var item in DadosJogador)

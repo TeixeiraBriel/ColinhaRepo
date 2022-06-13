@@ -58,7 +58,7 @@ namespace Game.Controles.TelaPadrao
             {
                 _save = new Progressao();
                 _controlador.CarregaJsons();
-                _save.Jogador = _controlador.Personagens.Find(x => x.Classe == personagem.Classe);
+                _save.Jogador = _controlador.Classes.Find(x => x.Classe == personagem.Classe);
                 _save.VidaAtual = -10;
             }
 

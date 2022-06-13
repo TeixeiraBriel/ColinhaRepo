@@ -71,7 +71,7 @@ namespace Game.Controles.MenuInicial
         public void CarregaComponentes()
         {
             _controlador.CarregaJsons();
-            Personagens = _controlador.Personagens;
+            Personagens = _controlador.Classes;
             Inimigos = _controlador.Inimigos;
 
             foreach (var personagem in Personagens)
