@@ -1,4 +1,5 @@
-﻿using Infraestrutura.Entidades;
+﻿using Game.Controladores;
+using Infraestrutura.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,9 @@ namespace Game.Controles.TelaPadrao
     /// </summary>
     public partial class janelaDadosHabilidade : Window
     {
+        Controlador _controlador;
+        Progressao _save;
+
         JanelaPrincipal _janelaPrincipal;
         DispatcherTimer contadorRelogio = new DispatcherTimer();
 
@@ -29,6 +33,9 @@ namespace Game.Controles.TelaPadrao
             InitializeComponent();
             _janelaPrincipal = janelaPrincipal;
             timer();
+            _controlador = new Controlador();
+            _controlador.CarregaJsons();
+            _save = new Progressao();
         }
 
         public static janelaDadosHabilidade Instancia;
@@ -59,14 +66,14 @@ namespace Game.Controles.TelaPadrao
                 case "Magia":
                 case "Buff":
                 case "DeBuff":
-                    TipoDano.Text = $"+ ()";
+                    TipoDano.Text = $"+ ({_controlador.Personagens.Find(x => x.IdPersonagem == _save.Classe).Inteligencia})";
                     TipoDano.Foreground = new SolidColorBrush(Colors.Blue);
                     break;
 
                 case "ArtesMarciais":
                 case "Combate":
                 case "Fortificar":
-                    TipoDano.Text = $"+ ()";
+                    TipoDano.Text = $"+ ({_controlador.Personagens.Find(x => x.IdPersonagem == _save.Classe).Forca})";
                     TipoDano.Foreground = new SolidColorBrush(Colors.Yellow);
                     break;
             }

@@ -7,9 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="380" d:DesignWidth="800"
       Title="IndexMenuInicial">
-    <Page.Background>
-        <SolidColorBrush Opacity=".5" Color="Aqua"/>
-    </Page.Background>
+
     <Grid>
         <StackPanel Orientation="Vertical"  VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel Margin="10,0,10,50">
