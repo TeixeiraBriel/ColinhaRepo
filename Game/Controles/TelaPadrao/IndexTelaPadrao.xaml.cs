@@ -55,12 +55,15 @@ namespace Game.Controles.TelaPadrao
             else
             {
                 _save = new Progressao();
+                _controlador.CarregaJsons();
+                _save.Jogador = _controlador.Personagens.Find(x => x.Classe == personagem.Classe);
                 _save.VidaAtual = -10;
             }
 
             ReiniciaDadosCombate(personagem, inimigo);
             CarregaJsons();
             CarregaHablidadesPersonagem();
+            janelaDadosHabilidade.Instancia._save = _save;
 
             if (personagem.Agilidade < inimigo.Agilidade)
             {

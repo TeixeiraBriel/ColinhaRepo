@@ -79,6 +79,7 @@ namespace Game.Controles.MenuInformacoesJogador
             }
 
             CarregaHablidadesPersonagem();
+            janelaDadosHabilidade.Instancia._save = _newSave;
         }
 
         public void CarregaHablidadesPersonagem()

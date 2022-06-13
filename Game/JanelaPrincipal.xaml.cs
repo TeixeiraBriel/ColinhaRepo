@@ -28,7 +28,8 @@ namespace Game
             txtVersao.Content = $"v{System.Windows.Forms.Application.ProductVersion}";
             FrameJanelaPrincipal.Navigate(new IndexMenuInicial());
 
-            Util.DispatcherUtil.Dispatcher(() => {
+            Util.DispatcherUtil.Dispatcher(() =>
+            {
                 janelaDadosHabilidade.Inicializa(this);
                 janelaDadosHabilidade.Esconder();
             });
