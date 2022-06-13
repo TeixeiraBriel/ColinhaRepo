@@ -32,7 +32,7 @@ namespace Game.Controles.TelaPadrao
 
         public DispatcherTimer contadorRelogio = new DispatcherTimer();
         public DispatcherTimer contadorInimigo = new DispatcherTimer();
-        //public DispatcherTimer contadorFimDeJogo = new DispatcherTimer();
+        public DispatcherTimer contadorFortificar = new DispatcherTimer();
 
         Personagem _personagem;
         Inimigo _inimigo;
@@ -109,9 +109,9 @@ namespace Game.Controles.TelaPadrao
             contadorInimigo.Interval = new TimeSpan(0, 0, 2);
             contadorInimigo.Start();
 
-            //contadorFimDeJogo.Tick += new EventHandler(VerificaFimJogo);
-            //contadorFimDeJogo.Interval = new TimeSpan(0, 0, 0, 0, 300);
-            //contadorFimDeJogo.Start();
+            contadorFortificar.Tick += new EventHandler(CooldownFortificar);
+            contadorFortificar.Interval = new TimeSpan(0, 0, 1);
+            contadorFortificar.Start();
         }
 
         public void Relogio(object sender, EventArgs e)
@@ -195,7 +195,8 @@ namespace Game.Controles.TelaPadrao
 
                 if (habilidadeEscolhida.Tipo == "Fortificar")
                 {
-                    PosicaoDefesa(qtdDano);
+                    Image btn = sender as Image;
+                    PosicaoDefesa(qtdDano, btn);
                 }
 
                 if (habilidadeEscolhida.Tipo == "Buff")
@@ -243,10 +244,36 @@ namespace Game.Controles.TelaPadrao
             return new double[] { qtdDano, qtdGasto, tipoGasto };
         }
 
-        private void PosicaoDefesa(double qtdDano)
+        List<Tuple<Image, int, double, int>> BtnsDesativos = new List<Tuple<Image, int, double, int>>();
+        private void PosicaoDefesa(double qtdDano, Image btn)
         {
             _personagem.Defesa += qtdDano;
+            btn.IsEnabled = false;
+            btn.Visibility = Visibility.Collapsed;
+            BtnsDesativos.Add(new Tuple<Image, int , double, int>(btn, ContadorEventos, qtdDano, 6));
 
+            contadorFortificar.Start();  
+        }
+
+        void CooldownFortificar(object sender, EventArgs e) 
+        {
+            List<Tuple<Image, int, double, int>> RetirarDaLista = new List<Tuple<Image, int, double, int>>();
+
+            foreach (Tuple<Image, int, double, int> tuple in BtnsDesativos)
+            {
+                if (ContadorEventos == tuple.Item2 + tuple.Item4)
+                {
+                    tuple.Item1.IsEnabled = true;
+                    tuple.Item1.Visibility = Visibility.Visible;
+                    _personagem.Defesa -= tuple.Item3;
+                    RetirarDaLista.Add(tuple);
+                }
+            }
+
+            foreach (var item in RetirarDaLista)
+            {
+                BtnsDesativos.Remove(item);
+            }
         }
 
         int ContadorEventos = 0;
@@ -298,7 +325,7 @@ namespace Game.Controles.TelaPadrao
             {
                 _save.Vitorias++;
                 _save.Moedas += 100;
-                _save.Jogador.XpAtual += 10 * _save.Nivel;
+                _save.Jogador.XpAtual += _inimigo.XpDropado;
             }
 
             _controlador.salvarAvanço(_save);

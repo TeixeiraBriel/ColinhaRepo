@@ -120,7 +120,9 @@ namespace Game.Controles.MenuInformacoesJogador
         {
             if (_newSave.Jogador.Classe != null)
             {
-                this.NavigationService.Navigate(new IndexTelaPadrao(_newSave.Jogador, _controlador.Inimigos[0], _newSave));
+                var inimigo = _controlador.Inimigos[0];
+                inimigo.DefineNivel(1);
+                this.NavigationService.Navigate(new IndexTelaPadrao(_newSave.Jogador, inimigo, _newSave));
             }
         }
     }
