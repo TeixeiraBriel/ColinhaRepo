@@ -2,7 +2,7 @@
   {
     "IdHabilidade": 0,
     "Nome": "Bola de fogo",
-    "DanoBase": 14,
+    "DanoBase": 15,
     "CustoBase": 15,
     "Tipo": "Magia",
     "Icon": "ImgFireBall.png",
@@ -38,8 +38,8 @@
   {
     "IdHabilidade": 4,
     "Nome": "Meditar",
-    "DanoBase": 15,
-    "CustoBase": 30,
+    "DanoBase": 22,
+    "CustoBase": 20,
     "Tipo": "Buff",
     "Icon": "ImgMeditar.png",
     "Descricao": "Assume posição de meditação para se concentrar, restaurando vida perdida."

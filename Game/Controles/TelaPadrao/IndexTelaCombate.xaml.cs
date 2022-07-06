@@ -202,8 +202,21 @@ namespace Game.Controles.TelaPadrao
                 }
 
                 if (habilidadeEscolhida.Tipo == "Buff")
-                {
-                    ModificaBarraInfo(VidaPersonagem, BarraDeVidaPersonagem, (-1 * qtdDano));
+                {   
+                    if(_save.VidaAtual <= _personagem.Vida && _save.VidaAtual >= _personagem.Vida)
+                    {
+                        _save.VidaAtual = _personagem.Vida;
+                    }
+                    else if((_save.VidaAtual + qtdDano) >= _personagem.Vida)
+                    {
+                        qtdDano = _personagem.Vida - _save.VidaAtual;
+                        _save.VidaAtual = _personagem.Vida;
+                        ModificaBarraInfo(VidaPersonagem, BarraDeVidaPersonagem, (-1 * qtdDano));
+                    }
+                    else
+                    {
+                        ModificaBarraInfo(VidaPersonagem, BarraDeVidaPersonagem, (-1*qtdDano));
+                    }
                 }
                 else if (qtdDanoCausado > 0)
                 {
