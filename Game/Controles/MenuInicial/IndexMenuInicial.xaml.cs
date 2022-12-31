@@ -112,5 +112,11 @@ namespace Game.Controles.MenuInicial
 
             this.NavigationService.Navigate(new CriarNovoJogoView());
         }
+
+        private void Teste(object sender, RoutedEventArgs e)
+        {
+
+            this.NavigationService.Navigate(new Combate());
+        }
     }
 }

@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Game"
         mc:Ignorable="d"
-        Title="Game" Height="500" Width="800" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" >
+        Title="Game" Height="1024" Width="1280" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" >
     <Grid>
         <StackPanel>
             <Label VerticalAlignment="Top" HorizontalAlignment="Right" x:Name="txtVersao"/>
             <Frame 
                 x:Name="FrameJanelaPrincipal"
-                Width="780" 
-                Height="400" 
+                Width="1100" 
+                Height="924" 
                 x:Uid="JanelaPrincipalFrame" 
                 NavigationUIVisibility="Hidden"/>
         </StackPanel>

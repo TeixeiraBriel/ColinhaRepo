@@ -1,0 +1,162 @@
+﻿<Page x:Class="Game.Controles.TelaPadrao.Combate"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Game.Controles.TelaPadrao"
+      mc:Ignorable="d" 
+      d:DesignHeight="1024" d:DesignWidth="1280"
+      Title="Combate">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="300"/>
+        </Grid.RowDefinitions>
+
+        <!--CABECALHO-->
+        <Grid Grid.Row="0" Background="Gray">
+            <StackPanel VerticalAlignment="Center">
+                <Label Name="lblCabecalho" Content="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Button x:Name="BtnCabecalho" Content="Finalizar Preparo" Click="IniciaSegundaFase" Width="100" Height="25"/>
+            </StackPanel>
+        </Grid>
+
+        <!--MAIN-->
+        <Grid Grid.Row="1" Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--CAMPO ALIADOS-->
+            <StackPanel x:Name="A1" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1">
+                <Label Content="A1"/>
+            </StackPanel>
+
+            <StackPanel x:Name="A2" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1">
+                <Label Content="A2"/>
+            </StackPanel>
+
+            <StackPanel x:Name="A3" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="3" Grid.Row="1">
+                <Label Content="A3"/>
+            </StackPanel>
+
+            <StackPanel x:Name="A4" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2">
+                <Label Content="A4"/>
+            </StackPanel>
+
+            <StackPanel x:Name="A5" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="2">
+                <Label Content="A5"/>
+            </StackPanel>
+
+            <StackPanel x:Name="A6" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="3" Grid.Row="2">
+                <Label Content="A6"/>
+            </StackPanel>
+
+            <StackPanel x:Name="A7" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="3">
+                <Label Content="A7"/>
+            </StackPanel>
+
+            <StackPanel x:Name="A8" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="3">
+                <Label Content="A8"/>
+            </StackPanel>
+
+            <StackPanel x:Name="A9" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="3" Grid.Row="3">
+                <Label Content="A9"/>
+            </StackPanel>
+
+
+            <!--CAMPO Inimigos-->
+            <StackPanel x:Name="I1" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="5" Grid.Row="1">
+                <Label Content="I1"/>
+            </StackPanel>
+
+            <StackPanel x:Name="I2" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="6" Grid.Row="1">
+                <Label Content="I2"/>
+            </StackPanel>
+
+            <StackPanel x:Name="I3" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="7" Grid.Row="1">
+                <Label Content="I3"/>
+            </StackPanel>
+
+            <StackPanel x:Name="I4" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="5" Grid.Row="2">
+                <Label Content="I4"/>
+            </StackPanel>
+
+            <StackPanel x:Name="I5" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="6" Grid.Row="2">
+                <Label Content="I5"/>
+            </StackPanel>
+
+            <StackPanel x:Name="I6" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="7" Grid.Row="2">
+                <Label Content="I6"/>
+            </StackPanel>
+
+            <StackPanel x:Name="I7" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="5" Grid.Row="3">
+                <Label Content="I7"/>
+            </StackPanel>
+
+            <StackPanel x:Name="I8" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="6" Grid.Row="3">
+                <Label Content="I8"/>
+            </StackPanel>
+
+            <StackPanel x:Name="I9" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="7" Grid.Row="3">
+                <Label Content="I9"/>
+            </StackPanel>
+        </Grid>
+
+        <!--FOOTER-->
+        <Grid Grid.Row="2" Background="Gray">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Column="0" Grid.Row="0">
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <Label Content="Vida Aliados:"/>
+                    <ProgressBar x:Name="VidaAliados" Height="15" Width="130" Value="200" Maximum="200"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Grid.Row="0">
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <Label Content="Vida Inimigos:"/>
+                    <ProgressBar x:Name="VidaInigos" Height="15" Width="130" Value="200" Maximum="200"/>
+                </StackPanel>
+            </StackPanel>
+
+            <ScrollViewer Grid.ColumnSpan="2" Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+                <StackPanel x:Name="PainelPersonagens" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                    <StackPanel Background="AliceBlue" Width="200" Height="80" HorizontalAlignment="Left">
+                        <Label Content="Nome:"/>
+                        <Label Content="Vida:"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Posicao:"/>
+                            <ComboBox Width="150"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Page>
