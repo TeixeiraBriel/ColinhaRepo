@@ -17,9 +17,8 @@
 
         <!--CABECALHO-->
         <Grid Grid.Row="0" Background="Gray">
-            <StackPanel VerticalAlignment="Center">
+            <StackPanel VerticalAlignment="Center" Name="PainelCabecalho">
                 <Label Name="lblCabecalho" Content="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Button x:Name="BtnCabecalho" Content="Finalizar Preparo" Click="IniciaSegundaFase" Width="100" Height="25"/>
             </StackPanel>
         </Grid>
 
@@ -145,18 +144,11 @@
                 </StackPanel>
             </StackPanel>
 
-            <ScrollViewer Grid.ColumnSpan="2" Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+            <ScrollViewer Grid.ColumnSpan="2" Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
                 <StackPanel x:Name="PainelPersonagens" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-                    <StackPanel Background="AliceBlue" Width="200" Height="80" HorizontalAlignment="Left">
-                        <Label Content="Nome:"/>
-                        <Label Content="Vida:"/>
-                        <StackPanel Orientation="Horizontal">
-                            <Label Content="Posicao:"/>
-                            <ComboBox Width="150"/>
-                        </StackPanel>
-                    </StackPanel>
                 </StackPanel>
             </ScrollViewer>
         </Grid>
     </Grid>
 </Page>
+ 

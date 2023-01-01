@@ -34,5 +34,10 @@ namespace Game
                 janelaDadosHabilidade.Esconder();
             });
         }
+
+        private void FrameJanelaPrincipal_Navigated(object sender, NavigationEventArgs e)
+        {
+
+        }
     }
 }

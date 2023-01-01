@@ -32,7 +32,7 @@ namespace Game.Controles.TelaPadrao
         {
             InitializeComponent();
             _janelaPrincipal = janelaPrincipal;
-            timer();
+            //timer();
             _controlador = new Controlador();
             _controlador.CarregaJsons();
             _save = save;
