@@ -31,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -45,7 +46,7 @@
   <ItemGroup>
     <Compile Include="Entidades\EntCombate\Combatente.cs" />
     <Compile Include="Entidades\EntCombate\IdentificadorPosicaoCombatente.cs" />
-    <Compile Include="Entidades\EntCombate\TelaCombate.cs" />
+    <Compile Include="Entidades\EntCombate\RepresentacaoTelaCombate.cs" />
     <Compile Include="Entidades\fichaBase.cs" />
     <Compile Include="Entidades\Habilidade.cs" />
     <Compile Include="Entidades\Inimigo.cs" />

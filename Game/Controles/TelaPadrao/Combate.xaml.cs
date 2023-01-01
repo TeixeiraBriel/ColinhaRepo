@@ -149,7 +149,7 @@ namespace Game.Controles.TelaPadrao
                 Nome = "Marcos",
                 Energia = 100,
                 Vida = 100,
-                VidaAtual= 100,
+                VidaAtual = 100,
                 Agilidade = 100,
                 Defesa = 100,
                 Forca = 10,
@@ -168,7 +168,7 @@ namespace Game.Controles.TelaPadrao
         void iniciaCampos()
         {
             PainelPersonagens.Children.Clear();
-            iniciaInimigos();
+            iniciaInimigos(_combatentes);
             foreach (var item in _combatentes)
             {
                 var teste = _listPosicoesInimigos.FirstOrDefault(x => x.Combatente != null && x.Combatente.Nome == item.Nome);
@@ -196,26 +196,17 @@ namespace Game.Controles.TelaPadrao
             PainelCabecalho.Children.Add(BtnCabecalho);
         }
 
-        void iniciaInimigos()
+        void iniciaInimigos(List<Combatente> inimigosParam)
         {
-            foreach (var item in _listPosicoesInimigos)
+            int num = 3;
+            foreach (var inimigo in inimigosParam)
             {
-                Combatente combatente = _combatentes.Find(x => x.Posicao == item.Posicao);
-                if (combatente != null)
+                if (num == 0)
                 {
-                    (item.Painel.Children[0] as Label).Content = combatente.Nome;
-                    item.Combatente = combatente;
-                    Inimigos.Add(combatente);
-
-                    ProgressBar vidaCombatente = new ProgressBar();
-                    vidaCombatente.Width = 100;
-                    vidaCombatente.Maximum = combatente.Vida;
-                    vidaCombatente.Value = combatente.Vida;
-
-                    item.Painel.Children.Add(vidaCombatente);
+                    break;
                 }
-                else
-                    item.Painel.Children.Clear();
+                PosicionaCombatenteSelecionado(inimigo, _listPosicoesInimigos, Inimigos);
+                num--;
             }
         }
 
@@ -228,14 +219,17 @@ namespace Game.Controles.TelaPadrao
 
             PainelPersonagens.Children.Clear();
 
-            foreach (var item in _listPosicoesAliados)
+            Action<List<IdentificadorPosicaoCombatente>> LimpaCampo = (_listPos) =>
             {
-                Label label = item.Painel.Children[0] as Label;
-                if (label.Content.ToString() == item.Posicao)
+                foreach (var item in _listPos)
                 {
-                    item.Painel.Children.Clear();
+                    if (item.Combatente == null)
+                        item.Painel.Children.Clear();
                 }
-            }
+            };
+
+            LimpaCampo(_listPosicoesAliados);
+            LimpaCampo(_listPosicoesInimigos);
 
             Func<List<Combatente>, double> SomarVidas = list =>
             {
@@ -351,6 +345,7 @@ namespace Game.Controles.TelaPadrao
 
                 if (combatente.VidaAtual <= 0 || alvo.VidaAtual <= 0)
                 {
+                    combatente.ParaTimerAtacar();
                     continue;
                 }
 
@@ -359,16 +354,17 @@ namespace Game.Controles.TelaPadrao
                 if (posicaoProgresBar == null)
                 {
                     posicaoProgresBar = _listPosicoesInimigos.FirstOrDefault(x => x.Combatente != null && x.Combatente.Nome == alvo.Nome);
-                    inimigo= false;
+                    inimigo = false;
                 }
 
-                ProgressBar barraVidaAlvo = posicaoProgresBar.Painel.Children[1] as ProgressBar;
+                ProgressBar barraVidaAlvo = alvo.Painel.ProgressBarVida;
 
                 if (alvo.VidaAtual - dano <= 0)
                 {
                     dano = alvo.VidaAtual - dano < 0 ? dano + (alvo.VidaAtual - dano) : dano;
                     alvo.VidaAtual = 0;
                     PainelPersonagens.Children.Add(new Label() { Foreground = Brushes.Purple, Content = $"[00:{numeradorRelogio}] = {alvo.Nome} MORREU! Ultimo dano Recebido de {combatente.Nome}: {dano}." });
+                    alvo.ParaTimerAtacar();
                 }
                 else
                 {
@@ -413,38 +409,23 @@ namespace Game.Controles.TelaPadrao
             {
                 if (string.IsNullOrEmpty(cmbPosicoes.Text.ToString()))
                     return;
-                StackPanel local = _listPosicoesAliados.Find(x => x.Posicao == cmbPosicoes.Text).Painel;
-                Label text = local.Children[0] as Label;
-                if (text.Content.ToString() == cmbPosicoes.Text)
+                combatente.Posicao= cmbPosicoes.Text;
+                PosicionaCombatenteSelecionado(combatente, _listPosicoesAliados, Aliados);
+
+                combatente.Painel.LabelNome.MouseLeftButtonDown += (s2, e2) =>
                 {
-                    local.Children.Clear();
-                    Label posicaoTexto = new Label() { Content = combatente.Nome };
-
-                    posicaoTexto.MouseLeftButtonDown += (s2, e2) =>
+                    if (FaseCombate != 0)
                     {
-                        if (FaseCombate != 0)
-                        {
-                            return;
-                        }
-                        local.Children.Clear();
-                        local.Children.Add(new Label() { Content = cmbPosicoes.Text });
-                        PainelPersonagens.Children.Add(criarCardCombatente(combatente));
-                        _listPosicoesAliados.Find(x => x.Posicao == cmbPosicoes.Text.ToString()).Combatente = null;
-                        Aliados.Remove(combatente);
-                    };
+                        return;
+                    }
+                    combatente.Painel.StackPanel.Children.Clear();
+                    combatente.Painel.StackPanel.Children.Add(new Label() { Content = cmbPosicoes.Text });
+                    PainelPersonagens.Children.Add(criarCardCombatente(combatente));
+                    _listPosicoesAliados.Find(x => x.Posicao == cmbPosicoes.Text.ToString()).Combatente = null;
+                    Aliados.Remove(combatente);
+                };
 
-                    ProgressBar vidaCombatente = new ProgressBar();
-                    vidaCombatente.Width = 100;
-                    vidaCombatente.Maximum = combatente.Vida;
-                    vidaCombatente.Value = combatente.Vida;
-
-                    local.Children.Add(posicaoTexto);
-                    local.Children.Add(vidaCombatente);
-                    combatente.Posicao = cmbPosicoes.Text;
-                    _listPosicoesAliados.Find(x => x.Posicao == cmbPosicoes.Text.ToString()).Combatente = combatente;
-                    Aliados.Add(combatente);
-                    PainelPersonagens.Children.Remove(painel);
-                }
+                PainelPersonagens.Children.Remove(painel);
             };
 
             painel.Children.Add(lblNome);
@@ -453,6 +434,19 @@ namespace Game.Controles.TelaPadrao
             painel.Children.Add(btnConfirmar);
 
             return painel;
+        }
+
+        void PosicionaCombatenteSelecionado(Combatente personagem, List<IdentificadorPosicaoCombatente> listaPosicoes, List<Combatente> listaAtivos)
+        {
+            var vaga = listaPosicoes.FirstOrDefault(x => x.Posicao == personagem.Posicao && x.Combatente == null);
+            if (vaga != null)
+            {
+                personagem.Painel = new RepresentacaoTelaCombate(personagem.Nome, personagem.Vida, personagem.intervaloAtaques);
+                vaga.Painel.Children.Clear();
+                vaga.Painel.Children.Add(personagem.Painel.StackPanel);
+                listaAtivos.Add(personagem);
+                vaga.Combatente = personagem;
+            }
         }
 
         void InfoCombatente()
@@ -488,6 +482,11 @@ namespace Game.Controles.TelaPadrao
                     foco.IsEnabled = false;
                     btnConfirmaFoco.IsEnabled = false;
                     FaseDoisCheck--;
+
+                    if (FaseDoisCheck == 0)
+                    {
+                        IniciaTerceiraFase(s, e);
+                    }
                 };
 
                 comboboxPainel.Children.Add(lblAtacar);

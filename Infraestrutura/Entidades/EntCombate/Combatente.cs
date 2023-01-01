@@ -26,6 +26,8 @@ namespace Infraestrutura.Entidades.EntCombate
         public bool AtaquePronto { get; set; }
         public bool StatusTimerAtaque { get; set; }
 
+        public RepresentacaoTelaCombate Painel { get; set; }
+
 
         private int TempoParaAtacar { get; set; }
         private DispatcherTimer contadorAtaque = new DispatcherTimer();
@@ -33,7 +35,7 @@ namespace Infraestrutura.Entidades.EntCombate
         public void IniciaTimerAtacar()
         {
             contadorAtaque.Tick += new EventHandler(CombateAtivo);
-            contadorAtaque.Interval = new TimeSpan(0, 0, 0, intervaloAtaques, 0);
+            contadorAtaque.Interval = new TimeSpan(0, 0, 0, 1, 0);
             contadorAtaque.Start();
             StatusTimerAtaque = true;
         }
@@ -45,7 +47,13 @@ namespace Infraestrutura.Entidades.EntCombate
 
         public async void CombateAtivo(object sender, EventArgs e)
         {
-            AtaquePronto = true;
+            TempoParaAtacar++;
+            Painel.ProgressBarIntervaloAtaque.Value= TempoParaAtacar;
+            if (TempoParaAtacar == intervaloAtaques)
+            {
+                AtaquePronto = true;
+                TempoParaAtacar= 0;
+            }
         }
     }
 }
