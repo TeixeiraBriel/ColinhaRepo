@@ -32,16 +32,16 @@ namespace Game.Controles.TelaPadrao
 
 
         DispatcherTimer contadorRelogio = new DispatcherTimer();
-        int numeradorRelogio = 0;
+        TimeSpan numeradorRelogio = new TimeSpan();
 
-        public Combate()
+        public Combate(List<Combatente> aliados, List<Combatente> inimigos)
         {
             InitializeComponent();
-            iniciaListas();
+            iniciaListas(aliados, inimigos);
             iniciaCampos();
         }
 
-        void iniciaListas()
+        void iniciaListas(List<Combatente> aliados, List<Combatente> inimigos)
         {
             List<IdentificadorPosicaoCombatente> listPosicoesAliados = new List<IdentificadorPosicaoCombatente>() {
                 new IdentificadorPosicaoCombatente(){Posicao="A1", Painel=A1},
@@ -54,7 +54,6 @@ namespace Game.Controles.TelaPadrao
                 new IdentificadorPosicaoCombatente(){Posicao="A8", Painel=A8},
                 new IdentificadorPosicaoCombatente(){Posicao="A9", Painel=A9},
             };
-
             List<IdentificadorPosicaoCombatente> listPosicoesInimigos = new List<IdentificadorPosicaoCombatente>() {
                 new IdentificadorPosicaoCombatente(){Posicao="I1", Painel=I1},
                 new IdentificadorPosicaoCombatente(){Posicao="I2", Painel=I2},
@@ -67,108 +66,15 @@ namespace Game.Controles.TelaPadrao
                 new IdentificadorPosicaoCombatente(){Posicao="I9", Painel=I9},
             };
 
-            List<Combatente> combatentes = new List<Combatente>();
-
-            combatentes.Add(new Combatente()
-            {
-                Nome = "Milton",
-                Energia = 100,
-                Vida = 100,
-                VidaAtual = 100,
-                Agilidade = 100,
-                Defesa = 100,
-                Forca = 10,
-                Inteligencia = 10,
-                Mana = 100,
-                intervaloAtaques = 15,
-                Foco = "",
-                Posicao = "I1"
-            });
-            combatentes.Add(new Combatente()
-            {
-                Nome = "Sara",
-                Energia = 100,
-                Vida = 100,
-                VidaAtual = 100,
-                Agilidade = 100,
-                Defesa = 100,
-                Forca = 10,
-                Inteligencia = 10,
-                Mana = 100,
-                intervaloAtaques = 10,
-                Foco = "",
-                Posicao = "I4"
-            });
-            combatentes.Add(new Combatente()
-            {
-                Nome = "Rebecca",
-                Energia = 100,
-                Vida = 100,
-                VidaAtual = 100,
-                Agilidade = 100,
-                Defesa = 100,
-                Forca = 10,
-                Inteligencia = 10,
-                Mana = 100,
-                intervaloAtaques = 5,
-                Foco = "",
-                Posicao = "I7"
-            });
-            combatentes.Add(new Combatente()
-            {
-                Nome = "Julia",
-                Energia = 100,
-                Vida = 100,
-                VidaAtual = 100,
-                Agilidade = 100,
-                Defesa = 100,
-                Forca = 10,
-                Inteligencia = 10,
-                Mana = 100,
-                intervaloAtaques = 15,
-                Foco = "",
-                Posicao = "I1"
-            });
-            combatentes.Add(new Combatente()
-            {
-                Nome = "Benedita",
-                Energia = 100,
-                Vida = 100,
-                VidaAtual = 100,
-                Agilidade = 100,
-                Defesa = 100,
-                Forca = 10,
-                Inteligencia = 10,
-                Mana = 100,
-                intervaloAtaques = 10,
-                Foco = "",
-                Posicao = "I4"
-            });
-            combatentes.Add(new Combatente()
-            {
-                Nome = "Marcos",
-                Energia = 100,
-                Vida = 100,
-                VidaAtual = 100,
-                Agilidade = 100,
-                Defesa = 100,
-                Forca = 10,
-                Inteligencia = 10,
-                Mana = 100,
-                intervaloAtaques = 5,
-                Foco = "",
-                Posicao = "I7"
-            });
-
             _listPosicoesAliados = listPosicoesAliados;
             _listPosicoesInimigos = listPosicoesInimigos;
-            _combatentes = combatentes;
+            iniciaInimigos(inimigos);
+            _combatentes = aliados;
         }
 
         void iniciaCampos()
         {
             PainelPersonagens.Children.Clear();
-            iniciaInimigos(_combatentes);
             foreach (var item in _combatentes)
             {
                 var teste = _listPosicoesInimigos.FirstOrDefault(x => x.Combatente != null && x.Combatente.Nome == item.Nome);
@@ -198,15 +104,9 @@ namespace Game.Controles.TelaPadrao
 
         void iniciaInimigos(List<Combatente> inimigosParam)
         {
-            int num = 3;
             foreach (var inimigo in inimigosParam)
             {
-                if (num == 0)
-                {
-                    break;
-                }
                 PosicionaCombatenteSelecionado(inimigo, _listPosicoesInimigos, Inimigos);
-                num--;
             }
         }
 
@@ -230,6 +130,11 @@ namespace Game.Controles.TelaPadrao
 
             LimpaCampo(_listPosicoesAliados);
             LimpaCampo(_listPosicoesInimigos);
+
+            foreach (var atacante in Inimigos)
+            {
+                atacante.alvo = Aliados.FirstOrDefault();
+            }
 
             Func<List<Combatente>, double> SomarVidas = list =>
             {
@@ -274,6 +179,11 @@ namespace Game.Controles.TelaPadrao
             lblCabecalho.Foreground = Brushes.Black;
             lblCabecalho.Content = "PANCADARIA";
 
+            foreach (var atacante in Aliados)
+            {
+                atacante.alvo = Inimigos.FirstOrDefault(x => x.Nome == atacante.Foco);
+            }
+
             Action<List<IdentificadorPosicaoCombatente>> EncherParticipantes = list =>
             {
                 foreach (var item in list)
@@ -307,76 +217,33 @@ namespace Game.Controles.TelaPadrao
         void iniciaTimer()
         {
             contadorRelogio.Tick += new EventHandler(CombateAtivo);
-            contadorRelogio.Interval = new TimeSpan(0, 0, 0, 1, 0);
+            contadorRelogio.Interval = new TimeSpan(0, 0, 0, 0,300);
             contadorRelogio.Start();
         }
 
         public async void CombateAtivo(object sender, EventArgs e)
         {
-            numeradorRelogio++;
-            lblCabecalho.Content = numeradorRelogio;
+            numeradorRelogio += TimeSpan.FromMilliseconds(300);
+            lblCabecalho.Content = numeradorRelogio.ToString(@"mm\:ss");
 
-            List<Combatente> combatatensParticipantesProntos = ValidaAtaquesProntos();
-            causarDano(combatatensParticipantesProntos);
-        }
 
-        List<Combatente> ValidaAtaquesProntos()
-        {
-            List<Combatente> combatatensParticipantesProntos = new List<Combatente>();
-
-            foreach (var combatente in CombatentesParticipantes)
+            var combatente = Aliados.FirstOrDefault(x => !string.IsNullOrEmpty(x.Dialogo));
+            if (combatente != null)
             {
-                if (combatente.AtaquePronto)
-                {
-                    combatatensParticipantesProntos.Add(combatente);
-                }
+                var newMsg = combatente.Dialogo.Replace("{ALVO}", combatente.alvo.Nome).Replace("{NOME}", combatente.Nome);
+                var msg = $"[{numeradorRelogio.ToString(@"mm\:ss")}] = {newMsg}";
+                PainelPersonagens.Children.Add(new Label() { Foreground = Brushes.Blue, Content = msg });
+                combatente.Dialogo = "";
             }
-
-            return combatatensParticipantesProntos;
-        }
-
-        void causarDano(List<Combatente> combatatensParticipantesProntos)
-        {
-            foreach (var combatente in combatatensParticipantesProntos)
+            else
             {
-                bool inimigo = true;
-                combatente.AtaquePronto = false;
-                Combatente alvo = CombatentesParticipantes.Find(x => x.Nome == combatente.Foco);
-
-                if (combatente.VidaAtual <= 0 || alvo.VidaAtual <= 0)
-                {
-                    combatente.ParaTimerAtacar();
-                    continue;
-                }
-
-                double dano = combatente.Forca;
-                var posicaoProgresBar = _listPosicoesAliados.FirstOrDefault(x => x.Combatente != null && x.Combatente.Nome == alvo.Nome);
-                if (posicaoProgresBar == null)
-                {
-                    posicaoProgresBar = _listPosicoesInimigos.FirstOrDefault(x => x.Combatente != null && x.Combatente.Nome == alvo.Nome);
-                    inimigo = false;
-                }
-
-                ProgressBar barraVidaAlvo = alvo.Painel.ProgressBarVida;
-
-                if (alvo.VidaAtual - dano <= 0)
-                {
-                    dano = alvo.VidaAtual - dano < 0 ? dano + (alvo.VidaAtual - dano) : dano;
-                    alvo.VidaAtual = 0;
-                    PainelPersonagens.Children.Add(new Label() { Foreground = Brushes.Purple, Content = $"[00:{numeradorRelogio}] = {alvo.Nome} MORREU! Ultimo dano Recebido de {combatente.Nome}: {dano}." });
-                    alvo.ParaTimerAtacar();
-                }
-                else
-                {
-                    alvo.VidaAtual -= dano;
-                    if (inimigo)
-                        PainelPersonagens.Children.Add(new Label() { Foreground = Brushes.Red, Content = $"[00:{numeradorRelogio}] = {combatente.Nome} causou {dano} de dano em {alvo.Nome}" });
-                    else
-                        PainelPersonagens.Children.Add(new Label() { Foreground = Brushes.Blue, Content = $"[00:{numeradorRelogio}] = {combatente.Nome} causou {dano} de dano em {alvo.Nome}" });
-                }
-
-                barraVidaAlvo.Maximum = alvo.Vida;
-                barraVidaAlvo.Value = alvo.VidaAtual;
+                combatente = Inimigos.FirstOrDefault(x => !string.IsNullOrEmpty(x.Dialogo));
+                if (combatente == null)
+                    return;
+                var newMsg = combatente.Dialogo.Replace("{ALVO}", combatente.alvo.Nome).Replace("{NOME}", combatente.Nome);
+                var msg = $"[{numeradorRelogio.ToString(@"mm\:ss")}] = {newMsg}";
+                PainelPersonagens.Children.Add(new Label() { Foreground = Brushes.Red, Content = msg });
+                combatente.Dialogo = "";
             }
         }
 
@@ -409,7 +276,7 @@ namespace Game.Controles.TelaPadrao
             {
                 if (string.IsNullOrEmpty(cmbPosicoes.Text.ToString()))
                     return;
-                combatente.Posicao= cmbPosicoes.Text;
+                combatente.Posicao = cmbPosicoes.Text;
                 PosicionaCombatenteSelecionado(combatente, _listPosicoesAliados, Aliados);
 
                 combatente.Painel.LabelNome.MouseLeftButtonDown += (s2, e2) =>

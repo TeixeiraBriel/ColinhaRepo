@@ -3,6 +3,7 @@ using Game.Controles.MenuInformacoesJogador;
 using Game.Controles.TelaPadrao;
 using Game.Util;
 using Infraestrutura.Entidades;
+using Infraestrutura.Entidades.EntCombate;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
@@ -115,8 +116,101 @@ namespace Game.Controles.MenuInicial
 
         private void Teste(object sender, RoutedEventArgs e)
         {
+            List<Combatente> combatentesAliados = new List<Combatente>();
+            combatentesAliados.Add(new Combatente()
+            {
+                Nome = "Milton",
+                Energia = 100,
+                Vida = 100,
+                VidaAtual = 100,
+                Agilidade = 100,
+                Defesa = 100,
+                Forca = 10,
+                Inteligencia = 10,
+                Mana = 100,
+                intervaloAtaques = 15,
+                Foco = "",
+                Posicao = "I1"
+            });
+            combatentesAliados.Add(new Combatente()
+            {
+                Nome = "Sara",
+                Energia = 100,
+                Vida = 100,
+                VidaAtual = 100,
+                Agilidade = 100,
+                Defesa = 100,
+                Forca = 10,
+                Inteligencia = 10,
+                Mana = 100,
+                intervaloAtaques = 10,
+                Foco = "",
+                Posicao = "I4"
+            });
+            combatentesAliados.Add(new Combatente()
+            {
+                Nome = "Rebecca",
+                Energia = 100,
+                Vida = 100,
+                VidaAtual = 100,
+                Agilidade = 100,
+                Defesa = 100,
+                Forca = 10,
+                Inteligencia = 10,
+                Mana = 100,
+                intervaloAtaques = 5,
+                Foco = "",
+                Posicao = "I7"
+            });
 
-            this.NavigationService.Navigate(new Combate());
+            List<Combatente> combatentesInimigos = new List<Combatente>();
+            combatentesInimigos.Add(new Combatente()
+            {
+                Nome = "Julia",
+                Energia = 100,
+                Vida = 100,
+                VidaAtual = 100,
+                Agilidade = 100,
+                Defesa = 100,
+                Forca = 10,
+                Inteligencia = 10,
+                Mana = 100,
+                intervaloAtaques = 15,
+                Foco = "",
+                Posicao = "I1"
+            });
+            combatentesInimigos.Add(new Combatente()
+            {
+                Nome = "Benedita",
+                Energia = 100,
+                Vida = 100,
+                VidaAtual = 100,
+                Agilidade = 100,
+                Defesa = 100,
+                Forca = 10,
+                Inteligencia = 10,
+                Mana = 100,
+                intervaloAtaques = 10,
+                Foco = "",
+                Posicao = "I4"
+            });
+            combatentesInimigos.Add(new Combatente()
+            {
+                Nome = "Marcos",
+                Energia = 100,
+                Vida = 100,
+                VidaAtual = 100,
+                Agilidade = 100,
+                Defesa = 100,
+                Forca = 10,
+                Inteligencia = 10,
+                Mana = 100,
+                intervaloAtaques = 5,
+                Foco = "",
+                Posicao = "I7"
+            });
+
+            this.NavigationService.Navigate(new Combate(combatentesAliados,combatentesInimigos));
         }
     }
 }

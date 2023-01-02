@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 using System.Windows.Threading;
 
 namespace Infraestrutura.Entidades.EntCombate
@@ -21,39 +22,62 @@ namespace Infraestrutura.Entidades.EntCombate
         public double ManaAtual { get; set; }
         public double EnergiaAtual { get; set; }
         public string Foco { get; set; }
+        public Combatente alvo { get; set; }
         public string Posicao { get; set; }
-        public int intervaloAtaques { get; set; }
-        public bool AtaquePronto { get; set; }
-        public bool StatusTimerAtaque { get; set; }
-
+        public string Dialogo { get; set; }
         public RepresentacaoTelaCombate Painel { get; set; }
-
-
-        private int TempoParaAtacar { get; set; }
+        public double intervaloAtaques { get; set; }
+        private double TempoParaAtacar { get; set; }
         private DispatcherTimer contadorAtaque = new DispatcherTimer();
 
         public void IniciaTimerAtacar()
         {
             contadorAtaque.Tick += new EventHandler(CombateAtivo);
-            contadorAtaque.Interval = new TimeSpan(0, 0, 0, 1, 0);
+            contadorAtaque.Interval = new TimeSpan(0, 0, 0, 0, 500);
             contadorAtaque.Start();
-            StatusTimerAtaque = true;
         }
         public void ParaTimerAtacar()
         {
             contadorAtaque.Stop();
-            StatusTimerAtaque = false;
-        } 
+        }
 
         public async void CombateAtivo(object sender, EventArgs e)
         {
-            TempoParaAtacar++;
-            Painel.ProgressBarIntervaloAtaque.Value= TempoParaAtacar;
+            TempoParaAtacar = TempoParaAtacar + 0.5;
+            Painel.ProgressBarIntervaloAtaque.Value = TempoParaAtacar;
             if (TempoParaAtacar == intervaloAtaques)
             {
-                AtaquePronto = true;
-                TempoParaAtacar= 0;
+                if (VidaAtual <= 0 || alvo.VidaAtual <= 0)
+                {
+                    ParaTimerAtacar();
+                }
+                else
+                {
+                    Dialogo = alvo.ReceberDabo(Forca);
+                }
+                TempoParaAtacar = 0;
             }
+        }
+
+        public string ReceberDabo(double dano)
+        {
+            string msg = "";
+
+            if (alvo.VidaAtual - dano <= 0)
+            {
+                dano = alvo.VidaAtual - dano < 0 ? dano + (alvo.VidaAtual - dano) : dano;
+                VidaAtual = 0;
+                ParaTimerAtacar();
+                msg = "{ALVO} MORREU! Ultimo dano Recebido de {NOME}: " + dano;
+            }
+            else
+            {
+                VidaAtual -= dano;
+                msg = "{NOME} causou " + dano + " de dano em {ALVO}";
+            }
+
+            Painel.ProgressBarVida.Value = VidaAtual;
+            return msg;
         }
     }
 }
