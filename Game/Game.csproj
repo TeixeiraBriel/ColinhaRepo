@@ -92,6 +92,12 @@
     <Compile Include="Controles\MenuInformacoesJogador\CriarNovoJogoView.xaml.cs">
       <DependentUpon>CriarNovoJogoView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controles\MenuInformacoesJogador\InformacaoPersonagemView.xaml.cs">
+      <DependentUpon>InformacaoPersonagemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\MenuInformacoesJogador\InfoStatusPersonagem.xaml.cs">
+      <DependentUpon>InfoStatusPersonagem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controles\TelaMapa\IndexMapa.xaml.cs">
       <DependentUpon>IndexMapa.xaml</DependentUpon>
     </Compile>
@@ -116,6 +122,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controles\MenuInformacoesJogador\IndexMenuInformacoesJogador.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controles\MenuInformacoesJogador\InformacaoPersonagemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controles\MenuInformacoesJogador\InfoStatusPersonagem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -216,8 +230,70 @@
       <Name>Infraestrutura</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <Folder Include="Dados\Imagens\Habilidades\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Dados\Imagens\Icones\arco.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dados\Imagens\Icones\bandido.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dados\Imagens\Icones\barbaro.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dados\Imagens\Icones\bruxo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dados\Imagens\Icones\busca.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dados\Imagens\Icones\busca2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dados\Imagens\Icones\cavaleiro.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dados\Imagens\Icones\clube.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dados\Imagens\Icones\curar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dados\Imagens\Icones\espada.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dados\Imagens\Icones\jogo-de-rpg.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dados\Imagens\Icones\livro.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dados\Imagens\Icones\livro2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dados\Imagens\Icones\monstro.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dados\Imagens\Icones\necromante.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dados\Imagens\Icones\o-saco-da-escola.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dados\Imagens\Icones\peito.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dados\Imagens\Icones\pocao.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dados\Imagens\Icones\rpg.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dados\Imagens\Icones\sacerdote.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Dados\Imagens\ImgMeditar.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

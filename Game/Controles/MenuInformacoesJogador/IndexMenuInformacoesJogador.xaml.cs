@@ -34,7 +34,7 @@ namespace Game.Controles.MenuInformacoesJogador
 
         private void MudaAbaBolsa(object sender, RoutedEventArgs e)
         {
-            FrameAbaInformacoesJogador.Navigate(new AbaBolsa(this));
+           // FrameAbaInformacoesJogador.Navigate(new AbaBolsa(this));
         }
 
         private void MudaAbaStatus(object sender, RoutedEventArgs e)

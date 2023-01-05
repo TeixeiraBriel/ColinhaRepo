@@ -16,13 +16,11 @@ using System.Windows.Shapes;
 namespace Game.Controles.MenuInformacoesJogador
 {
     /// <summary>
-    /// Interação lógica para AbaBolsa.xam
+    /// Interação lógica para InfoStatusPersonagem.xam
     /// </summary>
-    public partial class AbaBolsa : Page
+    public partial class InfoStatusPersonagem : UserControl
     {
-        private IndexMenuInformacoesJogador FramePai;
-
-        public AbaBolsa()
+        public InfoStatusPersonagem()
         {
             InitializeComponent();
         }

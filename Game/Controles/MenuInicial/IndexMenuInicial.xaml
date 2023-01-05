@@ -29,7 +29,7 @@
             <Button Content="Novo Jogo" Click="NovoJogo" Margin="5"/>
             <Button Content="Novo Combate" Click="Teste" Margin="5"/>
             <Button Content="Continuar" Click="ContinuarJogo" Margin="5,0" IsEnabled="False" Name="btnContinuar"/>
-            <Button Content="Atributos" Click="NavegaInfoJogador" Margin="5" IsEnabled="False" Name="btnAtributos"/>
+            <Button Content="Atributos" Click="NavegaInfoJogador" Margin="5" IsEnabled="True" Name="btnAtributos"/>
         </StackPanel>
     </Grid>
 </Page>

@@ -65,7 +65,7 @@ namespace Game.Controles.MenuInicial
 
         private void NavegaInfoJogador(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new IndexMenuInformacoesJogador(Save));
+            this.NavigationService.Navigate(new InformacaoPersonagemView());
         }
 
         public void CarregaComponentes()
