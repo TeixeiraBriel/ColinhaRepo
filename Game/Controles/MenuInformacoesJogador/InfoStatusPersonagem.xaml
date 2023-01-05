@@ -7,10 +7,60 @@
              mc:Ignorable="d" 
              d:DesignHeight="1000" d:DesignWidth="990">
     <Grid>
+        <!--painel status-->
         <StackPanel Width="250" HorizontalAlignment="Left" Background="AliceBlue">
             <TextBlock TextWrapping="Wrap" Text="Status" FontSize="18" HorizontalAlignment="Center"/>
         </StackPanel>
+        <!--painel de itens equipados-->
+        <StackPanel  Margin="255,0,10,0">
+            <StackPanel Width="500" Height="115" Margin="0,180,0,0" Orientation="Horizontal">
+                <StackPanel Width="85" Height="45" Orientation="Horizontal" HorizontalAlignment="Left" Margin="30,0,0,0">
+                    <StackPanel Width="35" Height="35" Margin="5,0,0,0" Background="White">
+                        <TextBlock Text="anel 1" Margin="2,7"/>
+                    </StackPanel>
+                    <StackPanel Width="35" Height="35" Margin="5,0,0,0"  Background="White">
+                        <TextBlock Text="anel 2" Margin="2,7"/>
+                    </StackPanel>
+                </StackPanel>
 
-        <StackPanel Background="Green" Margin="255,0,10,0"/>
+                <StackPanel Width="110" Height="110" Margin="50,0,0,0" Background="White">
+                    <TextBlock Text="Elmo" Margin="15,30" FontSize="30"/>
+                </StackPanel>
+                <StackPanel Width="110" Height="110" Margin="15,0,0,0" Background="White">
+                    <TextBlock Text="Colar" Margin="15,30" FontSize="30"/>
+                </StackPanel>
+            </StackPanel>
+            
+            <StackPanel Width="500" Height="180" Margin="0,5,0,0" Orientation="Horizontal">
+                <StackPanel Width="110" Height="170" Margin="35,0,0,0" Background="White">
+                    <TextBlock Text="Arma" Margin="15,60" FontSize="30"/>
+                </StackPanel>
+                <StackPanel Width="110" Height="140" Margin="20,0,0,0" Background="White">
+                    <TextBlock Text="Peitoral" Margin="5,50" FontSize="30"/>
+                </StackPanel>
+                <StackPanel Width="110" Height="170" Margin="15,0,0,0" Background="White">
+                    <TextBlock Text="Escudo" Margin="5,60" FontSize="30"/>
+                </StackPanel>
+            </StackPanel>
+            
+            <StackPanel Width="500" Height="220" Margin="0,5,0,0" Orientation="Horizontal">
+                <StackPanel Width="110" Height="110" Margin="35,0,0,100">
+                    <StackPanel Background="White">
+                        <TextBlock Text="Luvas" Margin="15,30" FontSize="30"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Width="110" Height="220" Margin="20,0,0,0">
+                    <StackPanel Height="40" Margin="0,0,0,15" Background="White">
+                        <TextBlock Text="Cinto"  FontSize="30"/>
+                    </StackPanel>
+                    <StackPanel Height="150" Margin="0,0,0,0" Background="White">
+                        <TextBlock Text="Calças" Margin="15,30" FontSize="30"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Width="110" Height="110" Margin="15,0,0,0" Background="White">
+                    <TextBlock Text="Botas" Margin="15,30" FontSize="30"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </UserControl>
