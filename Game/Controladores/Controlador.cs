@@ -47,17 +47,31 @@ namespace Game.Controladores
             var fileHabilidades = @"Dados\Habilidades.json";
             var fileSave = @"Dados\Save.json";
 
-            _Progressao = JsonConvert.DeserializeObject<Progressao>(File.ReadAllText(fileSave, Encoding.UTF8));
+            //_Progressao = JsonConvert.DeserializeObject<Progressao>(File.ReadAllText(fileSave, Encoding.UTF8));
             _Classes = JsonConvert.DeserializeObject<List<Personagem>>(File.ReadAllText(fileClasses, Encoding.UTF8));
             _Inimigos = JsonConvert.DeserializeObject<List<Inimigo>>(File.ReadAllText(fileInimigos, Encoding.UTF8));
             _Habilidades = JsonConvert.DeserializeObject<List<Habilidade>>(File.ReadAllText(fileHabilidades, Encoding.UTF8));
         }
 
-        public bool salvarAvanço(Progressao save)
+        public static SaveGame buscarSave()
+        {
+            var fileSave = @"Dados\Save.json";
+            try
+            {
+                SaveGame save = JsonConvert.DeserializeObject<SaveGame>(File.ReadAllText(fileSave, Encoding.UTF8));
+                return save;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public static bool salvarAvanço(SaveGame save)
         {
             try
             {
-                Progressao novo = save;
+                SaveGame novo = save;
                 string output = JsonConvert.SerializeObject(novo);
 
                 File.WriteAllText(@"Dados\Save.json", output.ToString());

@@ -330,7 +330,7 @@ namespace Game.Controles.TelaPadrao
                 _save.Jogador.XpAtual += _inimigo.XpDropado;
             }
 
-            _controlador.salvarAvanço(_save);
+            //_controlador.salvarAvanço(_save);
             this.NavigationService.Navigate(new IndexMenuInicial(_save));
         }
 

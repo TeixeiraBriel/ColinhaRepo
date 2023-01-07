@@ -1,0 +1,70 @@
+﻿<Page x:Class="Game.Controles.MenuInicial.CriarNovoJogoView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Game.Controles.MenuInicial"
+      mc:Ignorable="d" 
+      d:DesignHeight="1024" d:DesignWidth="1280"
+      Title="CriarNovoJogoView">
+
+    <Grid>
+        <!--PASSO UM-->
+        <StackPanel x:Name="PrimeiraEtapa" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
+            <TextBlock FontSize="50" Width="800" Height="600" TextWrapping="Wrap" TextAlignment="Center"
+                Text="Olá, bem vindo ao mundo de GAME, neste mundo você será um lider de equipe ou um lobo solitario. Suas escolhas terão interferencia no mundo e pessoas a sua volta, seja esperto nas suas escolhas. Falando em escolhas, vamos a primeira."/>
+            <StackPanel>
+                <Label Content="Qual seu nome?" FontSize="30" HorizontalAlignment="Center"/>
+                <TextBox x:Name="inputNomeLider" Height="40" FontSize="30" Margin="5" TextAlignment="Center"/>
+                <Button x:Name="btnPasso2" Click="funcProximoPasso" Content="Confirmar" Width="150" Height="50" FontSize="25"/>
+            </StackPanel>
+        </StackPanel>
+        
+        <!--PASSO DOIS-->
+        <StackPanel x:Name="SegundaEtapa" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
+            <TextBlock FontSize="50" Width="800" Height="150" TextWrapping="Wrap" TextAlignment="Center"
+                Text="Agora vamos falar sobre suas caracteristicas. Qual sua raça?"/>
+            <StackPanel>
+                <Label Content="Qual seu nome?" FontSize="30" HorizontalAlignment="Center"/>
+                <ComboBox x:Name="cmbBoxRaca" Width="200" Height="40" FontSize="30" Margin="5" HorizontalContentAlignment="Center" SelectionChanged="AlternarClasseFunc">
+                    <ComboBoxItem Content="Humano"/>
+                    <ComboBoxItem Content="Elfo"/>
+                    <ComboBoxItem Content="Orc"/>
+                    <ComboBoxItem Content="Anão"/>
+                    <ComboBoxItem Content="Gnomo"/>
+                </ComboBox>
+            </StackPanel>
+            <TextBlock x:Name="txtEscolhaRaça" FontSize="30" Width="800" Height="150" TextWrapping="Wrap" TextAlignment="Center"
+                Text="Legal, você é um humano, os humanos são neutros em seus aspectos, não são ruins em nada, porém não se destacam tambem."/>
+            <TextBlock FontSize="35" Width="800" Height="50" TextWrapping="Wrap" TextAlignment="Center" FontWeight="Bold"
+                Text="Status"/>
+            <StackPanel x:Name="PainelStatusRaça">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="Força:" FontSize="30" Margin="1"/>
+                    <TextBlock x:Name="txtValorForca" Text="3" FontSize="30" Margin="1"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="Vigor:" FontSize="30" Margin="1"/>
+                    <TextBlock x:Name="txtValorVigor" Text="3" FontSize="30" Margin="1"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="Inteligencia:" FontSize="30" Margin="1"/>
+                    <TextBlock x:Name="txtValorInteligencia" Text="3" FontSize="30" Margin="1"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="Agilidade:" FontSize="30" Margin="1"/>
+                    <TextBlock x:Name="txtValorAgilidade" Text="3" FontSize="30" Margin="1"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="Carisma:" FontSize="30" Margin="1"/>
+                    <TextBlock x:Name="txtValorCarisma" Text="3" FontSize="30" Margin="1"/>
+                </StackPanel>
+            </StackPanel>
+            <Button x:Name="btnPasso3" Click="funcProximoPasso" Content="Confirmar" Width="150" Height="50" FontSize="25" Margin="5"/>
+        </StackPanel>
+        <!--PASSO TRES-->
+        <StackPanel x:Name="TerceiraEtapa" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
+            <Button x:Name="btnPasso4" Click="funcProximoPasso" Content="Confirmar" Width="150" Height="50" FontSize="25" Margin="5"/>
+        </StackPanel>
+    </Grid>
+</Page>

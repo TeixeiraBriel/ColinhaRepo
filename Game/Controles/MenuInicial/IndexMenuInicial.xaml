@@ -10,26 +10,9 @@
 
     <Grid>
         <StackPanel Orientation="Vertical"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="200">
-            <StackPanel Margin="10,0,10,50">
-                <StackPanel Margin="10,0">
-                    <TextBlock Text="Personagem" Width="100" Margin="0,0,10,0"/>
-                    <ComboBox Name="cmbPersonagens"/>
-                </StackPanel>
-                <StackPanel Margin="10,3">
-                    <TextBlock Text="Inimigos" Width="100" Margin="0,0,10,0"/>
-                    <ComboBox Name="cmbInimigos"/>
-                    <TextBlock Text="Nivel Inimigo" Width="100" Margin="0,0,10,0"/>
-                    <ComboBox Name="cmbNivelInimigo"/>
-                </StackPanel>
-                <Button Content="Iniciar" Click="ComeçaJogo"/>
-            </StackPanel>
-
-            <TextBlock Margin="5,0"  Name="textResumoSaveParte1" Text="Jogos:0 Vitorias:0 Derrota:0" HorizontalAlignment="Center"/>
-            <TextBlock Margin="5,0"  Name="textResumoSaveParte2" Text="Xp:0/100 Moedas:0" HorizontalAlignment="Center"/>
+            <Label Content="GAME" FontSize="50" HorizontalAlignment="Center"/>
             <Button Content="Novo Jogo" Click="NovoJogo" Margin="5"/>
-            <Button Content="Novo Combate" Click="Teste" Margin="5"/>
             <Button Content="Continuar" Click="ContinuarJogo" Margin="5,0" IsEnabled="False" Name="btnContinuar"/>
-            <Button Content="Atributos" Click="NavegaInfoJogador" Margin="5" IsEnabled="False" Name="btnAtributos"/>
         </StackPanel>
     </Grid>
 </Page>

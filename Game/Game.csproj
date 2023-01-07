@@ -89,7 +89,7 @@
     <Compile Include="Controles\MenuInformacoesJogador\AbaStatus.xaml.cs">
       <DependentUpon>AbaStatus.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controles\MenuInformacoesJogador\CriarNovoJogoView.xaml.cs">
+    <Compile Include="Controles\MenuInicial\CriarNovoJogoView.xaml.cs">
       <DependentUpon>CriarNovoJogoView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controles\TelaMapa\IndexMapa.xaml.cs">
@@ -98,8 +98,14 @@
     <Compile Include="Controles\TelaPadrao\Combate.xaml.cs">
       <DependentUpon>Combate.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controles\TelaPadrao\Dialogo.xaml.cs">
+      <DependentUpon>Dialogo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controles\TelaPadrao\janelaDadosHabilidade.xaml.cs">
       <DependentUpon>janelaDadosHabilidade.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\TelaPadrao\TuturialView.xaml.cs">
+      <DependentUpon>TuturialView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Util\DispatcherUtil.cs" />
     <Compile Include="Util\Timer.cs" />
@@ -111,7 +117,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controles\MenuInformacoesJogador\CriarNovoJogoView.xaml">
+    <Page Include="Controles\MenuInicial\CriarNovoJogoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -131,11 +137,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controles\TelaPadrao\Dialogo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controles\TelaPadrao\IndexTelaCombate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controles\TelaPadrao\janelaDadosHabilidade.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controles\TelaPadrao\TuturialView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -183,9 +197,7 @@
     <EmbeddedResource Include="Dados\Habilidades.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dados\Save.Json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Dados\Save.Json" />
     <EmbeddedResource Include="Dados\ClassesJson.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>

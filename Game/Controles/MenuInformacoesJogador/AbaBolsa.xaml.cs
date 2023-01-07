@@ -20,12 +20,9 @@ namespace Game.Controles.MenuInformacoesJogador
     /// </summary>
     public partial class AbaBolsa : Page
     {
-        private IndexMenuInformacoesJogador FramePai;
-
-        public AbaBolsa(IndexMenuInformacoesJogador framePai)
+        public AbaBolsa()
         {
             InitializeComponent();
-            FramePai = framePai;
         }
     }
 }

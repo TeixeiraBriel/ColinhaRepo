@@ -12,10 +12,6 @@ namespace Infraestrutura.Entidades.EntCombate
     {
         public Combatente()
         {
-            VidaAtual = Vida;
-            ManaAtual = Mana;
-            EnergiaAtual = Energia;
-            TempoParaAtacar = intervaloAtaques;
         }
 
         public double VidaAtual { get; set; }
@@ -29,6 +25,20 @@ namespace Infraestrutura.Entidades.EntCombate
         public double intervaloAtaques { get; set; }
         private double TempoParaAtacar { get; set; }
         private DispatcherTimer contadorAtaque = new DispatcherTimer();
+
+        public void InicializaCombatente()
+        {
+            Vida = Vigor * 10;
+            VidaAtual = Vida;
+
+            Mana = Inteligencia * 5;
+            ManaAtual = Mana;
+
+            Energia = Agilidade * 5;
+            EnergiaAtual = Energia;
+
+            Defesa = 0;
+        }
 
         public void IniciaTimerAtacar()
         {
