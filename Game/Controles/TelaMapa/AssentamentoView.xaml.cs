@@ -59,6 +59,11 @@ namespace Game.Controles.TelaMapa
                     MainAssentoViewFrame.NavigationService.Navigate(new AbaBolsa());
                     break;
                 case "Prisão":
+                    var save = Controlador.buscarSave();
+                    var nome = save.Equipe.combatentes.Last().Nome;
+                    nome = nome.Contains(":1") ? nome.Split(':')[0] + (int.Parse(nome.Split(':')[1]) + 1) : "Prisioneiro:1";
+                    save.Equipe.combatentes.Add(new Combatente(){Nome = nome });
+                    Controlador.salvarAvanço(save);
                     MainAssentoViewFrame.NavigationService.Navigate(new AbaBolsa());
                     break;
                 case "Sua Equipe":

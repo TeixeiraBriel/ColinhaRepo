@@ -43,7 +43,7 @@ namespace Infraestrutura.Entidades
             XpDropado = 3;
             HabilidadesPermitidas = new List<int>();
         }
-        public Combatente CriaPersonagemCombatente(string nome, double vigor, double forca, double Inteligencia, double agilidade, double carisma)
+        public static Combatente CriaPersonagemCombatente(string nome, double vigor, double forca, double Inteligencia, double agilidade, double carisma)
         {
             Combatente combatente = new Combatente();
 

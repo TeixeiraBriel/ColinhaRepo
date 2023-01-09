@@ -46,15 +46,15 @@ namespace Game.Controles.TelaPadrao
                 btnCombatente.Click += (s, e) =>
                 {
                     Main.Children.Clear();
+                    painel.Children.Clear();
                     foreach (var item in Combatente.ToExpando())
                     {
                         painel.Children.Add(new Label() { Content = $"{item.Key}:{item.Value}" });
                     }
-                    Main.Children.Clear();
                     Main.Children.Add(painel);
                 };
 
-                Aside.Children.Add(btnCombatente);
+                PainelBotoes.Children.Add(btnCombatente);
             }
         }
 
