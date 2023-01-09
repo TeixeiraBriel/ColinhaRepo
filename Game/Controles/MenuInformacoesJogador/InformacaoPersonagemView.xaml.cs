@@ -35,12 +35,10 @@ namespace Game.Controles.MenuInformacoesJogador
         {
             var btn = sender as Button;
             string nomeBtn = btn.Name;
-
             switch (nomeBtn)
             {
                 case "btnStatus":
                     infoPersonagemFrame.Navigate(new InfoStatusPersonagem());
-                    break;
                 case "btnInventario":
                     infoPersonagemFrame.Navigate(new AbaBolsa());
                     break;

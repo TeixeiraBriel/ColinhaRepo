@@ -29,7 +29,18 @@
             <Button Content="Novo Jogo" Click="NovoJogo" Margin="5"/>
             <Button Content="Novo Combate" Click="Teste" Margin="5"/>
             <Button Content="Continuar" Click="ContinuarJogo" Margin="5,0" IsEnabled="False" Name="btnContinuar"/>
-            <Button Content="Atributos" Click="NavegaInfoJogador" Margin="5" IsEnabled="True" Name="btnAtributos"/>
+            <Button Content="Atributos" Click="NavegaInfoJogador" Margin="5" IsEnabled="True" Name="btnAtributos">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
         </StackPanel>
     </Grid>
 </Page>
