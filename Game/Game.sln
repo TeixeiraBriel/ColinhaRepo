@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31911.196
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game", "Game.csproj", "{D01A8448-B223-4FFF-8BC3-A22C72544B44}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesenvolvimentoLogicas", "..\DesenvolvimentoLogicas\DesenvolvimentoLogicas.csproj", "{2D5E315C-3FB8-4EA4-BA67-6CB07ED7643A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominio", "..\Dominio\Dominio.csproj", "{D53BE6BE-C537-41AD-A48C-A4152A7B1854}"
 EndProject
@@ -21,10 +19,6 @@ Global
 		{D01A8448-B223-4FFF-8BC3-A22C72544B44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D01A8448-B223-4FFF-8BC3-A22C72544B44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D01A8448-B223-4FFF-8BC3-A22C72544B44}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2D5E315C-3FB8-4EA4-BA67-6CB07ED7643A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2D5E315C-3FB8-4EA4-BA67-6CB07ED7643A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2D5E315C-3FB8-4EA4-BA67-6CB07ED7643A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2D5E315C-3FB8-4EA4-BA67-6CB07ED7643A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D53BE6BE-C537-41AD-A48C-A4152A7B1854}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D53BE6BE-C537-41AD-A48C-A4152A7B1854}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D53BE6BE-C537-41AD-A48C-A4152A7B1854}.Release|Any CPU.ActiveCfg = Release|Any CPU

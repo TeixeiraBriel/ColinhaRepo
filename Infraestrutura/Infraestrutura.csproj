@@ -44,13 +44,13 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entidades\EntCombate\Combatente.cs" />
+    <Compile Include="Entidades\Assentamento.cs" />
+    <Compile Include="Entidades\Combatente.cs" />
     <Compile Include="Entidades\EntCombate\IdentificadorPosicaoCombatente.cs" />
     <Compile Include="Entidades\EntCombate\RepresentacaoTelaCombate.cs" />
+    <Compile Include="Entidades\Equipe.cs" />
     <Compile Include="Entidades\fichaBase.cs" />
     <Compile Include="Entidades\Habilidade.cs" />
-    <Compile Include="Entidades\Inimigo.cs" />
-    <Compile Include="Entidades\Personagem.cs" />
     <Compile Include="Entidades\Progressao.cs" />
     <Compile Include="Entidades\SaveGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

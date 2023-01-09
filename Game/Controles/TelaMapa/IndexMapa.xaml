@@ -9,10 +9,8 @@
       Title="IndexMapa">
 
     <Grid x:Name="GridTelaMapa">
-
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -24,8 +22,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -46,8 +43,6 @@
             <TextBlock Text="6" Grid.Column="6" Grid.Row="0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <TextBlock Text="7" Grid.Column="7" Grid.Row="0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <TextBlock Text="8" Grid.Column="8" Grid.Row="0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <TextBlock Text="9" Grid.Column="9" Grid.Row="0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <TextBlock Text="10" Grid.Column="10" Grid.Row="0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
         <!--Linhas-->
         <TextBlock Text="A" Grid.Column="0" Grid.Row="1" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -58,8 +53,5 @@
         <TextBlock Text="F" Grid.Column="0" Grid.Row="6" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <TextBlock Text="G" Grid.Column="0" Grid.Row="7" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <TextBlock Text="H" Grid.Column="0" Grid.Row="8" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <TextBlock Text="I" Grid.Column="0" Grid.Row="9" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <TextBlock Text="J" Grid.Column="0" Grid.Row="10" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <!--Linhas-->
     </Grid>
 </Page>

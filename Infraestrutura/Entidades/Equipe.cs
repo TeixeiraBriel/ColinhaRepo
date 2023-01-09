@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 
 namespace Infraestrutura.Entidades
 {
-    public class Combatente : Combatente
+    public class Equipe
     {
+        public int QuantidadeMembros { get; set; }
+        public List<Combatente> combatentes { get; set; }
     }
 }

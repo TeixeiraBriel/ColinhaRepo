@@ -1,0 +1,26 @@
+﻿<Page x:Class="Game.Controles.TelaPadrao.EquipeView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Game.Controles.TelaPadrao"
+      mc:Ignorable="d" 
+      d:DesignHeight="1024" d:DesignWidth="1280"
+      Title="EquipeView">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Name="Aside" Grid.Column="0">
+            <StackPanel Name="PainelBotoes">
+                <Button Width="150" Height="30" VerticalAlignment="Top" Margin="10" Click="VoltarMapa" Content="Voltar"/>
+            </StackPanel>
+        </Grid>
+        <Grid Name="Main" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+        </Grid>
+        
+    </Grid>
+</Page>

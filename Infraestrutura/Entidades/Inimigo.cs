@@ -12,14 +12,5 @@ namespace Infraestrutura.Entidades
         public double XpDropado { get; set; }
         public int IdInimigo { get; set; }
 
-        public void DefineNivel(int nivel)
-        {
-            Vida = Vida * (0.5 * nivel);
-            Mana = Mana + (1 * nivel);
-            Forca = Forca + (0.7 * nivel);
-            Defesa = Defesa + (0.6 * nivel);
-            Agilidade = Agilidade + (0.7 * nivel);
-            XpDropado = XpDropado * nivel;
-        }
     }
 }

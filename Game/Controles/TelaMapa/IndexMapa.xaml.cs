@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Infraestrutura.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -31,14 +32,14 @@ namespace Game.Controles.TelaMapa
 
         public void CriarTodosGrid()
         {
-            for (int linha = 0; linha < 11; linha++)
+            for (int linha = 0; linha < 9; linha++)
             {
-                for (int coluna = 0; coluna < 11; coluna++)
+                for (int coluna = 0; coluna < 9; coluna++)
                 {
                     Grid myGrid = new Grid()
                     {
-                        Height = 40,
-                        Width = 40,
+                        Height = 60,
+                        Width = 60,
                         Background = Brushes.AliceBlue
                     };
 
@@ -49,16 +50,21 @@ namespace Game.Controles.TelaMapa
                     myGrid.MouseLeftButtonUp += (s2, e2) => { 
                         var _sender = s2 as Grid;
                         var item = _mapeamento.FirstOrDefault(x => x.Item2 == _sender);
-                        var qtdFilhos = item.Item2.Children.Count;
-                        if (qtdFilhos == 0)
+
+                        if (item.Item1 == "5|5")
                         {
-                            item.Item2.Children.Add(new Label() { Content = "Selecionado" });
+                            this.NavigationService.Navigate(new AssentamentoView(new Assentamento() { Nome = "Cidade Principal", Coordenada = new Tuple<int, int>(linha,coluna)}));
                         }
                         else
                         {
-                            item.Item2.Children.Clear();
+                            this.NavigationService.Navigate(new AssentamentoView(new Assentamento() { Nome = $"Mapa at {item.Item1}", Coordenada = new Tuple<int, int>(linha, coluna)}));
                         }
                     };
+
+                    if (coluna == 5 && linha == 5)
+                    {
+                        myGrid.Children.Add(new Label() { Content = "Cidade", HorizontalAlignment = HorizontalAlignment.Center, VerticalAlignment = VerticalAlignment.Center });
+                    }
 
                     Border borda = new Border()
                     {
@@ -69,7 +75,7 @@ namespace Game.Controles.TelaMapa
                         Child = myGrid
                     };
 
-                    if (coluna == 0 || linha == 0)
+                    if (coluna == 0 | linha == 0)
                     {
 
                     }

@@ -1,6 +1,7 @@
 ﻿using Game.Controladores;
 using Game.Controles.MenuInicial;
 using Infraestrutura.Entidades;
+using Infraestrutura.Entidades.EntCombate;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,7 @@ namespace Game.Controles.TelaPadrao
     /// <summary>
     /// Interação lógica para IndexTelaPadrao.xam
     /// </summary>
-    public partial class IndexTelaCombate : Page
+    public partial class CombateIndividual : Page
     {
         List<Habilidade> _Habilidades;
         Progressao _save;
@@ -34,13 +35,13 @@ namespace Game.Controles.TelaPadrao
         public DispatcherTimer contadorInimigo = new DispatcherTimer();
         public DispatcherTimer contadorFortificar = new DispatcherTimer();
 
-        Personagem _personagem;
-        Inimigo _inimigo;
+        Combatente _personagem;
+        Combatente _inimigo;
 
         bool vezInimigo = false;
         public int tempo = 60;
 
-        public IndexTelaCombate(Personagem personagem, Inimigo inimigo, Progressao save = null)
+        public CombateIndividual(Combatente personagem, Combatente inimigo, Progressao save = null)
         {
             InitializeComponent();
             inicializaTimer();
@@ -73,7 +74,7 @@ namespace Game.Controles.TelaPadrao
             }
         }
 
-        public void ReiniciaDadosCombate(Personagem personagem, Inimigo inimigo)
+        public void ReiniciaDadosCombate(Combatente personagem, Combatente inimigo)
         {
             NomePersonagem.Text = personagem.Nome;
             NomeInimigo.Text = inimigo.Nome;

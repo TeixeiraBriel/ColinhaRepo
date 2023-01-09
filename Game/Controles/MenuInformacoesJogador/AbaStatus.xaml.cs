@@ -1,5 +1,6 @@
 ﻿using Game.Controladores;
 using Infraestrutura.Entidades;
+using Infraestrutura.Entidades.EntCombate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace Game.Controles.MenuInformacoesJogador
     public partial class AbaStatus : Page
     {
         private Progressao _save = new Progressao();
-        Personagem _Personagem;
+        Combatente _Personagem;
         Controlador _controlador;
 
         public AbaStatus(Progressao save)
@@ -31,7 +32,7 @@ namespace Game.Controles.MenuInformacoesJogador
             InitializeComponent();
 
             _controlador = new Controlador();
-            _Personagem = new Personagem();
+            _Personagem = new Combatente();
             _save = save;
 
             iniciaDados();

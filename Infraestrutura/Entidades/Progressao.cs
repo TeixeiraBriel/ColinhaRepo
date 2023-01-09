@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Infraestrutura.Entidades.EntCombate;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace Infraestrutura.Entidades
         private int _Derrotas;
         private int _Moedas;
         private int _Nivel;
-        private Personagem _Jogador;
+        private Combatente _Jogador;
         private double _VidaAtual;
         private double _ManaAtual;
         private double _EnergiaAtual;
@@ -23,7 +24,7 @@ namespace Infraestrutura.Entidades
         public int Derrotas { get { return _Derrotas; } set { _Derrotas = value; } }
         public int Moedas { get { return _Moedas; } set { _Moedas = value; } }
         public int Nivel { get { return _Nivel; } set { _Nivel = value; } }
-        public Personagem Jogador { get { return _Jogador; } set { _Jogador = value; } }
+        public Combatente Jogador { get { return _Jogador; } set { _Jogador = value; } }
         public double VidaAtual { get { return _VidaAtual; } set { _VidaAtual = value; } }
         public double ManaAtual { get { return _ManaAtual; } set { _ManaAtual = value; } }
         public double EnergiaAtual { get { return _EnergiaAtual; } set { _EnergiaAtual = value; } }
@@ -35,7 +36,7 @@ namespace Infraestrutura.Entidades
             _Derrotas = 0;
             _Moedas = 0;
             _Nivel = 1;
-            _Jogador = new Personagem();
+            _Jogador = new Combatente();
             _VidaAtual = _Jogador.Vida;
             _ManaAtual = _Jogador.Mana;
             _EnergiaAtual = _Jogador.Energia;

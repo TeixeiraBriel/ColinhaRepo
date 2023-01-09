@@ -15,7 +15,7 @@ namespace Game.Controles.TelaPadrao
     /// <summary>
     /// Interação lógica para Combate.xam
     /// </summary>
-    public partial class Combate : Page
+    public partial class CombateEquipe : Page
     {
         //VariaveisAutoIniciadas
         int FaseCombate = 0;
@@ -34,7 +34,7 @@ namespace Game.Controles.TelaPadrao
         DispatcherTimer contadorRelogio = new DispatcherTimer();
         TimeSpan numeradorRelogio = new TimeSpan();
 
-        public Combate(List<Combatente> aliados, List<Combatente> inimigos)
+        public CombateEquipe(List<Combatente> aliados, List<Combatente> inimigos)
         {
             InitializeComponent();
             iniciaListas(aliados, inimigos);
@@ -133,7 +133,7 @@ namespace Game.Controles.TelaPadrao
 
             foreach (var atacante in Inimigos)
             {
-                atacante.alvo = Aliados.FirstOrDefault();
+                atacante.Painel.alvo = Aliados.FirstOrDefault();
             }
 
             Func<List<Combatente>, double> SomarVidas = list =>
@@ -181,7 +181,7 @@ namespace Game.Controles.TelaPadrao
 
             foreach (var atacante in Aliados)
             {
-                atacante.alvo = Inimigos.FirstOrDefault(x => x.Nome == atacante.Foco);
+                atacante.Painel.alvo = Inimigos.FirstOrDefault(x => x.Nome == atacante.Painel.Foco);
             }
 
             Action<List<IdentificadorPosicaoCombatente>> EncherParticipantes = list =>
@@ -190,7 +190,7 @@ namespace Game.Controles.TelaPadrao
                 {
                     if (item.Combatente != null)
                     {
-                        item.Combatente.Posicao = item.Posicao;
+                        item.Combatente.Painel.Posicao = item.Posicao;
                         CombatentesParticipantes.Add(item.Combatente);
                     }
                 }
@@ -206,7 +206,7 @@ namespace Game.Controles.TelaPadrao
 
             foreach (var item in Inimigos)
             {
-                item.Foco = Aliados.FirstOrDefault(x => x.VidaAtual > 0).Nome;
+                item.Painel.Foco = Aliados.FirstOrDefault(x => x.VidaAtual > 0).Nome;
             }
 
             PainelPersonagens.Children.Clear();
@@ -227,23 +227,23 @@ namespace Game.Controles.TelaPadrao
             lblCabecalho.Content = numeradorRelogio.ToString(@"mm\:ss");
 
 
-            var combatente = Aliados.FirstOrDefault(x => !string.IsNullOrEmpty(x.Dialogo));
+            var combatente = Aliados.FirstOrDefault(x => !string.IsNullOrEmpty(x.Painel.Dialogo));
             if (combatente != null)
             {
-                var newMsg = combatente.Dialogo.Replace("{ALVO}", combatente.alvo.Nome).Replace("{NOME}", combatente.Nome);
+                var newMsg = combatente.Painel.Dialogo.Replace("{ALVO}", combatente.Painel.alvo.Nome).Replace("{NOME}", combatente.Nome);
                 var msg = $"[{numeradorRelogio.ToString(@"mm\:ss")}] = {newMsg}";
                 PainelPersonagens.Children.Add(new Label() { Foreground = Brushes.Blue, Content = msg });
-                combatente.Dialogo = "";
+                combatente.Painel.Dialogo = "";
             }
             else
             {
-                combatente = Inimigos.FirstOrDefault(x => !string.IsNullOrEmpty(x.Dialogo));
+                combatente = Inimigos.FirstOrDefault(x => !string.IsNullOrEmpty(x.Painel.Dialogo));
                 if (combatente == null)
                     return;
-                var newMsg = combatente.Dialogo.Replace("{ALVO}", combatente.alvo.Nome).Replace("{NOME}", combatente.Nome);
+                var newMsg = combatente.Painel.Dialogo.Replace("{ALVO}", combatente.Painel.alvo.Nome).Replace("{NOME}", combatente.Nome);
                 var msg = $"[{numeradorRelogio.ToString(@"mm\:ss")}] = {newMsg}";
                 PainelPersonagens.Children.Add(new Label() { Foreground = Brushes.Red, Content = msg });
-                combatente.Dialogo = "";
+                combatente.Painel.Dialogo = "";
             }
         }
 
@@ -276,7 +276,7 @@ namespace Game.Controles.TelaPadrao
             {
                 if (string.IsNullOrEmpty(cmbPosicoes.Text.ToString()))
                     return;
-                combatente.Posicao = cmbPosicoes.Text;
+                combatente.Painel.Posicao = cmbPosicoes.Text;
                 PosicionaCombatenteSelecionado(combatente, _listPosicoesAliados, Aliados);
 
                 combatente.Painel.LabelNome.MouseLeftButtonDown += (s2, e2) =>
@@ -305,7 +305,7 @@ namespace Game.Controles.TelaPadrao
 
         void PosicionaCombatenteSelecionado(Combatente personagem, List<IdentificadorPosicaoCombatente> listaPosicoes, List<Combatente> listaAtivos)
         {
-            var vaga = listaPosicoes.FirstOrDefault(x => x.Posicao == personagem.Posicao && x.Combatente == null);
+            var vaga = listaPosicoes.FirstOrDefault(x => x.Posicao == personagem.Painel.Posicao && x.Combatente == null);
             if (vaga != null)
             {
                 personagem.Painel = new RepresentacaoTelaCombate(personagem.Nome, personagem.Vida, personagem.intervaloAtaques);
@@ -345,7 +345,7 @@ namespace Game.Controles.TelaPadrao
                     {
                         return;
                     }
-                    combatente.Foco = foco.Text.ToString();
+                    combatente.Painel.Foco = foco.Text.ToString();
                     foco.IsEnabled = false;
                     btnConfirmaFoco.IsEnabled = false;
                     FaseDoisCheck--;

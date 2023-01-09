@@ -1,4 +1,5 @@
 ﻿using Infraestrutura.Entidades;
+using Infraestrutura.Entidades.EntCombate;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -12,18 +13,18 @@ namespace Game.Controladores
 {
     public class Controlador
     {
-        private List<Personagem> _Personagens;
-        private List<Personagem> _Classes;
-        private List<Inimigo> _Inimigos;
+        private List<Combatente> _Personagens;
+        private List<Combatente> _Classes;
+        private List<Combatente> _Inimigos;
         private List<Habilidade> _Habilidades;
         private Progressao _Progressao;
 
-        public List<Personagem> Classes
+        public List<Combatente> Classes
         {
             get { return _Classes; }
             set { _Classes = value; }
         }
-        public List<Inimigo> Inimigos
+        public List<Combatente> Inimigos
         {
             get { return _Inimigos; }
             set { _Inimigos = value; }
@@ -42,15 +43,17 @@ namespace Game.Controladores
 
         public void CarregaJsons()
         {
+            /*
             var fileInimigos = @"Dados\InimigosJson.json";
             var fileClasses = @"Dados\ClassesJson.json";
             var fileHabilidades = @"Dados\Habilidades.json";
             var fileSave = @"Dados\Save.json";
 
             //_Progressao = JsonConvert.DeserializeObject<Progressao>(File.ReadAllText(fileSave, Encoding.UTF8));
-            _Classes = JsonConvert.DeserializeObject<List<Personagem>>(File.ReadAllText(fileClasses, Encoding.UTF8));
-            _Inimigos = JsonConvert.DeserializeObject<List<Inimigo>>(File.ReadAllText(fileInimigos, Encoding.UTF8));
+            _Classes = JsonConvert.DeserializeObject<List<Combatente>>(File.ReadAllText(fileClasses, Encoding.UTF8));
+            _Inimigos = JsonConvert.DeserializeObject<List<Combatente>>(File.ReadAllText(fileInimigos, Encoding.UTF8));
             _Habilidades = JsonConvert.DeserializeObject<List<Habilidade>>(File.ReadAllText(fileHabilidades, Encoding.UTF8));
+            */
         }
 
         public static SaveGame buscarSave()
@@ -89,6 +92,14 @@ namespace Game.Controladores
 
                 return false;
             }
+        }
+
+        public static Equipe buscarEquipe()
+        {
+            Equipe equipe = new Equipe();
+            equipe = buscarSave().Equipe;
+
+            return equipe;
         }
     }
 }

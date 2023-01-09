@@ -14,6 +14,10 @@ namespace Infraestrutura.Entidades.EntCombate
         public Label LabelNome { get; set; }
         public ProgressBar ProgressBarVida { get; set; }
         public ProgressBar ProgressBarIntervaloAtaque { get; set; }
+        public string Foco { get; set; }
+        public Combatente alvo { get; set; }
+        public string Posicao { get; set; }
+        public string Dialogo { get; set; }
 
         public RepresentacaoTelaCombate(string nome, double valorVidaTotal, double valorTotalTempo)
         {

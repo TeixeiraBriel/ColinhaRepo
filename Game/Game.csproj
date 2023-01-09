@@ -80,9 +80,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <EmbeddedResource Include="Dados\InimigosJson.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
     <Compile Include="Controles\MenuInformacoesJogador\AbaBolsa.xaml.cs">
       <DependentUpon>AbaBolsa.xaml</DependentUpon>
     </Compile>
@@ -92,14 +89,20 @@
     <Compile Include="Controles\MenuInicial\CriarNovoJogoView.xaml.cs">
       <DependentUpon>CriarNovoJogoView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controles\TelaMapa\AssentamentoView.xaml.cs">
+      <DependentUpon>AssentamentoView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controles\TelaMapa\IndexMapa.xaml.cs">
       <DependentUpon>IndexMapa.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controles\TelaPadrao\Combate.xaml.cs">
-      <DependentUpon>Combate.xaml</DependentUpon>
+    <Compile Include="Controles\TelaPadrao\CombateEquipe.xaml.cs">
+      <DependentUpon>CombateEquipe.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controles\TelaPadrao\Dialogo.xaml.cs">
       <DependentUpon>Dialogo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\TelaPadrao\EquipeView.xaml.cs">
+      <DependentUpon>EquipeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controles\TelaPadrao\janelaDadosHabilidade.xaml.cs">
       <DependentUpon>janelaDadosHabilidade.xaml</DependentUpon>
@@ -129,11 +132,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controles\TelaMapa\AssentamentoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controles\TelaMapa\IndexMapa.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controles\TelaPadrao\Combate.xaml">
+    <Page Include="Controles\TelaPadrao\CombateEquipe.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -141,7 +148,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controles\TelaPadrao\IndexTelaCombate.xaml">
+    <Page Include="Controles\TelaPadrao\CombateIndividual.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controles\TelaPadrao\EquipeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -168,8 +179,8 @@
     <Compile Include="Controles\MenuInicial\IndexMenuInicial.xaml.cs">
       <DependentUpon>IndexMenuInicial.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controles\TelaPadrao\IndexTelaCombate.xaml.cs">
-      <DependentUpon>IndexTelaCombate.xaml</DependentUpon>
+    <Compile Include="Controles\TelaPadrao\CombateIndividual.xaml.cs">
+      <DependentUpon>CombateIndividual.xaml</DependentUpon>
     </Compile>
     <Compile Include="JanelaPrincipal.xaml.cs">
       <DependentUpon>JanelaPrincipal.xaml</DependentUpon>
