@@ -21,9 +21,14 @@ namespace Game.Controles.MenuInformacoesJogador
     /// </summary>
     public partial class InformacaoPersonagemView : Page
     {
+        List<Button> btns = new List<Button>();
         public InformacaoPersonagemView()
         {
             InitializeComponent();
+
+            btns.Add(btnStatus);
+            btns.Add(btnHabilidades);
+            btns.Add(btnInventario);
         }
 
         private void MudaAbaBolsa(object sender, RoutedEventArgs e)
@@ -39,12 +44,33 @@ namespace Game.Controles.MenuInformacoesJogador
             {
                 case "btnStatus":
                     infoPersonagemFrame.Navigate(new InfoStatusPersonagem());
+                    break;
                 case "btnInventario":
                     infoPersonagemFrame.Navigate(new AbaBolsa());
                     break;
                 case "btnHabilidades":
                     infoPersonagemFrame.Navigate(new IndexMapa());
                     break;
+            }
+
+            ativaDesativaBtns(btn);
+        }
+
+        void ativaDesativaBtns(Button Ativo)
+        {
+            foreach (var btn in btns)
+            {
+                if (btn == Ativo)
+                {
+                    btn.Background = (Brush)new BrushConverter().ConvertFrom("#b5b5b5");
+                    btn.MouseLeave += (s,e) => { btn.Background = (Brush)new BrushConverter().ConvertFrom("#b5b5b5"); };
+                }
+                else
+                {
+                    btn.Background = (Brush)new BrushConverter().ConvertFrom("#FF484848");
+                    btn.MouseEnter += (s,e) => { btn.Background = (Brush)new BrushConverter().ConvertFrom("#b5b5b5"); };
+                    btn.MouseLeave += (s,e) => { btn.Background = (Brush)new BrushConverter().ConvertFrom("#FF484848"); };
+                }
             }
         }
     }
