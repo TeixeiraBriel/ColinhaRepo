@@ -1,5 +1,6 @@
 ﻿using Game.Controladores;
 using Game.Controles.MenuInformacoesJogador;
+using Game.Controles.TelaMapa;
 using Game.Controles.TelaPadrao;
 using Infraestrutura.Entidades;
 using Infraestrutura.Entidades.EntCombate;
@@ -160,6 +161,8 @@ namespace Game.Controles.MenuInicial
 
             cmbBoxRaca.SelectedIndex = 0;
             SegundaEtapa.Visibility = Visibility.Visible;
+
+            this.NavigationService.Navigate(new IndexMapa());
         }
         private void finalizaSegundoPasso()
         {

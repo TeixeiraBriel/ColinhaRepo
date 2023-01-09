@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,11 @@ namespace Game.Controles.TelaMapa
     /// </summary>
     public partial class IndexMapa : Page
     {
+        List<Tuple<string, Grid>> _mapeamento;
         public IndexMapa()
         {
             InitializeComponent();
+            _mapeamento = new List<Tuple<string, Grid>>();
             CriarTodosGrid();
         }
 
@@ -32,19 +35,37 @@ namespace Game.Controles.TelaMapa
             {
                 for (int coluna = 0; coluna < 11; coluna++)
                 {
-                    Grid myGrid = new Grid() 
+                    Grid myGrid = new Grid()
                     {
                         Height = 40,
-                        Width = 70,
+                        Width = 40,
                         Background = Brushes.AliceBlue
                     };
+
+
                     myGrid.MouseEnter += (s, e) => MudaCorVermelhoGrid(s, e);
                     myGrid.MouseLeave += (s, e) => MudaCorPadraoGrid(s, e);
+
+                    myGrid.MouseLeftButtonUp += (s2, e2) => { 
+                        var _sender = s2 as Grid;
+                        var item = _mapeamento.FirstOrDefault(x => x.Item2 == _sender);
+                        var qtdFilhos = item.Item2.Children.Count;
+                        if (qtdFilhos == 0)
+                        {
+                            item.Item2.Children.Add(new Label() { Content = "Selecionado" });
+                        }
+                        else
+                        {
+                            item.Item2.Children.Clear();
+                        }
+                    };
 
                     Border borda = new Border()
                     {
                         BorderBrush = Brushes.Black,
                         BorderThickness = new Thickness(2),
+                        CornerRadius = new CornerRadius(100),
+                        Margin = new Thickness(1),
                         Child = myGrid
                     };
 
@@ -57,6 +78,7 @@ namespace Game.Controles.TelaMapa
                         Grid.SetColumn(borda, coluna);
                         Grid.SetRow(borda, linha);
 
+                        _mapeamento.Add(new Tuple<string, Grid>($"{linha}|{coluna}", myGrid));
                         GridTelaMapa.Children.Add(borda);
                     }
                 }
