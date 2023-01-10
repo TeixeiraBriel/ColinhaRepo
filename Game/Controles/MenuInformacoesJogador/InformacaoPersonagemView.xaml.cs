@@ -46,7 +46,7 @@ namespace Game.Controles.MenuInformacoesJogador
                     infoPersonagemFrame.Navigate(new InfoStatusPersonagem());
                     break;
                 case "btnInventario":
-                    infoPersonagemFrame.Navigate(new AbaBolsa());
+                    infoPersonagemFrame.Navigate(new BolsaPersonagem());
                     break;
                 case "btnHabilidades":
                     infoPersonagemFrame.Navigate(new IndexMapa());

@@ -1,0 +1,103 @@
+﻿<Page x:Class="Game.Controles.MenuInformacoesJogador.BolsaPersonagem"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Game.Controles.MenuInformacoesJogador"
+      mc:Ignorable="d" 
+      d:DesignHeight="900" d:DesignWidth="1000"
+      Title="BolsaPersonagem">
+
+    <Grid>
+        <!--painel de itens equipados-->
+        <StackPanel Width="450" Height="550" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,25,0,0">
+            <StackPanel Width="450" Height="115" Margin="0,0,0,0" Orientation="Horizontal">
+                <StackPanel Width="85" Height="45" Orientation="Horizontal" HorizontalAlignment="Left" Margin="30,0,0,0">
+                    <StackPanel x:Name="AnelUm" Width="35" Height="35" Margin="5,0,0,0" Background="White">
+                        <TextBlock Text="anel 1" Margin="2,7"/>
+                    </StackPanel>
+                    <StackPanel x:Name="AnelDois" Width="35" Height="35" Margin="5,0,0,0"  Background="White">
+                        <TextBlock Text="anel 2" Margin="2,7"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel x:Name="Elmo" Width="110" Height="110" Margin="50,0,0,0" Background="White">
+                    <TextBlock Text="Elmo" Margin="15,30" FontSize="30"/>
+                </StackPanel>
+                <StackPanel x:Name="Colar" Width="110" Height="110" Margin="15,0,0,0" Background="White">
+                    <TextBlock Text="Colar" Margin="15,30" FontSize="30"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Width="450" Height="180" Margin="0,5,0,0" Orientation="Horizontal">
+                <StackPanel x:Name="Arma" Width="110" Height="170" Margin="35,0,0,0" Background="White">
+                    <TextBlock Text="Arma" Margin="15,60" FontSize="30"/>
+                </StackPanel>
+                <StackPanel x:Name="Peitoral" Width="110" Height="140" Margin="20,0,0,0" Background="White">
+                    <TextBlock Text="Peitoral" Margin="5,50" FontSize="30"/>
+                </StackPanel>
+                <StackPanel x:Name="Escudo" Width="110" Height="170" Margin="15,0,0,0" Background="White">
+                    <TextBlock Text="Escudo" Margin="5,60" FontSize="30"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Width="450" Height="220" Margin="0,5,0,0" Orientation="Horizontal">
+                <StackPanel Width="110" Height="110" Margin="35,0,0,0">
+                    <StackPanel x:Name="Luvas">
+                        <StackPanel.Style>
+                            <Style TargetType="{x:Type StackPanel}">
+                                <Setter Property="Background" Value="White"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="Aqua"/>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Cursor" Value="Hand"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackPanel.Style>
+                        <TextBlock Text="Luvas" Margin="15,30" FontSize="30"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Width="110" Height="220" Margin="20,0,0,0">
+                    <StackPanel x:Name="Cinto" Height="40" Margin="0,0,0,15" Background="White">
+                        <TextBlock Text="Cinto"  FontSize="30"/>
+                    </StackPanel>
+                    <StackPanel x:Name="Calca" Height="150" Margin="0,0,0,0" Background="White">
+                        <TextBlock Text="Calças" Margin="15,30" FontSize="30"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel x:Name="Botas" Width="110" Height="110" Margin="15,0,0,0" Background="White">
+                    <TextBlock Text="Botas" Margin="15,30" FontSize="30"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        
+        <!--painel itens-->
+        <StackPanel Width="500" Height="500" Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,25,25,0">
+            <Grid x:Name="GrigItensBolsa" Margin="1,1,1,1">
+                <Border   BorderBrush="Black" BorderThickness="1,1,1,1">
+                    
+                </Border>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="96">
+                    </RowDefinition>
+                    <RowDefinition Height="96"/>
+                    <RowDefinition Height="96"/>
+                    <RowDefinition Height="96"/>
+                    <RowDefinition Height="96"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="96"/>
+                    <ColumnDefinition Width="96"/>
+                    <ColumnDefinition Width="96"/>
+                    <ColumnDefinition Width="96"/>
+                    <ColumnDefinition Width="96"/>
+                    <ColumnDefinition Width="96"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Page>
