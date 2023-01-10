@@ -13,7 +13,6 @@ namespace Game.Controladores
 {
     public class Controlador
     {
-        //teste
         private List<Combatente> _Personagens;
         private List<Combatente> _Classes;
         private List<Combatente> _Inimigos;
