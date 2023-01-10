@@ -83,6 +83,13 @@
                 <Border Grid.Row="0" Grid.Column="1"  BorderBrush="Black" BorderThickness="1,1,1,1"/>
                 <Border Grid.Row="0" Grid.Column="2"  BorderBrush="Black" BorderThickness="1,1,1,1"/>
                 <Border Grid.Row="0" Grid.Column="3"  BorderBrush="Black" BorderThickness="1,1,1,1"/>
+                <Border Grid.Row="0" Grid.Column="4"  BorderBrush="Black" BorderThickness="1,1,1,1"/>
+                
+                <Border Grid.Row="1" Grid.Column="0"  BorderBrush="Black" BorderThickness="1,1,1,1"/>
+                <Border Grid.Row="1" Grid.Column="1"  BorderBrush="Black" BorderThickness="1,1,1,1"/>
+                <Border Grid.Row="1" Grid.Column="2"  BorderBrush="Black" BorderThickness="1,1,1,1"/>
+                <Border Grid.Row="1" Grid.Column="3"  BorderBrush="Black" BorderThickness="1,1,1,1"/>
+                <Border Grid.Row="1" Grid.Column="4"  BorderBrush="Black" BorderThickness="1,1,1,1"/>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="96">
                     </RowDefinition>
