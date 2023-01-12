@@ -13,5 +13,6 @@ namespace Infraestrutura.Entidades
         public string NomeLider { get; set; }
         public Combatente PersonagemAtivo { get; set; }
         public Equipe Equipe { get; set; }
+        public List<Assentamento> Assentamentos { get; set; }
     }
 }

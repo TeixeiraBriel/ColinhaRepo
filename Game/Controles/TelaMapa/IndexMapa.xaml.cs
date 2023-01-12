@@ -22,11 +22,14 @@ namespace Game.Controles.TelaMapa
     /// </summary>
     public partial class IndexMapa : Page
     {
-        List<Tuple<string, Grid>> _mapeamento;
-        public IndexMapa()
+        List<Assentamento> _mapeamento;
+        SaveGame _newSaveGame;
+
+        public IndexMapa(SaveGame newSaveGame)
         {
             InitializeComponent();
-            _mapeamento = new List<Tuple<string, Grid>>();
+            _newSaveGame = newSaveGame;
+            _mapeamento = _newSaveGame.Assentamentos;
             CriarTodosGrid();
         }
 
@@ -36,6 +39,8 @@ namespace Game.Controles.TelaMapa
             {
                 for (int coluna = 0; coluna < 9; coluna++)
                 {
+                    Assentamento _assentamento = _mapeamento.FirstOrDefault(x => x.Coordenada.Item1 == linha && x.Coordenada.Item2 == coluna);
+
                     Grid myGrid = new Grid()
                     {
                         Height = 60,
@@ -47,24 +52,21 @@ namespace Game.Controles.TelaMapa
                     myGrid.MouseEnter += (s, e) => MudaCorVermelhoGrid(s, e);
                     myGrid.MouseLeave += (s, e) => MudaCorPadraoGrid(s, e);
 
-                    myGrid.MouseLeftButtonUp += (s2, e2) => { 
-                        var _sender = s2 as Grid;
-                        var item = _mapeamento.FirstOrDefault(x => x.Item2 == _sender);
-
-                        if (item.Item1 == "5|5")
-                        {
-                            this.NavigationService.Navigate(new AssentamentoView(new Assentamento() { Nome = "Cidade Principal", Coordenada = new Tuple<int, int>(linha,coluna), Tipo = "Cidade"}));
-                        }
-                        else
-                        {
-                            this.NavigationService.Navigate(new AssentamentoView(new Assentamento() { Nome = $"Mapa at {item.Item1}", Coordenada = new Tuple<int, int>(linha, coluna), Tipo = "Desconhecida" }));
-                        }
-                    };
-
-                    if (coluna == 5 && linha == 5)
+                    if (_assentamento != null)
                     {
-                        myGrid.Children.Add(new Label() { Content = "Cidade", HorizontalAlignment = HorizontalAlignment.Center, VerticalAlignment = VerticalAlignment.Center });
+                        myGrid.MouseLeftButtonUp += (s2, e2) =>
+                        {
+                            this.NavigationService.Navigate(new AssentamentoView(_assentamento));
+                        };
+
+                        if (_assentamento.Tipo == "Desconhecido")
+                            myGrid.Children.Add(new TextBlock() { Text = "Desconhecido", HorizontalAlignment = HorizontalAlignment.Center, VerticalAlignment = VerticalAlignment.Center, TextWrapping = TextWrapping.Wrap });
+                        else
+                            myGrid.Children.Add(new TextBlock() { Text = _assentamento.Nome, HorizontalAlignment = HorizontalAlignment.Center, VerticalAlignment = VerticalAlignment.Center, TextWrapping = TextWrapping.Wrap });
+
+                        _assentamento.RepresentacaoMapa = myGrid;
                     }
+
 
                     Border borda = new Border()
                     {
@@ -83,8 +85,6 @@ namespace Game.Controles.TelaMapa
                     {
                         Grid.SetColumn(borda, coluna);
                         Grid.SetRow(borda, linha);
-
-                        _mapeamento.Add(new Tuple<string, Grid>($"{linha}|{coluna}", myGrid));
                         GridTelaMapa.Children.Add(borda);
                     }
                 }

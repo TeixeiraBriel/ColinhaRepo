@@ -80,6 +80,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controles\AssentamentoViews\AtacarAssentamentoView.xaml.cs">
+      <DependentUpon>AtacarAssentamentoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\AssentamentoViews\InteragirAssentamentoView.xaml.cs">
+      <DependentUpon>InteragirAssentamentoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\AssentamentoViews\InvestigarAssentamentoView.xaml.cs">
+      <DependentUpon>InvestigarAssentamentoView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controles\MenuInformacoesJogador\AbaBolsa.xaml.cs">
       <DependentUpon>AbaBolsa.xaml</DependentUpon>
     </Compile>
@@ -112,6 +121,18 @@
     </Compile>
     <Compile Include="Util\DispatcherUtil.cs" />
     <Compile Include="Util\Timer.cs" />
+    <Page Include="Controles\AssentamentoViews\AtacarAssentamentoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controles\AssentamentoViews\InteragirAssentamentoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controles\AssentamentoViews\InvestigarAssentamentoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controles\MenuInformacoesJogador\AbaBolsa.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

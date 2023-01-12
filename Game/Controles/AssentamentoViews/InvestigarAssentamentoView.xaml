@@ -1,0 +1,62 @@
+﻿<Page x:Class="Game.Controles.AssentamentoViews.InvestigarAssentamentoView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Game.Controles.AssentamentoViews"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="900"
+      Title="InvestigarAssentamentoView">
+
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Informações" FontSize="50" HorizontalAlignment="Center" Margin="5"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+
+                <!--LADO ESQUERDO-->
+                <TextBlock Grid.Column="0" Grid.Row="0" Text="Nome:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
+                <TextBlock Grid.Column="0" Grid.Row="1" Text="Raça Predominante:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
+                <TextBlock Grid.Column="0" Grid.Row="2" Text="Comida:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
+                <TextBlock Grid.Column="0" Grid.Row="3" Text="Madeira:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
+                <TextBlock Grid.Column="0" Grid.Row="4" Text="Moedas:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
+                <TextBlock Grid.Column="0" Grid.Row="5" Text="Exercito:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
+                <TextBlock Grid.Column="0" Grid.Row="6" Text="Investigar:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5" FontSize="25"/>
+                <TextBlock Grid.Column="0" Grid.Row="7" Text="Enviar:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5" FontSize="25"/>
+                <TextBlock Grid.Column="0" Grid.Row="8" Text="% Sucesso" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5" FontSize="25" Name="lblChanceSucesso"/>
+
+                <!--LADO DIREITO-->
+                <TextBlock Grid.Column="1" Grid.Row="0" x:Name="lblNome" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Desconhecido"/>
+                <TextBlock Grid.Column="1" Grid.Row="1" x:Name="lblRacaPredominante" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Text="Desconhecido"/>
+                <TextBlock Grid.Column="1" Grid.Row="2" x:Name="lblComida" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Text="Desconhecido"/>
+                <TextBlock Grid.Column="1" Grid.Row="3" x:Name="lblMadeira" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Text="Desconhecido"/>
+                <TextBlock Grid.Column="1" Grid.Row="4" x:Name="lblMoedas" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Text="Desconhecido"/>
+                <TextBlock Grid.Column="1" Grid.Row="5" x:Name="lblExercito" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Text="Desconhecido"/>
+                <ComboBox  Grid.Column="1" Grid.Row="6" x:Name="cmbInvestigar" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="200" Height="40" IsEnabled="True">
+                    <ComboBoxItem Content="Nome"/>
+                    <ComboBoxItem Content="Raça Predominante"/>
+                    <ComboBoxItem Content="Comida"/>
+                    <ComboBoxItem Content="Madeira"/>
+                    <ComboBoxItem Content="Moedas"/>
+                    <ComboBoxItem Content="Exercito"/>
+                </ComboBox>
+                <ComboBox Grid.Column="1" Grid.Row="7" x:Name="cmbEnviar" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="200" Height="40" />
+                <Button   Grid.Column="1" Grid.Row="8" Content="Executar" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="200" Height="40" FontSize="30" Click="RealizarInvestigacao"/>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -27,8 +27,6 @@ namespace Game.Controles.MenuInicial
     public partial class CriarNovoJogoView : Page
     {
         SaveGame _newSaveGame;
-        Controlador _controlador;
-        Progressao _newSave;
 
         public CriarNovoJogoView()
         {
@@ -59,15 +57,51 @@ namespace Game.Controles.MenuInicial
             cmbBoxRaca.SelectedIndex = 0;
             SegundaEtapa.Visibility = Visibility.Visible;
         }
+
         private void finalizaSegundoPasso()
         {
             SegundaEtapa.Visibility = Visibility.Collapsed;
 
             _newSaveGame.Equipe = new Equipe() { combatentes = new List<Combatente>() { _newSaveGame.PersonagemAtivo}, QuantidadeMembros = 1 };
+            _newSaveGame.Assentamentos = new List<Assentamento>() {
+                new Assentamento (){ 
+                    Id = 1,
+                    Tipo = "Cidade",
+                    Nome = "Cidade de Gataca",
+                    Coordenada = new Tuple<int, int>(5,5),
+                    Reputacao = 50,
+                    RacaPredominante = "Humanos",
+                    Comida = 10000,
+                    Madeira = 10000,
+                    Moedas = 10000
+                },
+                new Assentamento (){
+                    Id = 2,
+                    Tipo = "Desconhecido",
+                    Nome = "Assentamento Orc",
+                    Coordenada = new Tuple<int, int>(1,1),
+                    Reputacao = 0,
+                    RacaPredominante = "Orcs",
+                    Comida = 10,
+                    Madeira = 5,
+                    Moedas = 3
+                },
+                new Assentamento (){
+                    Id = 3,
+                    Tipo = "Conhecido",
+                    Nome = "Assentamento Anão",
+                    Coordenada = new Tuple<int, int>(3,3),
+                    Reputacao = 0,
+                    RacaPredominante = "Anões",
+                    Comida = 15,
+                    Madeira =15,
+                    Moedas = 30
+                },
+            };
             Controlador.salvarAvanço(_newSaveGame);
             TerceiraEtapa.Visibility = Visibility.Visible;
 
-            this.NavigationService.Navigate(new IndexMapa());
+            this.NavigationService.Navigate(new IndexMapa(_newSaveGame));
         }
 
         private void AlternarClasseFunc(object sender, SelectionChangedEventArgs e)

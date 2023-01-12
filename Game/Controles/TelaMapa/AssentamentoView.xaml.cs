@@ -1,4 +1,5 @@
 ﻿using Game.Controladores;
+using Game.Controles.AssentamentoViews;
 using Game.Controles.MenuInformacoesJogador;
 using Game.Controles.TelaPadrao;
 using Infraestrutura.Entidades;
@@ -32,7 +33,6 @@ namespace Game.Controles.TelaMapa
             _DadosAssentamento = DadosAssentamento;
 
             AtualizaAssentamento();
-            Main.Children.Add(new Label() { Content = DadosAssentamento.Nome});
         }
 
         private void VoltarMapa(object sender, RoutedEventArgs e)
@@ -46,6 +46,7 @@ namespace Game.Controles.TelaMapa
 
             switch (nomeBtn)
             {
+                //CIDADE
                 case "Treinamento":
                     this.NavigationService.Navigate(new CombateIndividual(new Combatente(), new Combatente()));
                     break;
@@ -65,9 +66,13 @@ namespace Game.Controles.TelaMapa
                     var save = Controlador.buscarSave();
                     var nome = save.Equipe.combatentes.Last().Nome;
                     nome = nome.Contains(":1") ? nome.Split(':')[0] + (int.Parse(nome.Split(':')[1]) + 1) : "Prisioneiro:1";
-                    save.Equipe.combatentes.Add(new Combatente(){Nome = nome });
+                    save.Equipe.combatentes.Add(new Combatente() { Nome = nome });
                     Controlador.salvarAvanço(save);
                     MainAssentoViewFrame.NavigationService.Navigate(new AbaBolsa());
+                    break;
+                //Assentamento
+                case "Investigar":
+                    MainAssentoViewFrame.NavigationService.Navigate(new InvestigarAssentamentoView(_DadosAssentamento));
                     break;
                 case "Sua Equipe":
                     this.NavigationService.Navigate(new EquipeView(Controlador.buscarEquipe()));

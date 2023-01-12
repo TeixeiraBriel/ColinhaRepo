@@ -25,7 +25,7 @@ namespace Game.Controles.TelaPadrao
         public TuturialView()
         {
             InitializeComponent();
-            TutorialFrame.Navigate(new IndexMapa());
+            //.Navigate(new IndexMapa());
         }
 
         private void navegaPasso(object sender, RoutedEventArgs e)
