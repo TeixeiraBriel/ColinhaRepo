@@ -34,6 +34,7 @@ namespace Game.Controles.MenuInicial
             PrimeiraEtapa.Visibility = Visibility.Visible;
             _newSaveGame = new SaveGame();
         }
+
         private void funcProximoPasso(object sender, RoutedEventArgs e)
         {
             string nomeBtn = (sender as Button).Name;
