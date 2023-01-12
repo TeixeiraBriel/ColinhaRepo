@@ -25,10 +25,13 @@ namespace Game.Controles.TelaMapa
     /// </summary>
     public partial class AssentamentoView : Page
     {
+        Assentamento _DadosAssentamento;
         public AssentamentoView(Assentamento DadosAssentamento)
         {
             InitializeComponent();
+            _DadosAssentamento = DadosAssentamento;
 
+            AtualizaAssentamento();
             Main.Children.Add(new Label() { Content = DadosAssentamento.Nome});
         }
 
@@ -69,6 +72,28 @@ namespace Game.Controles.TelaMapa
                 case "Sua Equipe":
                     this.NavigationService.Navigate(new EquipeView(Controlador.buscarEquipe()));
                     break;
+            }
+        }
+
+        private void AtualizaAssentamento()
+        {
+            if (_DadosAssentamento.Tipo == "Desconhecido")
+            {
+                AssentamentoCidade.Visibility = Visibility.Collapsed;
+                AssentamentoDesconhecido.Visibility = Visibility.Visible;
+                AssentamentoConhecido.Visibility = Visibility.Collapsed;
+            }
+            else if (_DadosAssentamento.Tipo == "Cidade")
+            {
+                AssentamentoCidade.Visibility = Visibility.Visible;
+                AssentamentoDesconhecido.Visibility = Visibility.Collapsed;
+                AssentamentoConhecido.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                AssentamentoCidade.Visibility = Visibility.Collapsed;
+                AssentamentoDesconhecido.Visibility = Visibility.Collapsed;
+                AssentamentoConhecido.Visibility = Visibility.Visible;
             }
         }
     }

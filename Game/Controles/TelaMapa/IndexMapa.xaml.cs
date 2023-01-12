@@ -53,11 +53,11 @@ namespace Game.Controles.TelaMapa
 
                         if (item.Item1 == "5|5")
                         {
-                            this.NavigationService.Navigate(new AssentamentoView(new Assentamento() { Nome = "Cidade Principal", Coordenada = new Tuple<int, int>(linha,coluna)}));
+                            this.NavigationService.Navigate(new AssentamentoView(new Assentamento() { Nome = "Cidade Principal", Coordenada = new Tuple<int, int>(linha,coluna), Tipo = "Cidade"}));
                         }
                         else
                         {
-                            this.NavigationService.Navigate(new AssentamentoView(new Assentamento() { Nome = $"Mapa at {item.Item1}", Coordenada = new Tuple<int, int>(linha, coluna)}));
+                            this.NavigationService.Navigate(new AssentamentoView(new Assentamento() { Nome = $"Mapa at {item.Item1}", Coordenada = new Tuple<int, int>(linha, coluna), Tipo = "Desconhecida" }));
                         }
                     };
 
