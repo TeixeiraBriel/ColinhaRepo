@@ -262,6 +262,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <EmbeddedResource Include="Dados\Imagens\Personagens\Anonimo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <Content Include="Dados\Imagens\ImgMeditar.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

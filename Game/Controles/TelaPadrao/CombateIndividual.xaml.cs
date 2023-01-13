@@ -60,6 +60,8 @@ namespace Game.Controles.TelaPadrao
                 _save = new Progressao();
                 _controlador.CarregaJsons();
                 _save.Jogador = _controlador.Classes.Find(x => x.Classe == personagem.Classe);
+                personagem.Foto = _save.Jogador.Foto;
+                personagem.HabilidadesPermitidas= _save.Jogador.HabilidadesPermitidas;
                 _save.VidaAtual = -10;
             }
 
@@ -98,8 +100,10 @@ namespace Game.Controles.TelaPadrao
             ManaInimigo.Text = $"{inimigo.Mana}/{inimigo.Mana}";
             EnergiaInimigo.Text = $"{inimigo.Energia}/{inimigo.Energia}";
 
-            ImageFotoPersonagem.Source = new ImageSourceConverter().ConvertFromString($"Dados\\Imagens\\Personagens\\{personagem.Foto}") as ImageSource;
-            ImageFotoInimigo.Source = new ImageSourceConverter().ConvertFromString($"Dados\\Imagens\\Inimigos\\{inimigo.Foto}") as ImageSource;
+            //ImageFotoPersonagem.Source = new ImageSourceConverter().ConvertFromString($"Dados\\Imagens\\Personagens\\{personagem.Foto}") as ImageSource;
+            //ImageFotoInimigo.Source = new ImageSourceConverter().ConvertFromString($"Dados\\Imagens\\Inimigos\\{inimigo.Foto}") as ImageSource;
+            ImageFotoPersonagem.Source = new ImageSourceConverter().ConvertFromString($"Dados\\Imagens\\Personagens\\Anonimo.png") as ImageSource;
+            ImageFotoInimigo.Source = new ImageSourceConverter().ConvertFromString($"Dados\\Imagens\\Personagens\\Anonimo.png") as ImageSource;
         }
 
         public void inicializaTimer()

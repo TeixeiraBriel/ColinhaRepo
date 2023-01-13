@@ -40,5 +40,26 @@
       4,
       5
     ]
+  },
+  {
+    "IdPersonagem": 2,
+    "Nome": "Neutro",
+    "Classe": "Neutro",
+    "Foto": "Anonimo.png",
+    "Vida": 0,
+    "VidaAtual": 0,
+    "Mana": 0,
+    "Energia": 0,
+    "Forca": 0,
+    "Inteligencia": 0,
+    "Defesa": 0,
+    "Agilidade": 0,
+    "XpAtual": 0,
+    "XpMaximo": 0,
+    "HabilidadesPermitidas": [
+      1,
+      4,
+      5
+    ]
   }
 ]

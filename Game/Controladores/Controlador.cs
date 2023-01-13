@@ -44,14 +44,15 @@ namespace Game.Controladores
 
         public void CarregaJsons()
         {
+            var fileClasses = @"Dados\ClassesJson.json";
+            _Classes = JsonConvert.DeserializeObject<List<Combatente>>(File.ReadAllText(fileClasses, Encoding.UTF8));
+
             /*
             var fileInimigos = @"Dados\InimigosJson.json";
-            var fileClasses = @"Dados\ClassesJson.json";
             var fileHabilidades = @"Dados\Habilidades.json";
             var fileSave = @"Dados\Save.json";
 
             //_Progressao = JsonConvert.DeserializeObject<Progressao>(File.ReadAllText(fileSave, Encoding.UTF8));
-            _Classes = JsonConvert.DeserializeObject<List<Combatente>>(File.ReadAllText(fileClasses, Encoding.UTF8));
             _Inimigos = JsonConvert.DeserializeObject<List<Combatente>>(File.ReadAllText(fileInimigos, Encoding.UTF8));
             _Habilidades = JsonConvert.DeserializeObject<List<Habilidade>>(File.ReadAllText(fileHabilidades, Encoding.UTF8));
             */

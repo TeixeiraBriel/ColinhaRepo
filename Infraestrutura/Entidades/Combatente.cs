@@ -39,8 +39,8 @@ namespace Infraestrutura.Entidades
             Classe = string.IsNullOrEmpty(Classe) ? "" : Classe;
             Foto = string.IsNullOrEmpty(Classe) ? "" : Classe;
             XpAtual =  XpAtual == null ? 0 : XpAtual;
-            XpMaximo = XpAtual == null ? 10 : XpMaximo;
-            XpDropado = XpMaximo * 0.05;
+            XpMaximo = XpMaximo == null ? 10 : XpMaximo;
+            XpDropado = XpMaximo * 0.10;
             HabilidadesPermitidas = HabilidadesPermitidas == null ? new List<int>() : HabilidadesPermitidas;
         }
         public static Combatente CriaPersonagemCombatente(string nome, double vigor, double forca, double Inteligencia, double agilidade, double carisma)
@@ -53,6 +53,7 @@ namespace Infraestrutura.Entidades
             combatente.Inteligencia = vigor;
             combatente.Agilidade = vigor;
             combatente.Carisma = vigor;
+            combatente.Classe = "Neutro";
 
             combatente.InicializaCombatente(1);
 
@@ -110,10 +111,7 @@ namespace Infraestrutura.Entidades
             Vida = Vigor * (0.5 * nivel);
             Mana = Inteligencia + (1 * nivel);
             Energia = Agilidade + (1 * nivel);
-            Forca = Forca + (0.7 * nivel);
             Defesa = Defesa + (0.6 * nivel);
-            Agilidade = Agilidade + (0.7 * nivel);
-            XpDropado = XpDropado * nivel;
         }
 
         public bool recebeXp(double Xp)

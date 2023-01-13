@@ -27,10 +27,12 @@ namespace Game.Controles.TelaMapa
     public partial class AssentamentoView : Page
     {
         Assentamento _DadosAssentamento;
+        SaveGame _saveGame;
         public AssentamentoView(Assentamento DadosAssentamento)
         {
             InitializeComponent();
             _DadosAssentamento = DadosAssentamento;
+            _saveGame = Controlador.buscarSave();
 
             AtualizaAssentamento();
         }
@@ -48,7 +50,7 @@ namespace Game.Controles.TelaMapa
             {
                 //CIDADE
                 case "Treinamento":
-                    this.NavigationService.Navigate(new CombateIndividual(new Combatente(), new Combatente()));
+                    this.NavigationService.Navigate(new CombateIndividual(_saveGame.PersonagemAtivo, new Combatente() { Vida = 30, VidaAtual = 30}));
                     break;
                 case "Treinamento em Equipe":
                     this.NavigationService.Navigate(new CombateEquipe(new List<Combatente>(), new List<Combatente>()));
