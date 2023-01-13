@@ -48,7 +48,7 @@
     </Page.Resources>
 
     <Grid>
-        <StackPanel Background="#FF484848" HorizontalAlignment="Left">
+        <StackPanel Background="#FF484848" HorizontalAlignment="Left" >
             <!--Botão Status-->
             <Button x:Name="btnStatus" Click="NavegaInfoPersonagemFrame" BorderBrush="{x:Null}" Style="{StaticResource BtnMenuLateral}">
                 <StackPanel Style="{StaticResource PainelMenuLateral}">
@@ -78,6 +78,6 @@
                 </StackPanel>
             </Button>
         </StackPanel>
-        <Frame x:Name="infoPersonagemFrame" Width="990" Height="1000" Margin="285,10,5,10"/>
+        <Frame x:Name="infoPersonagemFrame" Width="990" Height="960" Margin="285,10,5,10"/>
     </Grid>
 </Page>
