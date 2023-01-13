@@ -23,19 +23,17 @@ namespace Game.Controles.TelaPadrao
     public partial class janelaDadosHabilidade : Window
     {
         Controlador _controlador;
-        public Progressao _save;
 
         JanelaPrincipal _janelaPrincipal;
         DispatcherTimer contadorRelogio = new DispatcherTimer();
 
-        public janelaDadosHabilidade(JanelaPrincipal janelaPrincipal, Progressao save)
+        public janelaDadosHabilidade(JanelaPrincipal janelaPrincipal)
         {
             InitializeComponent();
             _janelaPrincipal = janelaPrincipal;
-            //timer();
+            timer();
             _controlador = new Controlador();
             _controlador.CarregaJsons();
-            _save = save;
         }
 
         public static janelaDadosHabilidade Instancia;
@@ -45,7 +43,7 @@ namespace Game.Controles.TelaPadrao
         public static void Focar() => Instancia?.Activate();
         public static void Inicializa(JanelaPrincipal janelaPrincipal, Progressao save = null)
         {
-            Instancia = new janelaDadosHabilidade(janelaPrincipal, save)
+            Instancia = new janelaDadosHabilidade(janelaPrincipal)
             {
                 WindowStartupLocation = WindowStartupLocation.Manual,
                 WindowState = WindowState.Normal,
@@ -65,23 +63,23 @@ namespace Game.Controles.TelaPadrao
             {
                 case "Buff":
                     DanoHab.Text = $"Cura: {habilidadeEscolhida.DanoBase}";
-                    TipoDano.Text = $"+ ({_controlador.Classes.Find(x => x.Nome == _save.Jogador.Classe).Inteligencia})";
+                    TipoDano.Text = $"Corrigir INT";
                     TipoDano.Foreground = new SolidColorBrush(Colors.Blue);
                     break;
                 case "Magia":
                 case "DeBuff":
-                    TipoDano.Text = $"+ ({_controlador.Classes.Find(x => x.Nome == _save.Jogador.Classe).Inteligencia})";
+                    TipoDano.Text = $"Corrigir INT";
                     TipoDano.Foreground = new SolidColorBrush(Colors.Blue);
                     break;
 
                 case "ArtesMarciais":
                 case "Combate":
-                    TipoDano.Text = $"+ ({_controlador.Classes.Find(x => x.Nome == _save.Jogador.Classe).Forca})";
+                    TipoDano.Text = $"Corrigir FOR";
                     TipoDano.Foreground = new SolidColorBrush(Colors.Yellow);
                     break;
                 case "Fortificar":
                     DanoHab.Text = $"Aumenta Defesa em: {habilidadeEscolhida.DanoBase}";
-                    TipoDano.Text = $"+ ({_controlador.Classes.Find(x => x.Nome == _save.Jogador.Classe).Forca})";
+                    TipoDano.Text = $"Corrigir FOR";
                     TipoDano.Foreground = new SolidColorBrush(Colors.Yellow);
                     break;
             }
@@ -96,6 +94,8 @@ namespace Game.Controles.TelaPadrao
             contadorRelogio.Interval = new TimeSpan(0, 0, 0);
             contadorRelogio.Start();
         }
+
+        public void PararTimer() => contadorRelogio.Stop();
 
         public void AdjustPosition(object sender, EventArgs e)
         {

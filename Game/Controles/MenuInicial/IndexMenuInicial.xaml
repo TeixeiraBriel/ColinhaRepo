@@ -13,6 +13,7 @@
             <Label Content="GAME" FontSize="50" HorizontalAlignment="Center"/>
             <Button Content="Novo Jogo" Click="NovoJogo" Margin="5"/>
             <Button Content="Continuar" Click="ContinuarJogo" Margin="5,0" IsEnabled="False" Name="btnContinuar"/>
+            <Button Content="Cria" Click="CriaCombatente" Margin="5"/>
         </StackPanel>
     </Grid>
 </Page>

@@ -106,6 +106,10 @@ namespace Game.Controles.TelaPadrao
         {
             foreach (var inimigo in inimigosParam)
             {
+                if (inimigo.Painel == null)
+                {
+                    inimigo.Painel = new RepresentacaoTelaCombate(inimigo.Nome, inimigo.Vida, inimigo.intervaloAtaques);
+                }
                 PosicionaCombatenteSelecionado(inimigo, _listPosicoesInimigos, Inimigos);
             }
         }
@@ -276,6 +280,9 @@ namespace Game.Controles.TelaPadrao
             {
                 if (string.IsNullOrEmpty(cmbPosicoes.Text.ToString()))
                     return;
+                if (combatente.Painel == null)
+                    combatente.Painel = new RepresentacaoTelaCombate(combatente.Nome, combatente.Vida, combatente.intervaloAtaques);
+
                 combatente.Painel.Posicao = cmbPosicoes.Text;
                 PosicionaCombatenteSelecionado(combatente, _listPosicoesAliados, Aliados);
 
@@ -305,6 +312,12 @@ namespace Game.Controles.TelaPadrao
 
         void PosicionaCombatenteSelecionado(Combatente personagem, List<IdentificadorPosicaoCombatente> listaPosicoes, List<Combatente> listaAtivos)
         {
+            if (personagem.Painel.Posicao == null)
+            {
+                int numAleatorio = new Random().Next(0, _listPosicoesInimigos.Count -1);
+                personagem.Painel.Posicao = _listPosicoesInimigos[numAleatorio].Posicao;
+            }
+
             var vaga = listaPosicoes.FirstOrDefault(x => x.Posicao == personagem.Painel.Posicao && x.Combatente == null);
             if (vaga != null)
             {

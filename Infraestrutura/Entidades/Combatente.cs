@@ -54,6 +54,9 @@ namespace Infraestrutura.Entidades
             combatente.Agilidade = vigor;
             combatente.Carisma = vigor;
             combatente.Classe = "Neutro";
+            combatente.Foto = "anonimo.png";
+            combatente.HabilidadesPermitidas = new List<int>() {1};
+            combatente.intervaloAtaques= 5;
 
             combatente.InicializaCombatente(1);
 

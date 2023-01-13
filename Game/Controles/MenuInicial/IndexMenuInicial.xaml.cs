@@ -39,5 +39,10 @@ namespace Game.Controles.MenuInicial
         {
             this.NavigationService.Navigate(new IndexMapa(Save));
         }
+
+        private void CriaCombatente(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new CombatenteGenericosAddView());
+        }
     }
 }

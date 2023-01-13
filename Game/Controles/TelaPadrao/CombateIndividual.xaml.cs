@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -27,48 +28,34 @@ namespace Game.Controles.TelaPadrao
     /// </summary>
     public partial class CombateIndividual : Page
     {
-        List<Habilidade> _Habilidades;
-        Progressao _save;
-        Controlador _controlador;
-
         public DispatcherTimer contadorRelogio = new DispatcherTimer();
         public DispatcherTimer contadorInimigo = new DispatcherTimer();
         public DispatcherTimer contadorFortificar = new DispatcherTimer();
+
+        List<Habilidade> _Habilidades;
+        Controlador _controlador;
+        List<Combatente> _classes;
+        List<Tuple<Image, int, double, int>> BtnsDesativos = new List<Tuple<Image, int, double, int>>();
 
         Combatente _personagem;
         Combatente _inimigo;
 
         bool vezInimigo = false;
         public int tempo = 60;
+        int ContadorEventos = 0;
 
         public CombateIndividual(Combatente personagem, Combatente inimigo, Progressao save = null)
         {
             InitializeComponent();
             inicializaTimer();
 
-            _controlador = new Controlador();
             _personagem = personagem;
             _inimigo = inimigo;
-            _Habilidades = new List<Habilidade>();
-
-            if (save != null)
-            {
-                _save = save;
-            }
-            else
-            {
-                _save = new Progressao();
-                _controlador.CarregaJsons();
-                _save.Jogador = _controlador.Classes.Find(x => x.Classe == personagem.Classe);
-                personagem.Foto = _save.Jogador.Foto;
-                personagem.HabilidadesPermitidas= _save.Jogador.HabilidadesPermitidas;
-                _save.VidaAtual = -10;
-            }
+            _classes = Controlador.buscaClasses();
+            _Habilidades = Controlador.buscaHabilidades();
 
             ReiniciaDadosCombate(personagem, inimigo);
-            CarregaJsons();
             CarregaHablidadesPersonagem();
-            janelaDadosHabilidade.Instancia._save = _save;
 
             if (personagem.Agilidade < inimigo.Agilidade)
             {
@@ -85,11 +72,11 @@ namespace Game.Controles.TelaPadrao
             ManaPersonagem.Text = $"{personagem.Mana}/{personagem.Mana}";
             EnergiaPersonagem.Text = $"{personagem.Energia}/{personagem.Energia}";
 
-            if (_save.VidaAtual > 0)
+            if (personagem.VidaAtual > 0)
             {
-                var vidaPerdida = personagem.Vida - _save.VidaAtual;
-                var manaPerdida = personagem.Mana - _save.ManaAtual;
-                var energiaPerdida = personagem.Energia - _save.EnergiaAtual;
+                var vidaPerdida = personagem.Vida - personagem.VidaAtual;
+                var manaPerdida = personagem.Mana - personagem.ManaAtual;
+                var energiaPerdida = personagem.Energia - personagem.EnergiaAtual;
 
                 ModificaBarraInfo(VidaPersonagem, BarraDeVidaPersonagem, vidaPerdida);
                 ModificaBarraInfo(ManaPersonagem, BarraDeManaPersonagem, manaPerdida);
@@ -119,6 +106,14 @@ namespace Game.Controles.TelaPadrao
             contadorFortificar.Tick += new EventHandler(CooldownFortificar);
             contadorFortificar.Interval = new TimeSpan(0, 0, 1);
             contadorFortificar.Start();
+        }
+
+        void finalizaTimers()
+        {
+            contadorRelogio.Stop();
+            contadorInimigo.Stop();
+            contadorFortificar.Stop();
+            janelaDadosHabilidade.Instancia.PararTimer();
         }
 
         public void Relogio(object sender, EventArgs e)
@@ -186,8 +181,9 @@ namespace Game.Controles.TelaPadrao
                 double tipoGasto = resultado[2];
                 AtualizaDadosSave();
 
-                if ((_save.ManaAtual - habilidadeEscolhida.CustoBase < 0 && tipoGasto == 0) || (_save.EnergiaAtual - habilidadeEscolhida.CustoBase < 0 && tipoGasto == 1))
-                {                  
+                if ((_personagem.ManaAtual - habilidadeEscolhida.CustoBase < 0 && tipoGasto == 0) || (_personagem.EnergiaAtual - habilidadeEscolhida.CustoBase < 0 && tipoGasto == 1))
+                {
+                    RegistraNovoEventoTexto("Mana/Energia insuficiente");
                     return;
                 }
 
@@ -251,18 +247,17 @@ namespace Game.Controles.TelaPadrao
             return new double[] { qtdDano, qtdGasto, tipoGasto };
         }
 
-        List<Tuple<Image, int, double, int>> BtnsDesativos = new List<Tuple<Image, int, double, int>>();
         private void PosicaoDefesa(double qtdDano, Image btn)
         {
             _personagem.Defesa += qtdDano;
             btn.IsEnabled = false;
             btn.Visibility = Visibility.Collapsed;
-            BtnsDesativos.Add(new Tuple<Image, int , double, int>(btn, ContadorEventos, qtdDano, 6));
+            BtnsDesativos.Add(new Tuple<Image, int, double, int>(btn, ContadorEventos, qtdDano, 6));
 
-            contadorFortificar.Start();  
+            contadorFortificar.Start();
         }
 
-        void CooldownFortificar(object sender, EventArgs e) 
+        void CooldownFortificar(object sender, EventArgs e)
         {
             List<Tuple<Image, int, double, int>> RetirarDaLista = new List<Tuple<Image, int, double, int>>();
 
@@ -283,7 +278,6 @@ namespace Game.Controles.TelaPadrao
             }
         }
 
-        int ContadorEventos = 0;
         public void RegistraNovoEventoAtaque(string atacante, string defensor, double qtdDano, double danoCausado, double defesa, string nomeAtaque, SolidColorBrush cor)
         {
             TextBlock novoEnvento =
@@ -298,6 +292,24 @@ namespace Game.Controles.TelaPadrao
             ContadorEventos++;
             ScrollEventos.PageDown();
             VerificaFimJogo();
+        }
+
+        public void RegistraNovoEventoTexto(string Texto, SolidColorBrush cor = null)
+        {
+            if (cor == null)
+                cor = Brushes.Black;
+
+            TextBlock novoEnvento =
+                new TextBlock
+                {
+                    Text = Texto,
+                    Foreground = cor,
+                    TextWrapping = TextWrapping.Wrap
+                };
+
+            PainelDeEventos.Children.Add(novoEnvento);
+            ContadorEventos++;
+            ScrollEventos.PageDown();
         }
 
         public void VerificaFimJogo()
@@ -319,43 +331,36 @@ namespace Game.Controles.TelaPadrao
 
         public void FimDeJogo(bool fuga = false)
         {
-            contadorRelogio.Stop();
-            contadorInimigo.Stop();
-            //contadorFimDeJogo.Stop();
-
-            _save.Lutas++;
-            if (_save.VidaAtual <= 0 || fuga)
+            RegistraNovoEventoTexto("Fim de jogo, favor clicar em fuga pra sair");
+            if (_personagem.VidaAtual <= 0 || fuga)
             {
-                _save.Derrotas++;
+                //_save.Derrotas++;
             }
             else
             {
-                _save.Vitorias++;
-                _save.Moedas += 100;
-                _save.Jogador.XpAtual += _inimigo.XpDropado;
+                //_save.Vitorias++;
+                //_save.Moedas += 100;
+                _personagem.recebeXp(_inimigo.XpDropado);
             }
 
-            //_controlador.salvarAvanço(_save);
-            this.NavigationService.Navigate(new IndexMenuInicial(_save));
+            var save = Controlador.buscarSave();
+            save.PersonagemAtivo = _personagem;
+            Controlador.salvarAvanço(save);
+            finalizaTimers();
         }
 
         private void VoltarFunc(object sender, RoutedEventArgs e)
         {
             AtualizaDadosSave();
             FimDeJogo(true);
+            this.NavigationService.GoBack();
         }
 
         private void AtualizaDadosSave()
         {
-            _save.VidaAtual = double.Parse(VidaPersonagem.Text.Split('/')[0]);
-            _save.ManaAtual = double.Parse(ManaPersonagem.Text.Split('/')[0]);
-            _save.EnergiaAtual = double.Parse(EnergiaPersonagem.Text.Split('/')[0]);
-        }
-
-        public void CarregaJsons()
-        {
-            var fileHablidades = @"Dados\Habilidades.json";
-            _Habilidades = JsonConvert.DeserializeObject<List<Habilidade>>(File.ReadAllText(fileHablidades, Encoding.UTF8));
+            _personagem.VidaAtual = double.Parse(VidaPersonagem.Text.Split('/')[0]);
+            _personagem.ManaAtual = double.Parse(ManaPersonagem.Text.Split('/')[0]);
+            _personagem.EnergiaAtual = double.Parse(EnergiaPersonagem.Text.Split('/')[0]);
         }
 
         public void CarregaHablidadesPersonagem()

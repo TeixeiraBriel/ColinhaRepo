@@ -50,13 +50,17 @@ namespace Game.Controles.TelaMapa
             {
                 //CIDADE
                 case "Treinamento":
-                    this.NavigationService.Navigate(new CombateIndividual(_saveGame.PersonagemAtivo, new Combatente() { Vida = 30, VidaAtual = 30}));
+                    Equipe possiveisInimigos = Controlador.buscarCombatentesGenericos();
+                    int numAleatorio = new Random().Next(0, (possiveisInimigos.QuantidadeMembros - 1));
+                    Combatente inimigo = possiveisInimigos.combatentes[numAleatorio];
+                    this.NavigationService.Navigate(new CombateIndividual(_saveGame.PersonagemAtivo, inimigo));
                     break;
                 case "Treinamento em Equipe":
-                    this.NavigationService.Navigate(new CombateEquipe(new List<Combatente>(), new List<Combatente>()));
+                    this.NavigationService.Navigate(new CombateEquipe(Controlador.buscarEquipe().combatentes, Controlador.buscarCombatentesGenericos().combatentes));
                     break;
                 case "Hospital":
-                    MainAssentoViewFrame.NavigationService.Navigate(new AbaBolsa());
+                    var personagem = _saveGame.PersonagemAtivo;
+                    personagem.InicializaCombatente(personagem.Nivel);
                     break;
                 case "Loja":
                     MainAssentoViewFrame.NavigationService.Navigate(new AbaBolsa());
@@ -68,7 +72,7 @@ namespace Game.Controles.TelaMapa
                     var save = Controlador.buscarSave();
                     var nome = save.Equipe.combatentes.Last().Nome;
                     nome = nome.Contains(":1") ? nome.Split(':')[0] + (int.Parse(nome.Split(':')[1]) + 1) : "Prisioneiro:1";
-                    save.Equipe.combatentes.Add(new Combatente() { Nome = nome, Nivel = 1, XpMaximo = 10 });
+                    save.Equipe.combatentes.Add(new Combatente() { Nome = nome, Nivel = 1, XpMaximo = 10, intervaloAtaques = 3 });
                     Controlador.salvarAvanço(save);
                     MainAssentoViewFrame.NavigationService.Navigate(new AbaBolsa());
                     break;

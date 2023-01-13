@@ -95,6 +95,9 @@
     <Compile Include="Controles\MenuInformacoesJogador\AbaStatus.xaml.cs">
       <DependentUpon>AbaStatus.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controles\MenuInicial\CombatenteGenericosAddView.xaml.cs">
+      <DependentUpon>CombatenteGenericosAddView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controles\MenuInicial\CriarNovoJogoView.xaml.cs">
       <DependentUpon>CriarNovoJogoView.xaml</DependentUpon>
     </Compile>
@@ -138,6 +141,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controles\MenuInformacoesJogador\AbaStatus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controles\MenuInicial\CombatenteGenericosAddView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

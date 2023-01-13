@@ -41,11 +41,20 @@ namespace Game.Controladores
             set { _Progressao = value; }
         }
 
+        public static List<Combatente> buscaClasses()
+        {
+            var fileClasses = @"Dados\ClassesJson.json";
+            return JsonConvert.DeserializeObject<List<Combatente>>(File.ReadAllText(fileClasses, Encoding.UTF8));
+        }
+
+        public static List<Habilidade> buscaHabilidades()
+        {
+            var fileHablidades = @"Dados\Habilidades.json";
+            return JsonConvert.DeserializeObject<List<Habilidade>>(File.ReadAllText(fileHablidades, Encoding.UTF8));
+        }
 
         public void CarregaJsons()
         {
-            var fileClasses = @"Dados\ClassesJson.json";
-            _Classes = JsonConvert.DeserializeObject<List<Combatente>>(File.ReadAllText(fileClasses, Encoding.UTF8));
 
             /*
             var fileInimigos = @"Dados\InimigosJson.json";
@@ -92,6 +101,42 @@ namespace Game.Controladores
             catch (Exception ex)
             {
 
+                return false;
+            }
+        }
+
+        public static Equipe buscarCombatentesGenericos()
+        {
+            var fileCombatentesGenericos = @"Dados\CombatentesGenericos.json";
+            try
+            {
+                Equipe CombatentesGenericos = JsonConvert.DeserializeObject<Equipe>(File.ReadAllText(fileCombatentesGenericos, Encoding.UTF8));
+                return CombatentesGenericos;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public static bool AdicionarCombatentesGenericos(Equipe equipe)
+        {
+            try
+            {
+                string output = JsonConvert.SerializeObject(equipe);
+
+                File.WriteAllText(@"Dados\CombatentesGenericos.json", output.ToString());
+
+                using (StreamWriter file3 = File.CreateText(@"Dados\CombatentesGenericos.json"))
+                using (JsonTextWriter writer = new JsonTextWriter(file3))
+                {
+                    JObject.Parse(output).WriteTo(writer);
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
                 return false;
             }
         }
