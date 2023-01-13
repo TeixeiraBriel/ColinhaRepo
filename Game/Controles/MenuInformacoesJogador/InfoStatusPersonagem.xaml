@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Game.Controles.MenuInformacoesJogador"
              mc:Ignorable="d" 
              d:DesignHeight="1000" d:DesignWidth="990">
-   
+    
     <Grid>
         <!--painel status-->
         <StackPanel Width="250" HorizontalAlignment="Left" Background="AliceBlue">
