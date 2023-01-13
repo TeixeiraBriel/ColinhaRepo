@@ -271,6 +271,9 @@
     <Content Include="Dados\Imagens\Icones\espada.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Dados\Imagens\Icones\Img_btn_voltar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Dados\Imagens\Icones\jogo-de-rpg.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

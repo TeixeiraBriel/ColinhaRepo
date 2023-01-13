@@ -1,4 +1,5 @@
-﻿using Game.Controles.TelaMapa;
+﻿using Game.Controles.MenuInicial;
+using Game.Controles.TelaMapa;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,11 +30,7 @@ namespace Game.Controles.MenuInformacoesJogador
             btns.Add(btnStatus);
             btns.Add(btnHabilidades);
             btns.Add(btnInventario);
-        }
-
-        private void MudaAbaBolsa(object sender, RoutedEventArgs e)
-        {
-            //FrameAbaInformacoesJogador.Navigate(new AbaBolsa(this));
+            //btns.Add(btnVoltarMenu);
         }
 
         private void NavegaInfoPersonagemFrame(object sender, RoutedEventArgs e)

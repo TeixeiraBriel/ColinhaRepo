@@ -5,90 +5,76 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Game.Controles.MenuInformacoesJogador"
       mc:Ignorable="d" 
-      d:DesignHeight="1024" d:DesignWidth="1280"
+      d:DesignHeight="980" d:DesignWidth="1080"
       Title="InformacaoPersonagemView">
 
+    <Page.Resources>
+        <!--Estilo de botões do menu lateral-->
+        <Style x:Key="BtnMenuLateral" TargetType="Button">
+            <Setter Property="Background" Value="#FF484848"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#b5b5b5"/>
+                    <Setter Property="Cursor" Value="Hand"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <!--Estilo de painel de botões do menu lateral-->
+        <Style x:Key="PainelMenuLateral" TargetType="StackPanel">
+            <Setter Property="Orientation" Value="Horizontal"/>
+            <Setter Property="Width" Value="250"/>
+            <Setter Property="Height" Value="50"/>
+        </Style>
+        <!--Estilo de Imagens do painel lateral-->
+        <Style x:Key="ImagensPainelLateral" TargetType="Image">
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Margin" Value="5,0,15,0"/>
+        </Style>
+        <!--Estilo Label do Itens do Menu Lateral-->
+        <Style x:Key="LabelItensMenuLateral" TargetType="Label">
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="Margin" Value="0,5,0,5"/>
+        </Style>
+    </Page.Resources>
+
     <Grid>
-        <StackPanel Background="#FF484848" Margin="0,0,1000,0">
+        <StackPanel Background="#FF484848" HorizontalAlignment="Left">
             <!--Botão Status-->
-            <Button x:Name="btnStatus" Click="NavegaInfoPersonagemFrame" Margin="0,10,0,0" BorderBrush="{x:Null}">
-                <Button.Style>
-                    <Style TargetType="{x:Type Button}">
-                        <Setter Property="Background" Value="#FF484848"/>
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="{x:Type Button}">
-                                    <Border Background="{TemplateBinding Background}">
-                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                    </Border>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#b5b5b5"/>
-                                <Setter Property="Cursor" Value="Hand"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-                <StackPanel Orientation="Horizontal" Width="250" Height="50">
-                    <Image Source="/Dados/Imagens/Icones/espada.png" Width="50" Margin="0,0,15,0"></Image>
-                    <Label Content="Status" FontSize="22" Margin="0,5,0,5"></Label>
+            <Button x:Name="btnStatus" Click="NavegaInfoPersonagemFrame" BorderBrush="{x:Null}" Style="{StaticResource BtnMenuLateral}">
+                <StackPanel Style="{StaticResource PainelMenuLateral}">
+                    <Image Source="/Dados/Imagens/Icones/espada.png" Style="{StaticResource ImagensPainelLateral}"></Image>
+                    <Label Content="Status" Style="{StaticResource LabelItensMenuLateral}"/>
                 </StackPanel>
             </Button>
             <!--Botão Inventário -->
-            <Button x:Name="btnInventario" Click="NavegaInfoPersonagemFrame" Margin="0,10,0,0" BorderBrush="{x:Null}">
-                <Button.Style>
-                    <Style TargetType="{x:Type Button}">
-                        <Setter Property="Background" Value="#FF484848"/>
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="{x:Type Button}">
-                                    <Border Background="{TemplateBinding Background}">
-                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                    </Border>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#b5b5b5"/>
-                                <Setter Property="Cursor" Value="Hand"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-                <StackPanel Orientation="Horizontal" Width="250" Height="50" >
-                    <Image Source="/Dados/Imagens/Icones/o-saco-da-escola.png" Width="50" Margin="0,0,15,0"></Image>
-                    <Label Content="Inventário" FontSize="22" Margin="0,5,0,5"></Label>
+            <Button x:Name="btnInventario" Click="NavegaInfoPersonagemFrame" BorderBrush="{x:Null}" Style="{StaticResource BtnMenuLateral}">
+                <StackPanel Style="{StaticResource PainelMenuLateral}">
+                    <Image Source="/Dados/Imagens/Icones/o-saco-da-escola.png" Style="{StaticResource ImagensPainelLateral}"></Image>
+                    <Label Content="Inventário" Style="{StaticResource LabelItensMenuLateral}"></Label>
                 </StackPanel>
             </Button>
             <!--Botão Habilidades-->
-            <Button x:Name="btnHabilidades" Click="NavegaInfoPersonagemFrame" Margin="0,10,0,0" BorderBrush="{x:Null}">
-                <Button.Style>
-                    <Style TargetType="{x:Type Button}">
-                        <Setter Property="Background" Value="#FF484848"/>
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="{x:Type Button}">
-                                    <Border Background="{TemplateBinding Background}">
-                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                    </Border>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#b5b5b5"/>
-                                <Setter Property="Cursor" Value="Hand"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-                <StackPanel Orientation="Horizontal" Width="250" Height="50" >
-                    <Image Source="/Dados/Imagens/Icones/livro.png" Width="50" Margin="0,0,15,0"></Image>
-                    <Label Content="Habilidades" FontSize="22" Margin="0,5,0,5"></Label>
+            <Button x:Name="btnHabilidades" Click="NavegaInfoPersonagemFrame" BorderBrush="{x:Null}" Style="{StaticResource BtnMenuLateral}">
+                <StackPanel Style="{StaticResource PainelMenuLateral}">
+                    <Image Source="/Dados/Imagens/Icones/livro.png" Style="{StaticResource ImagensPainelLateral}"></Image>
+                    <Label Content="Habilidades" Style="{StaticResource LabelItensMenuLateral}"></Label>
+                </StackPanel>
+            </Button>
+            <!--Botão Voltar ao Menu-->
+            <Button x:Name="btnVoltarMenu" BorderBrush="{x:Null}" Style="{StaticResource ResourceKey=BtnMenuLateral}" Margin="0,730">
+                <StackPanel Style="{StaticResource ResourceKey=PainelMenuLateral}" >
+                    <Image Source="/Dados/Imagens/Icones/Img_btn_voltar.png" Style="{StaticResource ImagensPainelLateral}"/>
+                    <Label Content="Menu" Style="{StaticResource LabelItensMenuLateral}"/>
                 </StackPanel>
             </Button>
         </StackPanel>
