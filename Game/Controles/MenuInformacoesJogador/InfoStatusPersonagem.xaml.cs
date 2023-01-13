@@ -18,7 +18,7 @@ namespace Game.Controles.MenuInformacoesJogador
     /// <summary>
     /// Interação lógica para InfoStatusPersonagem.xam
     /// </summary>
-    public partial class InfoStatusPersonagem : UserControl
+    public partial class InfoStatusPersonagem : Page
     {
         public InfoStatusPersonagem()
         {

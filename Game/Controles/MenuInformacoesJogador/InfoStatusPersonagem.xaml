@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Game.Controles.MenuInformacoesJogador.InfoStatusPersonagem"
+﻿<Page x:Class="Game.Controles.MenuInformacoesJogador.InfoStatusPersonagem"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,6 +6,14 @@
              xmlns:local="clr-namespace:Game.Controles.MenuInformacoesJogador"
              mc:Ignorable="d" 
              d:DesignHeight="1000" d:DesignWidth="990">
+
+    <Page.Resources>
+        <Style x:Key="teste" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+    </Page.Resources>
     
     <Grid>
         <!--painel status-->
@@ -26,10 +34,10 @@
                 </StackPanel>
                 <!--Elmo e colar-->
                 <StackPanel x:Name="Elmo" Width="110" Height="110" Margin="50,0,0,0" Background="White">
-                    <TextBlock Text="Elmo" FontSize="30" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Elmo" Style="{StaticResource teste}"/>
                 </StackPanel>
                 <StackPanel x:Name="Colar" Width="110" Height="110" Margin="15,0,0,0" Background="White">
-                    <TextBlock Text="Colar" Margin="15,30" FontSize="30"/>
+                    <TextBlock Text="Colar" Style="{StaticResource teste}"/>
                 </StackPanel>
             </StackPanel>
 
@@ -79,4 +87,4 @@
         </StackPanel>
     </Grid>
     
-</UserControl>
+</Page>

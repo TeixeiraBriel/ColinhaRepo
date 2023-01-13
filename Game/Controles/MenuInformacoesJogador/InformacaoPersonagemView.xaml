@@ -70,7 +70,7 @@
                     <Label Content="Habilidades" Style="{StaticResource LabelItensMenuLateral}"></Label>
                 </StackPanel>
             </Button>
-            <!--Botão Voltar ao Menu-->
+            <!--Botão Voltar ao Menu-->-+
             <Button x:Name="btnVoltarMenu" BorderBrush="{x:Null}" Style="{StaticResource ResourceKey=BtnMenuLateral}" Margin="0,730">
                 <StackPanel Style="{StaticResource ResourceKey=PainelMenuLateral}" >
                     <Image Source="/Dados/Imagens/Icones/Img_btn_voltar.png" Style="{StaticResource ImagensPainelLateral}"/>
