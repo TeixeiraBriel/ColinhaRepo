@@ -8,6 +8,17 @@
       d:DesignHeight="900" d:DesignWidth="1000"
       Title="BolsaPersonagem">
 
+    <Page.Resources>
+        <Style x:Key="PainelItensBolsa" TargetType="StackPanel">
+            <Setter Property="Width" Value="98"/>
+            <Setter Property="Height" Value="98"/>
+            <Setter Property="Orientation" Value="Horizontal"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+    </Page.Resources>
+    
     <Grid>
         <!--painel de itens equipados-->
         <StackPanel Width="450" Height="550" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,25,0,0">
@@ -75,39 +86,29 @@
         </StackPanel>
         
         <!--painel itens da bolsa-->
-        <StackPanel Width="500" Height="500" Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,25,25,0">
-            
-            
-            <Grid x:Name="GrigItensBolsa" Margin="1,1,1,1">
-                <Border Grid.Row="0" Grid.Column="0"  BorderBrush="Black" BorderThickness="1,1,1,1"/>
-                <Border Grid.Row="0" Grid.Column="1"  BorderBrush="Black" BorderThickness="1,1,1,1"/>
-                <Border Grid.Row="0" Grid.Column="2"  BorderBrush="Black" BorderThickness="1,1,1,1"/>
-                <Border Grid.Row="0" Grid.Column="3"  BorderBrush="Black" BorderThickness="1,1,1,1"/>
-                <Border Grid.Row="0" Grid.Column="4"  BorderBrush="Black" BorderThickness="1,1,1,1"/>
+        <StackPanel Width="500" Height="500" Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Vertical" Margin="0,25,25,0">
+            <StackPanel Width="500" Height="100" VerticalAlignment="Top" Background="Green" Orientation="Horizontal">
+                <!--Primeira linha de itens-->
+                <Border BorderBrush="Black" BorderThickness="1">
+                    <StackPanel Style="{StaticResource PainelItensBolsa}"></StackPanel>
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="1">
+                <StackPanel Style="{StaticResource PainelItensBolsa}"></StackPanel>
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="1">
+                    <StackPanel Style="{StaticResource PainelItensBolsa}"></StackPanel>
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="1">
+                    <StackPanel Style="{StaticResource PainelItensBolsa}"></StackPanel>
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="1">
+                    <StackPanel Style="{StaticResource PainelItensBolsa}"></StackPanel>
+                </Border>
                 
-                <Border Grid.Row="1" Grid.Column="0"  BorderBrush="Black" BorderThickness="1,1,1,1"/>
-                <Border Grid.Row="1" Grid.Column="1"  BorderBrush="Black" BorderThickness="1,1,1,1"/>
-                <Border Grid.Row="1" Grid.Column="2"  BorderBrush="Black" BorderThickness="1,1,1,1"/>
-                <Border Grid.Row="1" Grid.Column="3"  BorderBrush="Black" BorderThickness="1,1,1,1"/>
-                <Border Grid.Row="1" Grid.Column="4"  BorderBrush="Black" BorderThickness="1,1,1,1"/>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="96">
-                    </RowDefinition>
-                    <RowDefinition Height="96"/>
-                    <RowDefinition Height="96"/>
-                    <RowDefinition Height="96"/>
-                    <RowDefinition Height="96"/>
-                </Grid.RowDefinitions>
+            </StackPanel>
+            <StackPanel Width="500" Height="100" Background="Yellow">
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="96"/>
-                    <ColumnDefinition Width="96"/>
-                    <ColumnDefinition Width="96"/>
-                    <ColumnDefinition Width="96"/>
-                    <ColumnDefinition Width="96"/>
-                    <ColumnDefinition Width="96"/>
-                </Grid.ColumnDefinitions>
-            </Grid>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>
