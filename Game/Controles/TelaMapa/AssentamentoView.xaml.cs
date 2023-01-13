@@ -66,7 +66,7 @@ namespace Game.Controles.TelaMapa
                     var save = Controlador.buscarSave();
                     var nome = save.Equipe.combatentes.Last().Nome;
                     nome = nome.Contains(":1") ? nome.Split(':')[0] + (int.Parse(nome.Split(':')[1]) + 1) : "Prisioneiro:1";
-                    save.Equipe.combatentes.Add(new Combatente() { Nome = nome });
+                    save.Equipe.combatentes.Add(new Combatente() { Nome = nome, Nivel = 1, XpMaximo = 10 });
                     Controlador.salvarAvanço(save);
                     MainAssentoViewFrame.NavigationService.Navigate(new AbaBolsa());
                     break;

@@ -27,21 +27,21 @@ namespace Infraestrutura.Entidades
         private double TempoParaAtacar { get; set; }
         private DispatcherTimer contadorAtaque = new DispatcherTimer();
 
-        public void InicializaCombatente(int Nivel)
+        public void InicializaCombatente(int nivel)
         {
-            Nivel = 1;
+            Nivel = nivel;
             DefineNivel(Nivel);
 
             VidaAtual = Vida;
             ManaAtual = Mana;
             EnergiaAtual = Energia;
 
-            Classe = "";
-            Foto = "";
-            XpAtual = 0;
-            XpMaximo = 10;
-            XpDropado = 3;
-            HabilidadesPermitidas = new List<int>();
+            Classe = string.IsNullOrEmpty(Classe) ? "" : Classe;
+            Foto = string.IsNullOrEmpty(Classe) ? "" : Classe;
+            XpAtual =  XpAtual == null ? 0 : XpAtual;
+            XpMaximo = XpAtual == null ? 10 : XpMaximo;
+            XpDropado = XpMaximo * 0.05;
+            HabilidadesPermitidas = HabilidadesPermitidas == null ? new List<int>() : HabilidadesPermitidas;
         }
         public static Combatente CriaPersonagemCombatente(string nome, double vigor, double forca, double Inteligencia, double agilidade, double carisma)
         {
@@ -114,6 +114,22 @@ namespace Infraestrutura.Entidades
             Defesa = Defesa + (0.6 * nivel);
             Agilidade = Agilidade + (0.7 * nivel);
             XpDropado = XpDropado * nivel;
+        }
+
+        public bool recebeXp(double Xp)
+        {
+            if(XpAtual + Xp > XpMaximo)
+            {
+                XpAtual = (XpAtual + Xp) - XpMaximo;
+                XpMaximo += XpMaximo * 0.2;
+                InicializaCombatente(Nivel + 1);
+                return true;
+            }
+            else
+            {
+                XpAtual = XpAtual + Xp;
+                return false;
+            }
         }
     }
 }

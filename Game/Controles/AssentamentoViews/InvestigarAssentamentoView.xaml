@@ -35,9 +35,9 @@
                 <TextBlock Grid.Column="0" Grid.Row="3" Text="Madeira:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
                 <TextBlock Grid.Column="0" Grid.Row="4" Text="Moedas:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
                 <TextBlock Grid.Column="0" Grid.Row="5" Text="Exercito:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
-                <TextBlock Grid.Column="0" Grid.Row="6" Text="Investigar:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5" FontSize="25"/>
-                <TextBlock Grid.Column="0" Grid.Row="7" Text="Enviar:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5" FontSize="25"/>
-                <TextBlock Grid.Column="0" Grid.Row="8" Text="% Sucesso" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5" FontSize="25" Name="lblChanceSucesso"/>
+                <TextBlock Grid.Column="0" Grid.Row="6" Text="Investigar:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5" FontSize="20"/>
+                <TextBlock Grid.Column="0" Grid.Row="7" Text="Enviar:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5" FontSize="20"/>
+                <TextBlock Grid.Column="0" Grid.Row="8" Text="[Agilidade + D21] => para Sucesso 15" HorizontalAlignment="Right" VerticalAlignment="Center" Name="lblChanceSucesso"/>
 
                 <!--LADO DIREITO-->
                 <TextBlock Grid.Column="1" Grid.Row="0" x:Name="lblNome" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Desconhecido"/>
@@ -54,9 +54,16 @@
                     <ComboBoxItem Content="Moedas"/>
                     <ComboBoxItem Content="Exercito"/>
                 </ComboBox>
-                <ComboBox Grid.Column="1" Grid.Row="7" x:Name="cmbEnviar" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="200" Height="40" />
+                <ComboBox Grid.Column="1" Grid.Row="7" x:Name="cmbEnviar" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="200" Height="40" SelectionChanged="CalcularProbabilidade"/>
                 <Button   Grid.Column="1" Grid.Row="8" Content="Executar" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="200" Height="40" FontSize="30" Click="RealizarInvestigacao"/>
             </Grid>
+            <Border BorderThickness="3" BorderBrush="Black" Height="265" Margin="5" Background="SlateGray">
+                <ScrollViewer x:Name="ScrollLog">
+                    <StackPanel x:Name="LogInvestigações">
+
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
         </StackPanel>
     </Grid>
 </Page>
