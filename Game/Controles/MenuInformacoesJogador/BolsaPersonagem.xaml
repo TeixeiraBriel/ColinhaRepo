@@ -10,12 +10,43 @@
 
     <Page.Resources>
         <Style x:Key="PainelItensBolsa" TargetType="StackPanel">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Aqua"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Cursor" Value="Hand"/>
+                </Trigger>
+            </Style.Triggers>
             <Setter Property="Width" Value="98"/>
             <Setter Property="Height" Value="98"/>
             <Setter Property="Orientation" Value="Horizontal"/>
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="VerticalAlignment" Value="Top"/>
-            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        <Style x:Key="PainelLinhaItens" TargetType="StackPanel">
+            <Setter Property="Width" Value="500"/>
+            <Setter Property="Height" Value="100"/>
+            <Setter Property="Orientation" Value="Horizontal"/>
+        </Style>
+        <Style x:Key="BordaItens" TargetType="Border">
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+        <Style x:Key="ItensEquipados" TargetType="StackPanel">
+            <Setter Property="Background" Value="White"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Aqua"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Cursor" Value="Hand"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="BordaItensEquipados" TargetType="Border">
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness"  Value="2"/>
         </Style>
     </Page.Resources>
     
@@ -54,22 +85,11 @@
 
             <StackPanel Width="450" Height="220" Margin="0,5,0,0" Orientation="Horizontal">
                 <StackPanel Width="110" Height="110" Margin="35,0,0,0">
-                    <StackPanel x:Name="Luvas">
-                        <StackPanel.Style>
-                            <Style TargetType="{x:Type StackPanel}">
-                                <Setter Property="Background" Value="White"/>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="Aqua"/>
-                                    </Trigger>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Cursor" Value="Hand"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </StackPanel.Style>
+                    <Border Style="{StaticResource BordaItensEquipados}">
+                    <StackPanel x:Name="Luvas" Style="{StaticResource ItensEquipados}">
                         <TextBlock Text="Luvas" Margin="15,30" FontSize="30"/>
                     </StackPanel>
+                    </Border>
                 </StackPanel>
                 <StackPanel Width="110" Height="220" Margin="20,0,0,0">
                     <StackPanel x:Name="Cinto" Height="40" Margin="0,0,0,15" Background="White">
@@ -87,27 +107,95 @@
         
         <!--painel itens da bolsa-->
         <StackPanel Width="500" Height="500" Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Vertical" Margin="0,25,25,0">
-            <StackPanel Width="500" Height="100" VerticalAlignment="Top" Background="Green" Orientation="Horizontal">
+            <StackPanel Style="{StaticResource PainelLinhaItens}">
                 <!--Primeira linha de itens-->
-                <Border BorderBrush="Black" BorderThickness="1">
+                <Border Style="{StaticResource BordaItens}">
                     <StackPanel Style="{StaticResource PainelItensBolsa}"></StackPanel>
                 </Border>
-                <Border BorderBrush="Black" BorderThickness="1">
-                <StackPanel Style="{StaticResource PainelItensBolsa}"></StackPanel>
-                </Border>
-                <Border BorderBrush="Black" BorderThickness="1">
+                <Border Style="{StaticResource BordaItens}">
                     <StackPanel Style="{StaticResource PainelItensBolsa}"></StackPanel>
                 </Border>
-                <Border BorderBrush="Black" BorderThickness="1">
+                <Border Style="{StaticResource BordaItens}">
                     <StackPanel Style="{StaticResource PainelItensBolsa}"></StackPanel>
                 </Border>
-                <Border BorderBrush="Black" BorderThickness="1">
+                <Border Style="{StaticResource BordaItens}">
                     <StackPanel Style="{StaticResource PainelItensBolsa}"></StackPanel>
                 </Border>
-                
+                <Border Style="{StaticResource BordaItens}">
+                    <StackPanel Style="{StaticResource PainelItensBolsa}"></StackPanel>
+                </Border>
             </StackPanel>
-            <StackPanel Width="500" Height="100" Background="Yellow">
-
+            <!--Segunda linha de itens-->
+            <StackPanel Style="{StaticResource PainelLinhaItens}">
+                <Border Style="{StaticResource BordaItens}">
+                    <StackPanel Style="{StaticResource PainelItensBolsa}"></StackPanel>
+                </Border>
+                <Border Style="{StaticResource BordaItens}">
+                    <StackPanel Style="{StaticResource PainelItensBolsa}"></StackPanel>
+                </Border>
+                <Border Style="{StaticResource BordaItens}">
+                    <StackPanel Style="{StaticResource PainelItensBolsa}"></StackPanel>
+                </Border>
+                <Border Style="{StaticResource BordaItens}">
+                    <StackPanel Style="{StaticResource PainelItensBolsa}"></StackPanel>
+                </Border>
+                <Border Style="{StaticResource BordaItens}">
+                    <StackPanel Style="{StaticResource PainelItensBolsa}"></StackPanel>
+                </Border>
+            </StackPanel>
+            <!--Terceira, linha de itens-->
+            <StackPanel Style="{StaticResource PainelLinhaItens}">
+                <Border Style="{StaticResource BordaItens}">
+                    <StackPanel Style="{StaticResource PainelItensBolsa}"></StackPanel>
+                </Border>
+                <Border Style="{StaticResource BordaItens}">
+                    <StackPanel Style="{StaticResource PainelItensBolsa}"></StackPanel>
+                </Border>
+                <Border Style="{StaticResource BordaItens}">
+                    <StackPanel Style="{StaticResource PainelItensBolsa}"></StackPanel>
+                </Border>
+                <Border Style="{StaticResource BordaItens}">
+                    <StackPanel Style="{StaticResource PainelItensBolsa}"></StackPanel>
+                </Border>
+                <Border Style="{StaticResource BordaItens}">
+                    <StackPanel Style="{StaticResource PainelItensBolsa}"></StackPanel>
+                </Border>
+            </StackPanel>
+            <!--Quarta linha de itens-->
+            <StackPanel Style="{StaticResource PainelLinhaItens}">
+                <Border Style="{StaticResource BordaItens}">
+                    <StackPanel Style="{StaticResource PainelItensBolsa}"></StackPanel>
+                </Border>
+                <Border Style="{StaticResource BordaItens}">
+                    <StackPanel Style="{StaticResource PainelItensBolsa}"></StackPanel>
+                </Border>
+                <Border Style="{StaticResource BordaItens}">
+                    <StackPanel Style="{StaticResource PainelItensBolsa}"></StackPanel>
+                </Border>
+                <Border Style="{StaticResource BordaItens}">
+                    <StackPanel Style="{StaticResource PainelItensBolsa}"></StackPanel>
+                </Border>
+                <Border Style="{StaticResource BordaItens}">
+                    <StackPanel Style="{StaticResource PainelItensBolsa}"></StackPanel>
+                </Border>
+            </StackPanel>
+            <!--Quinta linha de itens-->
+            <StackPanel Style="{StaticResource PainelLinhaItens}">
+                <Border Style="{StaticResource BordaItens}">
+                    <StackPanel Style="{StaticResource PainelItensBolsa}"></StackPanel>
+                </Border>
+                <Border Style="{StaticResource BordaItens}">
+                    <StackPanel Style="{StaticResource PainelItensBolsa}"></StackPanel>
+                </Border>
+                <Border Style="{StaticResource BordaItens}">
+                    <StackPanel Style="{StaticResource PainelItensBolsa}"></StackPanel>
+                </Border>
+                <Border Style="{StaticResource BordaItens}">
+                    <StackPanel Style="{StaticResource PainelItensBolsa}"></StackPanel>
+                </Border>
+                <Border Style="{StaticResource BordaItens}">
+                    <StackPanel Style="{StaticResource PainelItensBolsa}"></StackPanel>
+                </Border>
             </StackPanel>
         </StackPanel>
     </Grid>
