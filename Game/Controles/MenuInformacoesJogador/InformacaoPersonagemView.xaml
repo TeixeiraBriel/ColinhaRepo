@@ -48,36 +48,37 @@
     </Page.Resources>
 
     <Grid>
-        <StackPanel Background="#FF484848" HorizontalAlignment="Left" >
-            <!--Botão Status-->
-            <Button x:Name="btnStatus" Click="NavegaInfoPersonagemFrame" BorderBrush="{x:Null}" Style="{StaticResource BtnMenuLateral}">
-                <StackPanel Style="{StaticResource PainelMenuLateral}">
-                    <Image Source="/Dados/Imagens/Icones/espada.png" Style="{StaticResource ImagensPainelLateral}"></Image>
-                    <Label Content="Status" Style="{StaticResource LabelItensMenuLateral}"/>
-                </StackPanel>
-            </Button>
-            <!--Botão Inventário -->
-            <Button x:Name="btnInventario" Click="NavegaInfoPersonagemFrame" BorderBrush="{x:Null}" Style="{StaticResource BtnMenuLateral}">
-                <StackPanel Style="{StaticResource PainelMenuLateral}">
-                    <Image Source="/Dados/Imagens/Icones/o-saco-da-escola.png" Style="{StaticResource ImagensPainelLateral}"></Image>
-                    <Label Content="Inventário" Style="{StaticResource LabelItensMenuLateral}"></Label>
-                </StackPanel>
-            </Button>
-            <!--Botão Habilidades-->
-            <Button x:Name="btnHabilidades" Click="NavegaInfoPersonagemFrame" BorderBrush="{x:Null}" Style="{StaticResource BtnMenuLateral}">
-                <StackPanel Style="{StaticResource PainelMenuLateral}">
-                    <Image Source="/Dados/Imagens/Icones/livro.png" Style="{StaticResource ImagensPainelLateral}"></Image>
-                    <Label Content="Habilidades" Style="{StaticResource LabelItensMenuLateral}"></Label>
-                </StackPanel>
-            </Button>
-            <!--Botão Voltar ao Menu-->-+
-            <Button x:Name="btnVoltarMenu" BorderBrush="{x:Null}" Style="{StaticResource ResourceKey=BtnMenuLateral}" Margin="0,730">
-                <StackPanel Style="{StaticResource ResourceKey=PainelMenuLateral}" >
-                    <Image Source="/Dados/Imagens/Icones/Img_btn_voltar.png" Style="{StaticResource ImagensPainelLateral}"/>
-                    <Label Content="Menu" Style="{StaticResource LabelItensMenuLateral}"/>
-                </StackPanel>
-            </Button>
-        </StackPanel>
-        <Frame x:Name="infoPersonagemFrame" Width="990" Height="960" Margin="285,10,5,10"/>
+        <StackPanel Background="#FF484848" HorizontalAlignment="Left" Width="250" Height="980">
+                <!--Botão Status-->
+                <Button x:Name="btnStatus" Click="NavegaInfoPersonagemFrame" BorderBrush="{x:Null}" Style="{StaticResource BtnMenuLateral}">
+                    <StackPanel Style="{StaticResource PainelMenuLateral}">
+                        <Image Source="/Dados/Imagens/Icones/espada.png" Style="{StaticResource ImagensPainelLateral}"></Image>
+                        <Label Content="Status" Style="{StaticResource LabelItensMenuLateral}"/>
+                    </StackPanel>
+                </Button>
+                <!--Botão Inventário -->
+                <Button x:Name="btnInventario" Click="NavegaInfoPersonagemFrame" BorderBrush="{x:Null}" Style="{StaticResource BtnMenuLateral}">
+                    <StackPanel Style="{StaticResource PainelMenuLateral}">
+                        <Image Source="/Dados/Imagens/Icones/o-saco-da-escola.png" Style="{StaticResource ImagensPainelLateral}"></Image>
+                        <Label Content="Inventário" Style="{StaticResource LabelItensMenuLateral}"></Label>
+                    </StackPanel>
+                </Button>
+                <!--Botão Habilidades-->
+                <Button x:Name="btnHabilidades" Click="NavegaInfoPersonagemFrame" BorderBrush="{x:Null}" Style="{StaticResource BtnMenuLateral}">
+                    <StackPanel Style="{StaticResource PainelMenuLateral}">
+                        <Image Source="/Dados/Imagens/Icones/livro.png" Style="{StaticResource ImagensPainelLateral}"></Image>
+                        <Label Content="Habilidades" Style="{StaticResource LabelItensMenuLateral}"></Label>
+                    </StackPanel>
+                </Button>
+                <!--Botão Voltar ao Menu-->
+                <Button x:Name="btnVoltarMenu" BorderBrush="{x:Null}" Style="{StaticResource ResourceKey=BtnMenuLateral}" Margin="0,730">
+                    <StackPanel Style="{StaticResource ResourceKey=PainelMenuLateral}" >
+                        <Image Source="/Dados/Imagens/Icones/Img_btn_voltar.png" Style="{StaticResource ImagensPainelLateral}"/>
+                        <Label Content="Menu" Style="{StaticResource LabelItensMenuLateral}"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+            <Frame x:Name="infoPersonagemFrame" Width="830" Height="960"  HorizontalAlignment="Left" Margin="250,0,0,0" Background="AliceBlue"/>
+
     </Grid>
 </Page>

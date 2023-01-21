@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Game.Controles.MenuInformacoesJogador"
              mc:Ignorable="d" 
-             d:DesignHeight="1000" d:DesignWidth="990">
+             d:DesignHeight="960" d:DesignWidth="815">
 
     <Page.Resources>
         <Style x:Key="teste" TargetType="TextBlock">
@@ -15,7 +15,7 @@
         </Style>
     </Page.Resources>
     
-    <Grid>
+    <Grid Background="Blue">
         <!--painel status-->
         <StackPanel Width="250" HorizontalAlignment="Left" Background="AliceBlue">
             <TextBlock TextWrapping="Wrap" Text="Status" FontSize="18" HorizontalAlignment="Center"/>
@@ -34,7 +34,7 @@
                 </StackPanel>
                 <!--Elmo e colar-->
                 <StackPanel x:Name="Elmo" Width="110" Height="110" Margin="50,0,0,0" Background="White">
-                    <TextBlock Text="Elmo" Style="{StaticResource teste}"/>
+                    <TextBlock Text="Elmo" Style="{StaticResource teste}" TextAlignment="Center"/>
                 </StackPanel>
                 <StackPanel x:Name="Colar" Width="110" Height="110" Margin="15,0,0,0" Background="White">
                     <TextBlock Text="Colar" Style="{StaticResource teste}"/>
